@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="960" Width="1280" Background="#41352e">
+        Title="MainWindow" Height="800" Width="1280" Background="#41352e">
     <Grid x:Name="formRequestBuilder">
         <TabControl Margin="0,274,0,0" Background="#41352e">
             <TabControl.Resources>
