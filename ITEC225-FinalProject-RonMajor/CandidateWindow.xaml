@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="CandidateWindow" Height="440" Width="510" Background="#41352e" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="btnSave" Content="Save Information" Margin="105,360,285,29" Height="35" Background="#FFE3752D" Foreground="#FF41352E" BorderBrush="{x:Null}" Width="120">
+        <Button x:Name="btnSave" Content="Save Information" Height="35" Background="#FFE3752D" Foreground="#FF41352E" BorderBrush="{x:Null}" Width="120" Margin="95,379,295,10">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -22,7 +22,7 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Button x:Name="btnDiscard" Content="Discard" Margin="266,360,124,29" Height="35" Background="#FFE3752D" Foreground="#FF41352E" BorderBrush="{x:Null}" Width="120">
+        <Button x:Name="btnDiscard" Content="Discard" Height="35" Background="#FFE3752D" Foreground="#FF41352E" BorderBrush="{x:Null}" Width="120" Margin="291,379,99,10">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">

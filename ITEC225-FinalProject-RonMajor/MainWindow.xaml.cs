@@ -28,12 +28,13 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnNewRequest_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void btnNewCandidate_Click(object sender, RoutedEventArgs e)
         {
-
+            CandidateWindow cw = new CandidateWindow();
+            cw.ShowDialog();
         }
 
         private void btnNewPosition_Click(object sender, RoutedEventArgs e)

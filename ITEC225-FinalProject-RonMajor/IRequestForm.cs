@@ -15,8 +15,6 @@ namespace ITEC225_FinalProject_RonMajor
         public int Width { get; set; }
         public int Height { get; set; }
         public int OrderNumber { get; set; }
-
-        public string MyProperty { get; set; }
         #endregion
 
     }
