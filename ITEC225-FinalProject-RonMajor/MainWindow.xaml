@@ -34,13 +34,40 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <TabItem Header="Dashboard"  Foreground="#41352e">
-                <Grid Background="#41352e"/>
+            <TabItem Name="DashBoardTab" Header="Dashboard" Foreground="#41352e">
+                <!--<Grid Background="#41352e"/>-->
+                <local:DashboardEntry/>
             </TabItem>
-            <TabItem Header="Requests" Foreground="#41352e">
+            <TabItem Name="RequestsTab" Header="Requests" Foreground="#41352e">
                 <Grid Background="#41352e"/>
+                <!--<local:TestWindow/>-->
             </TabItem>
         </TabControl>
-
+        <Image x:Name="imgLogo" HorizontalAlignment="Right" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="345" Source="/logo.png"/>
+        <Button x:Name="btnNewPosition" Content="New Position" Margin="1150,199,10,0" VerticalAlignment="Top" Height="35" Background="#FFA89C99" Foreground="#FF41352E" BorderBrush="{x:Null}" Click="btnNewPosition_Click">
+            <!--Round the corner of the button like we've done everything else.-->
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnNewRequest" Content="New Request" Margin="1150,252,10,0" VerticalAlignment="Top" Height="35" Background="#FFE3752D" Foreground="#FF41352E" Click="btnNewRequest_Click" BorderBrush="{x:Null}">
+            <!--Round the corner of the button like we've done everything else.-->
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnNewCandidate" Content="New Candidate" Margin="1150,144,10,0" VerticalAlignment="Top" Height="35" Background="#FFF8F2F5" Foreground="#FF41352E" BorderBrush="{x:Null}" Click="btnNewCandidate_Click">
+            <!--Round the corner of the button like we've done everything else.-->
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        
     </Grid>
 </Window>

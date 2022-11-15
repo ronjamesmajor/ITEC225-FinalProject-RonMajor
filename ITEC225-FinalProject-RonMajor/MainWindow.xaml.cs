@@ -23,6 +23,22 @@ namespace ITEC225_FinalProject_RonMajor
         public MainWindow()
         {
             InitializeComponent();
+            //DashBoardTab.Content = Application.LoadComponent(new Uri("DashBoard.xaml", UriKind.Relative));
+        }
+
+        private void btnNewRequest_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnNewCandidate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnNewPosition_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

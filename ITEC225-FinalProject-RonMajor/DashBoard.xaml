@@ -9,6 +9,9 @@
       Title="DashBoard">
 
     <Grid>
-        
+        <StackPanel x:Name="stkDashBoard">
+            <DataGrid Height="450" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        </StackPanel>
+
     </Grid>
 </Page>
