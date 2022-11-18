@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="RequestWindow" Height="495" Width="545" Background="#41352e" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="48,94,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox HorizontalAlignment="Left" Margin="48,94,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" TextChanged="TextBox_TextChanged">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>

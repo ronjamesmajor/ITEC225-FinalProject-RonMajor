@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace ITEC225_FinalProject_RonMajor
 {
     /// <summary>
-    /// Interaction logic for RequestWindow.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class RequestWindow : Window
+    public partial class LoginWindow : Window
     {
-        public RequestWindow()
+        public LoginWindow()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }
