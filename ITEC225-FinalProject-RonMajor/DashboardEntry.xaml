@@ -9,8 +9,9 @@
     <Grid>
         <Rectangle HorizontalAlignment="Center" Height="100" Stroke="Black" VerticalAlignment="Center" Width="780" Fill="#FFF8F2F5"/>
         <Label x:Name="lblEntryTitle" Content="Entry Title" HorizontalAlignment="Left" Margin="80,0,0,0" VerticalAlignment="Center" Height="40" Width="140" FontSize="22"/>
-        <Label x:Name="lblProcess" Content="Process" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="155" FontSize="22" Margin="320,0,0,0"/>
+        <Label x:Name="lblProcess" Content="Request Type" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="155" FontSize="22" Margin="400,0,0,0"/>
         <Label x:Name="lblStatus" Content="Status" HorizontalAlignment="Left" Margin="640,0,0,0" VerticalAlignment="Center" Height="40" Width="155" FontSize="22"/>
+        <Label x:Name="lblProcess_Copy" Content="Process" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Width="155" FontSize="22" Margin="240,0,0,0"/>
 
     </Grid>
 </UserControl>

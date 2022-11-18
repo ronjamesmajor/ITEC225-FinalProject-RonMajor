@@ -23,12 +23,15 @@ namespace ITEC225_FinalProject_RonMajor
         public MainWindow()
         {
             InitializeComponent();
-            //DashBoardTab.Content = Application.LoadComponent(new Uri("DashBoard.xaml", UriKind.Relative));
+            //add dashboard entry.
+            DashboardEntry db1 = new DashboardEntry();
+            stpDashboard.Children.Add(db1);
         }
 
         private void btnNewRequest_Click(object sender, RoutedEventArgs e)
         {
-            
+            RequestWindow rw = new RequestWindow();
+            rw.ShowDialog();
         }
 
         private void btnNewCandidate_Click(object sender, RoutedEventArgs e)
@@ -39,7 +42,18 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnNewPosition_Click(object sender, RoutedEventArgs e)
         {
+            PositionWindow pw = new PositionWindow();
+            pw.ShowDialog();
+        }
 
+        private void btnSaveData_Click(object sender, RoutedEventArgs e)
+        {
+            //save data.
+        }
+
+        private void btnLoadData_Click(object sender, RoutedEventArgs e)
+        {
+            //load data.
         }
     }
 }
