@@ -21,6 +21,8 @@ namespace ITEC225_FinalProject_RonMajor
 
         public Candidate()
         {
+            
+            ICandidate.Candidates = new();
         }
     }
 }

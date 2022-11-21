@@ -9,6 +9,10 @@ namespace ITEC225_FinalProject_RonMajor
 {
     internal interface ICandidate
     {
+        #region Static
+        public static List<Candidate> Candidates = new();
+        #endregion
+
         #region Properties
         public int EmployeeNum { get; set; } //Interface defines all of candidates public properties.
         public string LastName { get; set; }
