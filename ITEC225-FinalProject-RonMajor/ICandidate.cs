@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace ITEC225_FinalProject_RonMajor
 {
+    public enum VisibilityLevel { Admin, Manager, HR, Client }
+
     internal interface ICandidate
     {
         #region Static
@@ -22,6 +24,7 @@ namespace ITEC225_FinalProject_RonMajor
         public string ContactPhone {get; set; }
         public string ContactAddress { get; set; }
         public string ContactEmail { get; set; }
+        public VisibilityLevel VisLevel { get; set; }
         #endregion
     }
 }

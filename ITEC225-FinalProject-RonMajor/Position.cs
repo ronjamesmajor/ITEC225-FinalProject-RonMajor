@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace ITEC225_FinalProject_RonMajor
 {
-    internal class Position: IPosition
+    internal class Position : IPosition
     {
         public int PosNum { get; set; } //implement bits of the interface.
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public Enum PosType { get; set; }
-        public Enum SubType { get; set; }
+        public VisibilityLevel VisLevel { get; set; }
+        public PositionType PositionType { get; set; }
+        public SubType SubType { get; set; }
+
 
         public Position()
         {

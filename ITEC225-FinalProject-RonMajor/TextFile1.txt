@@ -1,0 +1,12 @@
+﻿TODO:: 
+1. Add Class Library - dump all related classes into:
+	A. Library for All Request Types.
+	B. Library for All Position Types.
+
+2. Put Interfaces in Class Library.
+3. Create several users and positions and candidates
+
+4. Create some kind of container to house data (Don't use a fucking datagrid like everyone else would)
+4. Set visibility on each and ensure they work.
+
+

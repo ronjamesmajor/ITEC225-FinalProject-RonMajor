@@ -17,12 +17,15 @@ namespace ITEC225_FinalProject_RonMajor
         public string ContactPhone { get; set; }
         public string ContactAddress { get; set; }
         public string ContactEmail { get; set; }
+        public VisibilityLevel VisLevel { get; set; }
         #endregion
 
         public Candidate()
         {
             
             ICandidate.Candidates = new();
+            VisLevel = VisibilityLevel.Manager;
+            
         }
     }
 }
