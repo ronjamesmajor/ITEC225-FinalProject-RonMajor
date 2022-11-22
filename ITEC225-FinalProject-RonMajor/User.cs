@@ -27,4 +27,40 @@ namespace ITEC225_FinalProject_RonMajor
 
 
     }
+
+    internal class Administrator : User
+    {
+        public Administrator() : base() //inherit base constructor level because Admin inherits all permissions and rights of 'user'.
+        {
+
+        }
+    }
+
+    internal class Manager : Administrator
+    {
+
+        public Manager() : base()
+        {
+            accessLevel = AccessLevel.Manager;
+            abilityLevel = AbilityLevel.Add;
+        }
+    }
+
+    internal class HR : Manager
+    {
+        public HR() : base()
+        {
+            accessLevel = AccessLevel.HR;
+            abilityLevel = AbilityLevel.ReadEdit;
+        }
+    }
+
+    internal class Client : HR
+    {
+        public Client() : base()
+        {
+            accessLevel = AccessLevel.Client;
+            abilityLevel = AbilityLevel.Read;
+        }
+    }
 }
