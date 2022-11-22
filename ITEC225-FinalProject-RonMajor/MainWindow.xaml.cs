@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
+using Color = System.Drawing.Color;
 
 namespace ITEC225_FinalProject_RonMajor
 {
@@ -55,5 +57,6 @@ namespace ITEC225_FinalProject_RonMajor
         {
             //load data.
         }
+
     }
 }
