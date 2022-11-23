@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1280" Background="#afb7bf" ResizeMode="NoResize">
+        Title="MainWindow" Height="800" Width="1280" Background="#afb7bf" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Source Code Pro">
     <Grid x:Name="formRequestBuilder">
-        <TabControl Margin="0,274,0,61" Background="#afb7bf">
+        <TabControl Margin="0,274,210,61" Background="#afb7bf" FontSize="16">
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -64,7 +64,7 @@
             </TabItem>
         </TabControl>
         <Image x:Name="imgLogo" HorizontalAlignment="Right" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="345" Source="/logo.png"/>
-        <Button x:Name="btnNewPosition" Content="New Position" Margin="870,252,290,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewPosition_Click">
+        <Button x:Name="btnNewPosition" Content="New Position" Margin="1108,363,18,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewPosition_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="Border">
@@ -72,7 +72,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnNewCandidate" Content="New Candidate" Margin="1004,252,156,0" VerticalAlignment="Top" Height="35" Background="#f6f7fa" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewCandidate_Click">
+        <Button x:Name="btnNewCandidate" Content="New Candidate" Margin="1108,312,18,0" VerticalAlignment="Top" Height="35" Background="#f6f7fa" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewCandidate_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -80,7 +80,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnLoadData" Content="Load Data" Margin="988,0,172,8" VerticalAlignment="Bottom" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnLoadData_Click">
+        <Button x:Name="btnLoadData" Content="Load Data" Margin="1108,465,18,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnLoadData_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -88,7 +88,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnSaveData" Content="Save Data" Margin="1142,0,18,8" VerticalAlignment="Bottom" Height="35" Background="#27263e" Foreground="#f6f7fa" BorderBrush="{x:Null}" Click="btnSaveData_Click">
+        <Button x:Name="btnSaveData" Content="Save Data" Margin="1108,516,18,0" VerticalAlignment="Top" Height="35" Background="#27263e" Foreground="#f6f7fa" BorderBrush="{x:Null}" Click="btnSaveData_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -96,7 +96,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnNewRequest_Copy1" Content="New Request" Margin="1138,252,22,0" VerticalAlignment="Top" Height="35" Background="#27263e" Foreground="#FFF6F7FA" Click="btnNewRequest_Click" BorderBrush="{x:Null}">
+        <Button x:Name="btnNewRequest_Copy1" Content="New Request" Margin="1108,414,18,0" VerticalAlignment="Top" Height="35" Background="#27263e" Foreground="#FFF6F7FA" Click="btnNewRequest_Click" BorderBrush="{x:Null}" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -105,6 +105,7 @@
 
             </Button.Resources>
         </Button>
+        <Label Content="Click within the Dashboard to view and edit entries.&#xD;&#xA;Click a button on the right hand navigation to create new entries or to save." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
 
     </Grid>
 </Window>

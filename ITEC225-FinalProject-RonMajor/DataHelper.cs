@@ -39,6 +39,20 @@ namespace ITEC225_FinalProject_RonMajor
             loginWindow.Close();
         }
 
+        public void TestLogin(LoginWindow loginWindow) //test login to see if it exists.
+        {
+            if(FormTemplate.users.Count > 0)
+            {
+                foreach(User user in FormTemplate.users)
+                {
+                    if (user.Username == loginWindow.txtUsrname.Text)
+                    {
+                        MessageBox.Show("User login exists.");
+                    }
+                }
+            }
+        }
+
         public void ConfirmLogin(LoginWindow loginWindow)// Check for valid credentials, and notify.
         {
             if (FormTemplate.users.Count > 0)//if list is not empty
