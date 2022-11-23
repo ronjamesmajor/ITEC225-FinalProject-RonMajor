@@ -1,12 +1,17 @@
 ﻿TODO:: 
 1. Add Class Library - dump all related classes into:
-	A. Library for All Request Types.
-	B. Library for All Position Types.
+	A. Library for All Request Types. >>
+	B. Library for All Position Types. >>
 
-2. Put Interfaces in Class Library.
+
+2. Put Interfaces in Class Library. 
 3. Create several users and positions and candidates
 
 4. Create some kind of container to house data (Don't use a fucking datagrid like everyone else would)
-4. Set visibility on each and ensure they work.
+5. Set visibility on each and ensure they work.
 
+6. Test data stores (saving and loading users and positions and other data)
+7. add toggles for user type (admin, hr, etc)
+8. add toggles for save / write to or from local data or database.
+9. Figure out a way to use lots of ternary operators like a boss.
 

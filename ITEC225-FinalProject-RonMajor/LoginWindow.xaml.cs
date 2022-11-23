@@ -38,7 +38,7 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnNewUser_Click(object sender, RoutedEventArgs e)
         {
-            dataHelper.Equals//somenethod
+            dataHelper.CreateUser(this);//create a new user.
         }
     }
 }
