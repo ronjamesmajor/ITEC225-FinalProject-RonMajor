@@ -9,18 +9,25 @@ namespace ITEC225_FinalProject_RonMajor
     public enum AccessLevel { Admin, Manager, HR, Client }
     public enum AbilityLevel { Delete, Add, ReadEdit, Read}
 
+    [Serializable]
     internal class User
     {
         #region Properties
         public AccessLevel accessLevel { get; set; }
         public AbilityLevel abilityLevel { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+
         #endregion
 
         #region Constructor
-        public User()
+        public User(string username, string password)
         {
-            accessLevel = AccessLevel.Admin;
+            accessLevel = AccessLevel.Admin; //in constructor, set access and ability levels, credentials,and add to list.
             abilityLevel = AbilityLevel.Delete;
+            Username = username;
+            Password = password;
+            FormTemplate.users.Add(this);
         }
         #endregion
 
@@ -30,7 +37,7 @@ namespace ITEC225_FinalProject_RonMajor
 
     internal class Administrator : User
     {
-        public Administrator() : base() //inherit base constructor level because Admin inherits all permissions and rights of 'user'.
+        public Administrator(string username, string password) : base(username,password) //inherit base constructor level because Admin inherits all permissions and rights of 'user'.
         {
 
         }
@@ -39,7 +46,7 @@ namespace ITEC225_FinalProject_RonMajor
     internal class Manager : Administrator
     {
 
-        public Manager() : base()
+        public Manager(string username, string password) : base(username, password)
         {
             accessLevel = AccessLevel.Manager;
             abilityLevel = AbilityLevel.Add;
@@ -48,7 +55,7 @@ namespace ITEC225_FinalProject_RonMajor
 
     internal class HR : Manager
     {
-        public HR() : base()
+        public HR(string username, string password) : base(username, password)
         {
             accessLevel = AccessLevel.HR;
             abilityLevel = AbilityLevel.ReadEdit;
@@ -57,7 +64,7 @@ namespace ITEC225_FinalProject_RonMajor
 
     internal class Client : HR
     {
-        public Client() : base()
+        public Client(string username, string password) : base(username,password)
         {
             accessLevel = AccessLevel.Client;
             abilityLevel = AbilityLevel.Read;

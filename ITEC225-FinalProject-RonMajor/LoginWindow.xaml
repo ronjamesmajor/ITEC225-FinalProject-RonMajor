@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="495" Width="545" Background="#afb7bf" WindowStartupLocation="CenterScreen">
+        Title="LoginWindow" Height="340" Width="545" Background="#afb7bf" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="btnNewCandidate" Content="New Candidate" Margin="138,404,287,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}">
+        <Button x:Name="btnLogin" Content="Log In" Margin="146,240,279,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnLogin_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -15,7 +15,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnNewRequest_Copy1" Content="New Request" Margin="272,404,153,0" VerticalAlignment="Top" Height="35" Background="#f6f7fa" Foreground="#27263e" BorderBrush="{x:Null}">
+        <Button x:Name="btnNewUser" Content="Create User" Margin="280,240,145,0" VerticalAlignment="Top" Height="35" Background="#f6f7fa" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewUser_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -23,46 +23,24 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBox HorizontalAlignment="Left" Margin="35,248,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e">
+        <TextBox x:Name="txtUsrname" HorizontalAlignment="Left" Margin="50,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e" FontSize="16">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Image x:Name="imgLogo" HorizontalAlignment="Center" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="345" Source="/logo.png"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="35,222,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="332,222,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <PasswordBox x:Name="pwbPassword" HorizontalAlignment="Left" Margin="332,248,0,0" VerticalAlignment="Top" Height="19" Width="158">
-            <PasswordBox.Resources>
-                <Style TargetType="PasswordBox">
-                    <Setter Property="PasswordChar" Value="●"/>
-                    <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
-                    <Setter Property="Padding" Value="1"/>
-                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-                    <Setter Property="AllowDrop" Value="true"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="PasswordBox">
-                                <Border CornerRadius="8" x:Name="Bd" Background="#FFF8F2F5" BorderBrush="#FFF8F2F5"  BorderThickness="1" OpacityMask="{x:Null}" Height="20">
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsEnabled" Value="false">
-                                        <Setter Property="Background" TargetName="Bd" Value="#27263e"/>
-                                        <Setter Property="Foreground" Value="#27263e"/>
-                                    </Trigger>
-                                    <Trigger Property="IsEnabled" Value="true">
-                                        <Setter Property="Background" TargetName="Bd" Value="#FFF8F2F5"/>
-                                        <Setter Property="Foreground" Value="#27263e"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
+        <Image x:Name="imgLogo" HorizontalAlignment="Left" Height="57" Margin="13,10,0,0" VerticalAlignment="Top" Width="226" Source="/logo.png"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="47,120,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="317,120,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="320,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e" IsTabStop="False" MaxLines="1" IsReadOnly="True">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
                 </Style>
-            </PasswordBox.Resources>
-        </PasswordBox>
+            </TextBox.Resources>
+        </TextBox>
+        <Label Content="Log in with existing username or add user with the Create User button" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
+        <PasswordBox x:Name="pwdPassbox" HorizontalAlignment="Left" Margin="330,147,0,0" VerticalAlignment="Top" Width="170" Background="#FFF8F2F5" Foreground="#FF27263E" BorderBrush="{x:Null}" Height="26" FontSize="16"/>
     </Grid>
 </Window>

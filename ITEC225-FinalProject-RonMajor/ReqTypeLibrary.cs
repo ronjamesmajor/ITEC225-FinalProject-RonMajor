@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITEC225_FinalProject_RonMajor
 {
+    [Serializable]
     internal static class FormTemplate
     {
 
@@ -13,6 +14,7 @@ namespace ITEC225_FinalProject_RonMajor
         public static List<Request> requests = new List<Request>();
         public static List<Candidate> candidates = new List<Candidate>(); //all static lists which persist across whole app.
         public static List<Position> positions = new List<Position>();
+        public static List<User> users = new List<User>();
 
         #endregion
         #region Fields
