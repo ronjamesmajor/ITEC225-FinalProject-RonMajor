@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ITEC225_FinalProject_RonMajor
 {
-    public enum AccessLevel { Admin, Manager, HR, Client }
-    public enum AbilityLevel { Delete, Add, ReadEdit, Read}
+    public enum AccessLevel { Admin, Manager, HR, Client, Denied }
+    public enum AbilityLevel { Delete, Add, ReadEdit, Read, Denied}
 
     [Serializable]
     internal class User

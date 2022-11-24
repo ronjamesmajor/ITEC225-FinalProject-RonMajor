@@ -50,10 +50,10 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <RadioButton x:Name="rdoUser" Content="User" HorizontalAlignment="Left" Margin="31,209,0,117" Height="18" Width="50" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rdoHR" Content="HR" HorizontalAlignment="Left" Margin="89,209,0,117" Height="18" Width="50" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rdoManager" Content="Manager" HorizontalAlignment="Left" Margin="141,209,0,117" Height="18" Width="70" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rdoAdmin" Content="Admin" HorizontalAlignment="Left" Margin="216,209,0,117" Height="18" Width="70" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rdoUser" Content="User" HorizontalAlignment="Left" Margin="28,209,0,0" Height="18" Width="50" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top" FontFamily="Source Sans Pro" FontSize="16"/>
+        <RadioButton x:Name="rdoHR" Content="HR" HorizontalAlignment="Left" Margin="89,209,0,117" Height="18" Width="50" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top" FontFamily="Source Sans Pro" FontSize="16"/>
+        <RadioButton x:Name="rdoManager" Content="Manager" HorizontalAlignment="Left" Margin="141,209,0,0" Height="18" Width="84" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top" FontFamily="Source Sans Pro" FontSize="16"/>
+        <RadioButton x:Name="rdoAdmin" Content="Admin" HorizontalAlignment="Left" Margin="229,209,0,0" Height="18" Width="70" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top" FontFamily="Source Sans Pro" FontSize="16"/>
         <TextBox x:Name="txtToken" HorizontalAlignment="Left" Margin="320,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e" FontSize="16">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -61,8 +61,8 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Select Role" HorizontalAlignment="Left" Margin="50,175,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
-        <Label Content="Confirmation Token" HorizontalAlignment="Left" Margin="320,174,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
-        
+        <Label x:Name="lblSelectRole" Content="Select Role" HorizontalAlignment="Left" Margin="50,175,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
+        <Label x:Name="lblConfirmationToken" Content="Confirmation Token" HorizontalAlignment="Left" Margin="320,174,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
+
     </Grid>
 </Window>

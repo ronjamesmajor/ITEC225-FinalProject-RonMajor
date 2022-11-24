@@ -27,6 +27,7 @@ namespace ITEC225_FinalProject_RonMajor
         public LoginWindow()
         {
             InitializeComponent();
+            UpdateContext();
             dataHelper.InitLogin(); //do the login stuff.
         }
 
@@ -43,28 +44,37 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnConfirmUser_Click(object sender, RoutedEventArgs e)
         {
-            dataHelper.CreateUser(this);//create a new user.
+            if(txtToken.Text != "")
+            dataHelper.CreateUser(this,dataHelper.TestUserRoles(this));//create a new user.
         }
 
         private void UpdateContext()
         {
             if (txtToken.Visibility == Visibility.Hidden)
             {
-                
+
                 txtToken.Visibility = Visibility.Visible;
                 rdoAdmin.Visibility = Visibility.Visible;
                 rdoHR.Visibility = Visibility.Visible;
                 rdoUser.Visibility = Visibility.Visible;
+                rdoUser.IsChecked = true;
                 rdoManager.Visibility = Visibility.Visible;
-            } else 
+                btnConfirmUser.Visibility = Visibility.Visible;
+                lblConfirmationToken.Visibility = Visibility.Visible;
+                lblSelectRole.Visibility = Visibility.Visible;
+            }
+            else
             {
-               
+
                 txtToken.Visibility = Visibility.Hidden;
                 rdoAdmin.Visibility = Visibility.Hidden;
                 rdoHR.Visibility = Visibility.Hidden;
                 rdoUser.Visibility = Visibility.Hidden;
                 rdoManager.Visibility = Visibility.Hidden;
+                btnConfirmUser.Visibility = Visibility.Hidden;
+                lblConfirmationToken.Visibility = Visibility.Hidden;
+                lblSelectRole.Visibility = Visibility.Hidden;
             }
-        }
+        } 
     }
 }

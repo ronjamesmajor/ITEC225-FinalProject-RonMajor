@@ -34,7 +34,7 @@ namespace ITEC225_FinalProject_RonMajor
             File.WriteAllText("userLogins.JSON", json);
         }
 
-        public void CreateUser(LoginWindow loginWindow) //Create a new user, and add them to the list.
+        public void CreateUser(LoginWindow loginWindow, AccessLevel accessLevel) //Create a new user, and add them to the list.
         {
             User tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
             CreateDataStore(); //then writes users out to json.
@@ -74,6 +74,32 @@ namespace ITEC225_FinalProject_RonMajor
                 }
             }
             else MessageBox.Show("No datastore present.");
+        }
+
+        public AccessLevel TestUserRoles(LoginWindow loginWindow)
+        {
+
+            if (loginWindow.rdoAdmin.IsChecked == true)
+            {
+                if (loginWindow.txtToken.Text.Length == 8 && loginWindow.txtToken.Text.Contains("axd"))
+                    return AccessLevel.Admin;
+            }
+            if (loginWindow.rdoManager.IsChecked == true)
+            {
+                if (loginWindow.txtToken.Text.Length == 7 && loginWindow.txtToken.Text.Contains("mxn"))
+                    return AccessLevel.Manager;
+            }
+            if (loginWindow.rdoHR.IsChecked == true)
+            {
+                if (loginWindow.txtToken.Text.Length == 6 && loginWindow.txtToken.Text.Contains("hxr"))
+                    return AccessLevel.HR;
+            }
+            if (loginWindow.rdoUser.IsChecked == true)
+            {
+                if (loginWindow.txtToken.Text.Length == 5 && loginWindow.txtToken.Text.Contains("uxr"))
+                    return AccessLevel.Client;
+            }
+            return AccessLevel.Denied;
         }
 
         public static bool SaveData() // save working data.
