@@ -37,6 +37,7 @@ namespace ITEC225_FinalProject_RonMajor
         public void CreateUser(LoginWindow loginWindow, AccessLevel accessLevel) //Create a new user, and add them to the list.
         {
             User tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+            tmp.accessLevel = accessLevel;
             CreateDataStore(); //then writes users out to json.
             MainWindow mw = new(); //and opens a new window.
             mw.Show();
@@ -100,6 +101,12 @@ namespace ITEC225_FinalProject_RonMajor
                     return AccessLevel.Client;
             }
             return AccessLevel.Denied;
+        }
+
+        private AbilityLevel MatchAccessLevel(AccessLevel accessLevel)
+        {
+            //add to this.
+            return AbilityLevel.Read;
         }
 
         public static bool SaveData() // save working data.
