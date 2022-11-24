@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1280" Background="#afb7bf" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Source Code Pro">
+        Title="MainWindow" Height="800" Width="1280" Background="#afb7bf" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Source Sans Pro">
     <Grid x:Name="formRequestBuilder">
         <TabControl Margin="0,274,210,61" Background="#afb7bf" FontSize="16">
             <TabControl.Resources>
@@ -106,6 +106,7 @@
             </Button.Resources>
         </Button>
         <Label Content="Click within the Dashboard to view and edit entries.&#xD;&#xA;Click a button on the right hand navigation to create new entries or to save." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
+        <Label x:Name="lblDataSaved" Content="Data Saved Successfully" HorizontalAlignment="Left" Margin="10,728,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" Opacity="0"/>
 
     </Grid>
 </Window>

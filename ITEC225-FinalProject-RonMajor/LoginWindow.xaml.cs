@@ -30,7 +30,6 @@ namespace ITEC225_FinalProject_RonMajor
             dataHelper.InitLogin(); //do the login stuff.
         }
 
-
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             dataHelper.ConfirmLogin(this); //confirm login.
@@ -38,7 +37,34 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnNewUser_Click(object sender, RoutedEventArgs e)
         {
+            UpdateContext(); //turn new user form on or off.
+        }
+
+
+        private void btnConfirmUser_Click(object sender, RoutedEventArgs e)
+        {
             dataHelper.CreateUser(this);//create a new user.
+        }
+
+        private void UpdateContext()
+        {
+            if (txtToken.Visibility == Visibility.Hidden)
+            {
+                
+                txtToken.Visibility = Visibility.Visible;
+                rdoAdmin.Visibility = Visibility.Visible;
+                rdoHR.Visibility = Visibility.Visible;
+                rdoUser.Visibility = Visibility.Visible;
+                rdoManager.Visibility = Visibility.Visible;
+            } else 
+            {
+               
+                txtToken.Visibility = Visibility.Hidden;
+                rdoAdmin.Visibility = Visibility.Hidden;
+                rdoHR.Visibility = Visibility.Hidden;
+                rdoUser.Visibility = Visibility.Hidden;
+                rdoManager.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

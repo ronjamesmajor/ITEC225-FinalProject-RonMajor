@@ -22,15 +22,15 @@ namespace ITEC225_FinalProject_RonMajor
         {
             if (File.Exists("userlogins.JSON"))
             {
-            string json = File.ReadAllText("userlogins.JSON");//deserialize.
-            FormTemplate.users = JsonSerializer.Deserialize<List<User>>(json); //create a list of users.
+                string json = File.ReadAllText("userlogins.JSON");//deserialize.
+                FormTemplate.users = JsonSerializer.Deserialize<List<User>>(json); //create a list of users.
             }
         }
 
         public void CreateDataStore() //create data store simply writes out Users to JSON.
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
-            string json = System.Text.Json.JsonSerializer.Serialize(FormTemplate.users,options);
+            string json = System.Text.Json.JsonSerializer.Serialize(FormTemplate.users, options);
             File.WriteAllText("userLogins.JSON", json);
         }
 
@@ -45,9 +45,9 @@ namespace ITEC225_FinalProject_RonMajor
 
         public void TestLogin(LoginWindow loginWindow) //test login to see if it exists.
         {
-            if(FormTemplate.users.Count > 0)
+            if (FormTemplate.users.Count > 0)
             {
-                foreach(User user in FormTemplate.users)
+                foreach (User user in FormTemplate.users)
                 {
                     if (user.Username == loginWindow.txtUsrname.Text)
                     {
@@ -74,6 +74,63 @@ namespace ITEC225_FinalProject_RonMajor
                 }
             }
             else MessageBox.Show("No datastore present.");
+        }
+
+        public static bool SaveData() // save working data.
+        {
+            bool dataSaved = false;
+            try
+            {
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string json = System.Text.Json.JsonSerializer.Serialize(FormTemplate.candidates, options);
+                File.WriteAllText("candidates.JSON", json);
+
+                string json2 = System.Text.Json.JsonSerializer.Serialize(FormTemplate.positions, options);
+                File.WriteAllText("positions.JSON", json);
+
+                string json3 = System.Text.Json.JsonSerializer.Serialize(FormTemplate.requests, options);
+                File.WriteAllText("requests.JSON", json);
+                return dataSaved = true;
+            }
+            catch
+            {
+                return dataSaved;
+            }
+        }
+
+        public void LoadData()//Load local files and deserialize to create datastores.
+        {
+            if (File.Exists("candidates.JSON"))
+            {
+                string json = File.ReadAllText("candidates.JSON");//deserialize.
+                FormTemplate.candidates = JsonSerializer.Deserialize<List<Candidate>>(json); //create a list of users.
+            }
+
+            if (File.Exists("positions.JSON"))
+            {
+                string json = File.ReadAllText("positions.JSON");//deserialize.
+                FormTemplate.positions = JsonSerializer.Deserialize<List<Position>>(json); //create a list of users.
+            }
+
+            if (File.Exists("requests.JSON"))
+            {
+                string json = File.ReadAllText("requests.JSON");//deserialize.
+                FormTemplate.requests = JsonSerializer.Deserialize<List<Request>>(json); //create a list of users.
+            }
+        }
+
+        internal static void FillElements()
+        {
+            foreach (PositionElement el in PositionElement.elements)//foreach element in the list
+                MainWindow.Instance.stpDashboard.Children.Add(el);//add it to the stack panel inside of dashboard.
+
+            //same for candidates
+            //same for requests
+
+            //same for total dashboard.
+            //foreach usercontrol in datahelper.controlElements
+            //mainwindow instance stpsomething.children.add(usercontrol)
+
         }
         #endregion
     }

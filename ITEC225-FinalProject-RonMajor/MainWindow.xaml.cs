@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
 using Color = System.Drawing.Color;
+using System.Runtime.CompilerServices;
 
 namespace ITEC225_FinalProject_RonMajor
 {
@@ -22,13 +23,15 @@ namespace ITEC225_FinalProject_RonMajor
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow Instance { get; private set; }
+        AppTiming timing = new(); //new instance of timing, which just runs in the background.
+
         public MainWindow()
         {
             InitializeComponent();
-            //init elements
-            PositionElement.InitializeElements();
-            foreach (PositionElement el in PositionElement.elements)//foreach element in the list
-                stpDashboard.Children.Add(el);//add it to the stack panel inside of dashboard.
+            Instance = this; //make this window the static ''main window''
+            PositionElement.InitializeElements(); //init elements
+            DataHelper.FillElements(); //fill elements into stackpanels on main window.
         }
 
         private void btnNewRequest_Click(object sender, RoutedEventArgs e)
@@ -51,12 +54,13 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnSaveData_Click(object sender, RoutedEventArgs e)
         {
-            //save data.
+            if (DataHelper.SaveData())
+                lblDataSaved.Opacity = 100;
         }
 
         private void btnLoadData_Click(object sender, RoutedEventArgs e)
         {
-            //load data.
+            
         }
 
     }

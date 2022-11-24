@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ITEC225_FinalProject_RonMajor.IRequest;
 
 namespace ITEC225_FinalProject_RonMajor
 {
@@ -39,28 +40,35 @@ namespace ITEC225_FinalProject_RonMajor
     {
     }
 
-    internal class Request : IRequestForm
+    internal class Request : IRequest
     {
+        public string RequestID { get; set; }
         public string? FormName { get; set; }
         public string? DelegateLabel { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
-        public int OrderNumber { get; set; }
+        public ApprovalOrder approval { get; set; }
 
-        public Request()
+        public Request(Candidate candidate, Position position)
         {
-
+            approval = ApprovalOrder.Draft;
         }
     }
 
     internal class SLERequest : Request //SLERequest inherits from Request.
     {
         //sle stuff.
+        public SLERequest(Candidate candidate, Position position) : base(candidate,position)
+        {
+            //go!
+        }
     }
 
     internal class PriorityClearanceRequest : Request //PC inherits from Request.
     {
         //psc stuff.
+        public PriorityClearanceRequest(Candidate candidate, Position position) : base(candidate, position)
+        {
+            //go!
+        }
     }
 
     public class Candidate : ICandidate
