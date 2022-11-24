@@ -42,5 +42,26 @@
         </TextBox>
         <Label Content="Log in with existing username or add user with the Create User button" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
         <PasswordBox x:Name="pwdPassbox" HorizontalAlignment="Left" Margin="330,147,0,0" VerticalAlignment="Top" Width="170" Background="#FFF8F2F5" Foreground="#FF27263E" BorderBrush="{x:Null}" Height="26" FontSize="16"/>
+        <TextBox x:Name="txtUsrname_Copy" HorizontalAlignment="Left" Margin="50,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e" FontSize="16" IsReadOnly="True">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <ComboBox HorizontalAlignment="Left" Margin="58,187,0,0" VerticalAlignment="Top" Width="174" Foreground="#FF2B2A41" BorderBrush="{x:Null}" Background="#FFF8F2F5" Height="26">
+            <!--<ComboBox.Background>
+                -->
+            <!--<LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF8F2F5" Offset="1"/>
+                </LinearGradientBrush>-->
+            <!--
+            </ComboBox.Background>-->
+            <ComboBoxItem Content="Administrator" Foreground="#FF2B2A41"/>
+            <ComboBoxItem Content="Manager" Foreground="#FF2B2A41"/>
+            <ComboBoxItem Content="Human Resources" Foreground="#FF2B2A41"/>
+            <ComboBoxItem Content="Client" Foreground="#FF2B2A41"/>
+        </ComboBox>
     </Grid>
 </Window>

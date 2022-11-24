@@ -86,7 +86,7 @@ namespace ITEC225_FinalProject_RonMajor
         }
     }
 
-    internal class Position : IPosition
+    public class Position : IPosition
     {
         public int PosNum { get; set; } //implement bits of the interface.
         public DateTime StartDate { get; set; }
@@ -94,11 +94,15 @@ namespace ITEC225_FinalProject_RonMajor
         public VisibilityLevel VisLevel { get; set; }
         public PositionType PositionType { get; set; }
         public SubType SubType { get; set; }
+        public string Directorate { get; set; }
 
 
-        public Position()
+        public Position(int posiNum, DateTime startDate)
         {
-
+            PosNum = posiNum;
+            StartDate = startDate;
+            //position control receives position, and therefore it's properties.
+            FormTemplate.positions.Add(this);
         }
     }
 
