@@ -25,12 +25,10 @@ namespace ITEC225_FinalProject_RonMajor
         public MainWindow()
         {
             InitializeComponent();
-            //add dashboard entry.
-            //DashboardEntry db1 = new DashboardEntry();
-            //stpDashboard.Children.Add(db1);
-            foreach(Position p in FormTemplate.positions)
-                
-
+            //init elements
+            PositionElement.InitializeElements();
+            foreach (PositionElement el in PositionElement.elements)//foreach element in the list
+                stpDashboard.Children.Add(el);//add it to the stack panel inside of dashboard.
         }
 
         private void btnNewRequest_Click(object sender, RoutedEventArgs e)

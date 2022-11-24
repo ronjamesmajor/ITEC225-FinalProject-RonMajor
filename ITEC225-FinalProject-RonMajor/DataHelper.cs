@@ -6,12 +6,16 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using Microsoft.Data.SqlClient; //use sql client.
 
 namespace ITEC225_FinalProject_RonMajor
 {
     public class DataHelper
     {
+        #region Static
+        public static List<UserControl> controlElements = new(); //new static list of all user controls.
+        #endregion
 
         #region Methods
         public void InitLogin()//init the local files and deserialize to create a datastore.
