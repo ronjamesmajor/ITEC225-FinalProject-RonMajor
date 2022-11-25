@@ -27,12 +27,8 @@ namespace ITEC225_FinalProject_RonMajor
             abilityLevel = AbilityLevel.Delete;
             Username = username;
             Password = password;
-            FormTemplate.users.Add(this);
         }
         #endregion
-
-
-
     }
 
     internal class Administrator : User

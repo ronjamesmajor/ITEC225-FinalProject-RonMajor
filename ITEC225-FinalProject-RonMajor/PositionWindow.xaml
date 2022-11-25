@@ -5,74 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
         mc:Ignorable="d"
-        Title="PositionWindow" Height="495" Width="545" Background="#41352e" WindowStartupLocation="CenterScreen">
+        Title="PositionWindow" Height="495" Width="545" Background="#afb7bf" WindowStartupLocation="CenterScreen" FontSize="16" FontFamily="Source Sans Pro">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="48,94,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox HorizontalAlignment="Left" Margin="48,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Position Title" HorizontalAlignment="Left" Margin="48,63,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="343,94,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Position Title" HorizontalAlignment="Left" Margin="48,63,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
+        <TextBox HorizontalAlignment="Left" Margin="343,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Job Code / Position Number" HorizontalAlignment="Left" Margin="343,63,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="48,174,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Job Code / Position Number" HorizontalAlignment="Left" Margin="343,63,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
+        <TextBox HorizontalAlignment="Left" Margin="48,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Cost Center" HorizontalAlignment="Left" Margin="48,143,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="343,174,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Cost Center" HorizontalAlignment="Left" Margin="48,143,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
+        <TextBox HorizontalAlignment="Left" Margin="343,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Department" HorizontalAlignment="Left" Margin="343,143,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="48,253,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Department" HorizontalAlignment="Left" Margin="343,143,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
+        <TextBox HorizontalAlignment="Left" Margin="48,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Proposed Group and Level" HorizontalAlignment="Left" Margin="48,222,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="343,253,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Proposed Group and Level" HorizontalAlignment="Left" Margin="48,222,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
+        <TextBox HorizontalAlignment="Left" Margin="343,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Branch&#xD;&#xA;" HorizontalAlignment="Left" Margin="343,222,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="48,333,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="20" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Branch&#xD;&#xA;" HorizontalAlignment="Left" Margin="343,222,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
+        <TextBox HorizontalAlignment="Left" Margin="48,333,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="20" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Directorate" HorizontalAlignment="Left" Margin="48,303,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="343,333,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="20" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Directorate" HorizontalAlignment="Left" Margin="48,303,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
+        <TextBox HorizontalAlignment="Left" Margin="343,333,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="20" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Office Location" HorizontalAlignment="Left" Margin="343,303,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
+        <Label Content="Office Location" HorizontalAlignment="Left" Margin="343,303,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
         <ScrollBar x:Name="scrDirectorate" HorizontalAlignment="Left" Margin="181,334,0,0" VerticalAlignment="Top" Height="18"/>
-        <Button x:Name="btnSave" Content="Save Information" Height="35" Background="#FFE3752D" Foreground="#FF41352E" BorderBrush="{x:Null}" Width="120" Margin="105,0,320,10" VerticalAlignment="Bottom">
+        <Button x:Name="btnSave" Content="Save Information" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="105,0,320,10" VerticalAlignment="Bottom" Click="btnSave_Click">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -80,7 +80,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnDiscard" Content="Discard" Height="35" Background="#FFE3752D" Foreground="#FF41352E" BorderBrush="{x:Null}" Width="120"  VerticalAlignment="Bottom" Margin="320,0,105,10">
+        <Button x:Name="btnDiscard" Content="Discard" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120"  VerticalAlignment="Bottom" Margin="320,0,105,10">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">

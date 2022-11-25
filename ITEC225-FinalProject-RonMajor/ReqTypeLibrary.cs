@@ -12,10 +12,14 @@ namespace ITEC225_FinalProject_RonMajor
     {
 
         #region Static
-        public static List<Request> requests = new List<Request>();
-        public static List<Candidate> candidates = new List<Candidate>(); //all static lists which persist across whole app.
-        public static List<Position> positions = new List<Position>();
-        public static List<User> users = new List<User>();
+        public static List<Request> requests = new();
+        public static List<Candidate> candidates = new(); //all static lists which persist across whole app.
+        public static List<Position> positions = new();
+        public static List<User> users = new();
+        public static List<Administrator> administrators = new();
+        public static List<Manager> managers = new();
+        public static List<HR> hRs = new();
+        public static List<Client> clients = new();
 
         #endregion
         #region Fields

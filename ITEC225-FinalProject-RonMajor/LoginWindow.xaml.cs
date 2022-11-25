@@ -44,7 +44,7 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnConfirmUser_Click(object sender, RoutedEventArgs e)
         {
-            if(txtToken.Text != "")
+            if(txtToken.Text != "")//if token text isn't blank.
             dataHelper.CreateUser(this,dataHelper.TestUserRoles(this));//create a new user.
         }
 

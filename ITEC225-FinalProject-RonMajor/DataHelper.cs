@@ -25,6 +25,7 @@ namespace ITEC225_FinalProject_RonMajor
                 string json = File.ReadAllText("userlogins.JSON");//deserialize.
                 FormTemplate.users = JsonSerializer.Deserialize<List<User>>(json); //create a list of users.
             }
+            CleanUpUserist();//clean up the lists.
         }
 
         public void CreateDataStore() //create data store simply writes out Users to JSON.
@@ -38,6 +39,8 @@ namespace ITEC225_FinalProject_RonMajor
         {
             User tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
             tmp.accessLevel = accessLevel;
+            tmp.abilityLevel = MatchAccessLevel(accessLevel);
+            FormTemplate.users.Add(tmp);
             CreateDataStore(); //then writes users out to json.
             MainWindow mw = new(); //and opens a new window.
             mw.Show();
@@ -60,19 +63,28 @@ namespace ITEC225_FinalProject_RonMajor
 
         public void ConfirmLogin(LoginWindow loginWindow)// Check for valid credentials, and notify.
         {
+            bool nouser = false;
             if (FormTemplate.users.Count > 0)//if list is not empty
             {
-                foreach (User user in FormTemplate.users)
+                for (int i = 0; i < FormTemplate.users.Count; i++)
                 {
-                    if (user.Username == loginWindow.txtUsrname.Text && user.Password == loginWindow.pwdPassbox.Password)
+                    nouser = false;
+                    if (FormTemplate.users[i].Username == loginWindow.txtUsrname.Text)
                     {
-                        MessageBox.Show("Login Successful.");
-                        MainWindow mw = new MainWindow();
-                        loginWindow.Close();
-                        mw.Show();
+
+                        if (FormTemplate.users[i].Username == loginWindow.txtUsrname.Text && FormTemplate.users[i].Password == loginWindow.pwdPassbox.Password)
+                        {
+                            MessageBox.Show("Login Successful.");
+                            MainWindow mw = new MainWindow();
+                            loginWindow.Close();
+                            mw.Show();
+                            break;
+                        }
+                        else MessageBox.Show("Login not successful.");
                     }
-                    else MessageBox.Show("Login not successful.");
+                    else nouser = true;
                 }
+                if (nouser) MessageBox.Show("No such username.");
             }
             else MessageBox.Show("No datastore present.");
         }
@@ -100,13 +112,58 @@ namespace ITEC225_FinalProject_RonMajor
                 if (loginWindow.txtToken.Text.Length == 5 && loginWindow.txtToken.Text.Contains("uxr"))
                     return AccessLevel.Client;
             }
-            return AccessLevel.Denied;
+            return AccessLevel.Client; //could also be updated to accesslevel.denied
         }
 
         private AbilityLevel MatchAccessLevel(AccessLevel accessLevel)
         {
-            //add to this.
+            if (accessLevel == AccessLevel.Admin)
+                return AbilityLevel.Delete;
+            if (accessLevel == AccessLevel.Manager)
+                return AbilityLevel.Delete;
+            if (accessLevel == AccessLevel.HR)
+                return AbilityLevel.ReadEdit;
+            if (accessLevel == AccessLevel.Client)
+                return AbilityLevel.Add;
             return AbilityLevel.Read;
+        }
+
+        private void CleanUpUserist()
+        {
+            foreach (User usr in FormTemplate.users)
+            {
+                if (usr.accessLevel == AccessLevel.Admin)
+                {
+                    Administrator tmp = new(usr.Username, usr.Password);
+                    FormTemplate.administrators.Add(tmp);
+                }
+                if (usr.accessLevel == AccessLevel.Manager)
+                {
+                    Manager tmp = new(usr.Username, usr.Password);
+                    FormTemplate.managers.Add(tmp);
+                }
+                if (usr.accessLevel == AccessLevel.HR)
+                {
+                    HR tmp = new(usr.Username, usr.Password);
+                    FormTemplate.hRs.Add(tmp);
+                }
+                if (usr.accessLevel == AccessLevel.Client)
+                {
+                    Client tmp = new(usr.Username, usr.Password);
+                    FormTemplate.clients.Add(tmp);
+                }
+            }
+            FormTemplate.users.Clear();
+
+            foreach (Client ad in FormTemplate.clients)
+                FormTemplate.users.Add(ad);
+            foreach (HR ad in FormTemplate.hRs)
+                FormTemplate.users.Add(ad);
+            foreach (Manager ad in FormTemplate.managers)
+                FormTemplate.users.Add(ad);
+            foreach (Administrator ad in FormTemplate.administrators)
+                FormTemplate.users.Add(ad);
+
         }
 
         public static bool SaveData() // save working data.

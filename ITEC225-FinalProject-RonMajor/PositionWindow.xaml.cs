@@ -23,5 +23,13 @@ namespace ITEC225_FinalProject_RonMajor
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            Position p = new()
+            {
+                p.StartDate =
+            };
+        }
     }
 }

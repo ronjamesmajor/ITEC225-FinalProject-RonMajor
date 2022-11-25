@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
         mc:Ignorable="d"
-        Title="CandidateWindow" Height="495" Width="545" Background="#afb7bf" WindowStartupLocation="CenterScreen">
+        Title="CandidateWindow" Height="495" Width="545" Background="#afb7bf" WindowStartupLocation="CenterScreen" FontSize="16" FontFamily="Source Sans Pro">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -34,7 +34,7 @@
             </Button.Resources>
         </Button>
         <Label Content="First Name" HorizontalAlignment="Left" Margin="48,63,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox HorizontalAlignment="Left" Margin="343,94,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e">
+        <TextBox HorizontalAlignment="Left" Margin="343,94,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" FontFamily="Source Sans Pro">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
