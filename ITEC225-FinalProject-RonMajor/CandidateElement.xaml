@@ -5,11 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Code Pro">
+             d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Code Pro" PreviewMouseUp="UserControl_PreviewMouseUp" BorderBrush="#FF738E93" BorderThickness="2">
     <Grid>
-        <Label x:Name="lblEmpNum" Content="Emp Number" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30"/>
-        <Label x:Name="lblEmpName" Content="LastNamerson, FirstName" HorizontalAlignment="Left" Margin="186,0,0,0" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30"/>
-        <Label x:Name="lblOfficeLoc" Content="Office Location" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30" Margin="547,0,0,0"/>
+        <Label x:Name="lblEmpNum" Content="Emp Number" HorizontalAlignment="Left" Margin="36,0,0,-4" VerticalAlignment="Bottom" Foreground="#FFF6F7FA" Height="30"/>
+        <Label x:Name="lblEmpName" Content="LastNamerson, FirstName" HorizontalAlignment="Left" Margin="234,0,0,-4" Foreground="#FFF6F7FA" Height="30" VerticalAlignment="Bottom"/>
+        <Label x:Name="lblOfficeLoc" Content="Office Location" Foreground="#FFF6F7FA" Margin="0,20,45,-4" HorizontalAlignment="Right" Width="154"/>
+        <Label x:Name="lblEmpNum_Copy" Content="Employee Number" Margin="12,-4,0,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Left" Width="154"/>
+        <Label x:Name="lblEmpNum_Copy1" Content="Employee Name" Margin="234,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
+        <Label x:Name="lblEmpNum_Copy2" Content="Office Location" Margin="0,-4,45,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Right" Width="154"/>
 
     </Grid>
 </UserControl>

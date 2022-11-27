@@ -27,6 +27,8 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void T1_Tick(object? sender, EventArgs e)
         {
+            dataRefreshTimer++;
+
             if (MainWindow.Instance != null && MainWindow.Instance.lblDataSaved.Opacity > 0) //mainwindow is null when that window hasn't spawned yet.
                 FadeLabel(MainWindow.Instance.lblDataSaved); //fade this label out.
             if (MainWindow.Instance != null && MainWindow.Instance.lblDataLoaded.Opacity > 0)

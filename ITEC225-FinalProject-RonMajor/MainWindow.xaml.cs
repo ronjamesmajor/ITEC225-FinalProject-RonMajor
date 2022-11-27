@@ -27,6 +27,7 @@ namespace ITEC225_FinalProject_RonMajor
         public MainWindow()
         {
             InitializeComponent();
+            DataHelper.LoadData();
             Instance = this; //make this window the static ''main window''
             DataHelper.AppStart(); //init all elements and fill the dashboard.
         }

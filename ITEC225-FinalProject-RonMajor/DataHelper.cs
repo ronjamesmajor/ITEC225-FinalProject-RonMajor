@@ -15,7 +15,7 @@ namespace ITEC225_FinalProject_RonMajor
     {
         #region Fields
         #endregion
-        
+
         #region Static
         public static List<UserControl> controlElements = new(); //new static list of all user controls.
         public static int counter = 0;
@@ -196,26 +196,27 @@ namespace ITEC225_FinalProject_RonMajor
         public static List<string> LoadData()//Load local files and deserialize to create datastores.
         {
             List<string> labelProps = new();
-            
+
 
             if (File.Exists("candidates.JSON"))
             {
                 string json = File.ReadAllText("candidates.JSON");//deserialize.
-                FormTemplate.candidates = JsonSerializer.Deserialize<List<Candidate>>(json); //create a list of users.
+
+                FormTemplate.candidates = JsonSerializer.Deserialize<List<Candidate>>(json); //List of Candidates
                 counter += 5;
             }
 
             if (File.Exists("positions.JSON"))
             {
                 string json = File.ReadAllText("positions.JSON");//deserialize.
-                FormTemplate.positions = JsonSerializer.Deserialize<List<Position>>(json); //create a list of users.
+                FormTemplate.positions = JsonSerializer.Deserialize<List<Position>>(json); //List of Positions.
                 counter += 7;
             }
 
             if (File.Exists("requests.JSON"))
             {
                 string json = File.ReadAllText("requests.JSON");//deserialize.
-                FormTemplate.requests = JsonSerializer.Deserialize<List<Request>>(json); //create a list of users.
+                FormTemplate.requests = JsonSerializer.Deserialize<List<Request>>(json); //List of Requests.
                 counter += 9;
             }
             switch (counter)
@@ -253,24 +254,32 @@ namespace ITEC225_FinalProject_RonMajor
                     content = "All Data Loaded Successfully";
                     break;
             }
-                    labelProps.Add(opacity);
-                    labelProps.Add(content);
+            labelProps.Add(opacity);
+            labelProps.Add(content);
             return labelProps;
         }
 
         internal static void FillElements()
         {
             foreach (PositionElement el in PositionElement.elements)//foreach element in the list
-                MainWindow.Instance.stpDashboard.Children.Add(el);//add it to the stack panel inside of dashboard.
+            {
+                if (MainWindow.Instance.stpPositions.Children.Count < PositionElement.elements.Count)
+                    MainWindow.Instance.stpPositions.Children.Add(el);//add it to the stack panel inside of dashboard.
+            }
 
             foreach (RequestElement rel in RequestElement.relements)
-                MainWindow.Instance.stpDashboard.Children.Add(rel);
+            {
+                if (MainWindow.Instance.stpStaffingRequests.Children.Count < RequestElement.relements.Count)
+                    MainWindow.Instance.stpStaffingRequests.Children.Add(rel);
+            }
 
             foreach (CandidateElement cel in CandidateElement.celements)
-                MainWindow.Instance.stpDashboard.Children.Add(cel);
+            {
+                if (MainWindow.Instance.stpCandidates.Children.Count < CandidateElement.celements.Count)
+                    MainWindow.Instance.stpCandidates.Children.Add(cel);
+            }
 
-            foreach(UserControl uc in controlElements)
-                MainWindow.Instance.stpDashboard.Children.Add(uc); //add components to main dashboard.
+
             //foreach()
             //same for candidates
             //same for requests

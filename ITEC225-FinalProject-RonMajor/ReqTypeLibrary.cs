@@ -57,6 +57,8 @@ namespace ITEC225_FinalProject_RonMajor
         public Candidate Candidate { get; set; }
         public Position Position { get; set; }
 
+        public Request() { }
+
         public Request(Candidate candidate, Position position)
         {
             ReferenceNumber = rand.Next(000000, 999999);
@@ -100,6 +102,8 @@ namespace ITEC225_FinalProject_RonMajor
         public VisibilityLevel VisLevel { get; set; }
         #endregion
 
+        public Candidate() { } //parameterless constructor required by JSON serializer.
+
         public Candidate(int emplNum, string last, string first)
         {
             EmployeeNum = emplNum; //feed data into the Candidate.
@@ -122,6 +126,7 @@ namespace ITEC225_FinalProject_RonMajor
         public string OfficeLocation { get; set; }
         public VisibilityLevel visLevel { get; set; }
 
+        public Position() { }
 
         public Position(int posiNum, DateTime startDate)
         {

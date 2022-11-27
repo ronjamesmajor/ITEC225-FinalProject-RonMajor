@@ -41,5 +41,10 @@ namespace ITEC225_FinalProject_RonMajor
             foreach (CandidateElement c in CandidateElement.celements)
                 DataHelper.controlElements.Add(c);                  
         }
+
+        private void UserControl_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Click event!");
+        }
     }
 }

@@ -27,7 +27,15 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            Candidate cand = new Candidate(int.Parse(txtEmplNum.Text),txtLast.Text,txtFirst.Text); //new candidate.
+            Candidate cand = new Candidate(int.Parse(txtEmplNum.Text), txtLast.Text, txtFirst.Text)
+            {
+                Department = txtDepartment.Text,
+                OfficeLocation = txtOfficeLocation.Text,
+                ContactPhone = txtPhone.Text,
+                ContactAddress = txtAddress.Text,
+                ContactEmail = txtEmail.Text,
+
+            }; //new, prefill data.
             this.Close();
         }
 
@@ -35,11 +43,12 @@ namespace ITEC225_FinalProject_RonMajor
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+            e.Text.Trim();
         }
 
         private void btnDiscard_Click(object sender, RoutedEventArgs e)
         {
-            this.Close(); //close window if not saving..
+            this.Close(); //close window if not saving
         }
     }
 }
