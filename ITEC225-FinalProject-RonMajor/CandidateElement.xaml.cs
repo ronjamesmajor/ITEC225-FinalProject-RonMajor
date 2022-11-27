@@ -33,6 +33,8 @@ namespace ITEC225_FinalProject_RonMajor
         }
         public static void InitializeElements()
         {
+            celements.Clear();
+
             foreach (Candidate c in FormTemplate.candidates) //foreach candidate,
                 CandidateElement.celements.Add(new CandidateElement(c)); //add a new element to the elements list.
 

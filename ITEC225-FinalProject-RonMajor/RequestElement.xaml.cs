@@ -35,6 +35,8 @@ namespace ITEC225_FinalProject_RonMajor
 
         public static void InitializeElements()
         {
+            relements.Clear();
+
             foreach (Request r in FormTemplate.requests) //foreach candidate,
                 RequestElement.relements.Add(new RequestElement(r)); //add a new element to the elements list.
 

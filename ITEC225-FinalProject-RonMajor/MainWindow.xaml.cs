@@ -61,6 +61,5 @@ namespace ITEC225_FinalProject_RonMajor
             lblDataLoaded.Opacity = double.Parse(data[0]);
             lblDataLoaded.Content = data[1];
         }
-
     }
 }

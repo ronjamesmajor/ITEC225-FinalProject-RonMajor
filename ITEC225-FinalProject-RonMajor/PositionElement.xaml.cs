@@ -35,10 +35,11 @@ namespace ITEC225_FinalProject_RonMajor
 
         public static void InitializeElements()
         {
+            elements.Clear();
             foreach (Position p in FormTemplate.positions) //foreach position,
                 PositionElement.elements.Add(new PositionElement(p)); //add a new element to the elements list.
 
-            foreach(PositionElement p in PositionElement.elements)  //add all these elements to running list of
+            foreach (PositionElement p in PositionElement.elements)  //add all these elements to running list of
                 DataHelper.controlElements.Add(p);                  //all elements
         }
     }

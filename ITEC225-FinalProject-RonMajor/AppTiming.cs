@@ -15,6 +15,7 @@ namespace ITEC225_FinalProject_RonMajor
     {
         #region Static
         public static DispatcherTimer t1 = new(); //wpf uses dispatcher timer. part of threading.
+        static int dataRefreshTimer = 0;
         #endregion
 
         public AppTiming()
@@ -30,6 +31,13 @@ namespace ITEC225_FinalProject_RonMajor
                 FadeLabel(MainWindow.Instance.lblDataSaved); //fade this label out.
             if (MainWindow.Instance != null && MainWindow.Instance.lblDataLoaded.Opacity > 0)
                 FadeLabel(MainWindow.Instance.lblDataLoaded);
+
+            if(dataRefreshTimer >= 30)
+            {
+                DataHelper.AppStart();
+                dataRefreshTimer = 0;
+            }
+
         }
 
         private void FadeLabel(Label label)
