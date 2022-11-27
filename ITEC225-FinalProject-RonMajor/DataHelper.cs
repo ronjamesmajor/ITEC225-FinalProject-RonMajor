@@ -263,7 +263,14 @@ namespace ITEC225_FinalProject_RonMajor
             foreach (PositionElement el in PositionElement.elements)//foreach element in the list
                 MainWindow.Instance.stpDashboard.Children.Add(el);//add it to the stack panel inside of dashboard.
 
+            foreach (RequestElement rel in RequestElement.relements)
+                MainWindow.Instance.stpDashboard.Children.Add(rel);
 
+            foreach (CandidateElement cel in CandidateElement.celements)
+                MainWindow.Instance.stpDashboard.Children.Add(cel);
+
+            foreach(UserControl uc in controlElements)
+                MainWindow.Instance.stpDashboard.Children.Add(uc); //add components to main dashboard.
             //foreach()
             //same for candidates
             //same for requests
@@ -272,6 +279,14 @@ namespace ITEC225_FinalProject_RonMajor
             //foreach usercontrol in datahelper.controlElements
             //mainwindow instance stpsomething.children.add(usercontrol)
 
+        }
+
+        public static void AppStart()
+        {
+            PositionElement.InitializeElements(); //init elements
+            CandidateElement.InitializeElements();
+            RequestElement.InitializeElements();
+            FillElements(); //fill elements into stackpanels on main window.
         }
         #endregion
     }

@@ -43,16 +43,19 @@
                 </StackPanel>
             </TabItem>
             <TabItem Name="CandidatesTab" Header="Candidates">
-                <Grid Background="#afb7bf"/>
-                <!--<local:TestWindow/>-->
+                <StackPanel x:Name="stpCandidates">
+
+                </StackPanel>
             </TabItem>
             <TabItem Name="PositionsTab" Header="Positions">
-                <Grid Background="#afb7bf"/>
-                <!--<local:TestWindow/>-->
+                <StackPanel x:Name="stpPositions">
+
+                </StackPanel>
             </TabItem>
             <TabItem Name="RequestsTab" Header="Staffing Requests">
-                <Grid Background="#afb7bf"/>
-                <!--<local:TestWindow/>-->
+                <StackPanel x:Name="stpStaffingRequests">
+
+                </StackPanel>
             </TabItem>
             <TabItem Name="SLETab" Header="SLE Requests">
                 <Grid Background="#afb7bf"/>

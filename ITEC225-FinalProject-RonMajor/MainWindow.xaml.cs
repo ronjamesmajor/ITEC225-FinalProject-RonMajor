@@ -18,9 +18,7 @@ using System.Runtime.CompilerServices;
 
 namespace ITEC225_FinalProject_RonMajor
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    
     public partial class MainWindow : Window
     {
         public static MainWindow Instance { get; private set; }
@@ -30,9 +28,7 @@ namespace ITEC225_FinalProject_RonMajor
         {
             InitializeComponent();
             Instance = this; //make this window the static ''main window''
-            PositionElement.InitializeElements(); //init elements
-            CandidateElement.InitializeElements();
-            DataHelper.FillElements(); //fill elements into stackpanels on main window.
+            DataHelper.AppStart(); //init all elements and fill the dashboard.
         }
 
         private void btnNewRequest_Click(object sender, RoutedEventArgs e)

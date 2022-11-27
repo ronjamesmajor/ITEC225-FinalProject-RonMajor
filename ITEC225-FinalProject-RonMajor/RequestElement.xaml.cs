@@ -32,5 +32,14 @@ namespace ITEC225_FinalProject_RonMajor
             lblApprovalOrder.Content = req.approval;
             lblPosition.Content = req.Position.PositionType;
         }
+
+        public static void InitializeElements()
+        {
+            foreach (Request r in FormTemplate.requests) //foreach candidate,
+                RequestElement.relements.Add(new RequestElement(r)); //add a new element to the elements list.
+
+            foreach (RequestElement r in RequestElement.relements)
+                DataHelper.controlElements.Add(r);
+        }
     }
 }
