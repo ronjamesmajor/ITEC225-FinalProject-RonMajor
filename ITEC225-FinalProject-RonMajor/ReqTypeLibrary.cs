@@ -50,10 +50,12 @@ namespace ITEC225_FinalProject_RonMajor
         public string? FormName { get; set; }
         public string? DelegateLabel { get; set; }
         public ApprovalOrder approval { get; set; }
+        public VisibilityLevel visLevel { get; set; }
 
         public Request(Candidate candidate, Position position)
         {
             approval = ApprovalOrder.Draft;
+            visLevel = VisibilityLevel.HR; //HR and up can see requests.
         }
     }
 
@@ -89,12 +91,14 @@ namespace ITEC225_FinalProject_RonMajor
         public VisibilityLevel VisLevel { get; set; }
         #endregion
 
-        public Candidate()
+        public Candidate(int emplNum, string last, string first)
         {
-
+            EmployeeNum = emplNum; //feed data into the Candidate.
+            LastName = last;
+            FirstName = first;
             ICandidate.Candidates = new();
             VisLevel = VisibilityLevel.Manager;
-
+            FormTemplate.candidates.Add(this); //add this to candidates list.
         }
     }
 
@@ -107,6 +111,8 @@ namespace ITEC225_FinalProject_RonMajor
         public PositionType PositionType { get; set; }
         public SubType SubType { get; set; }
         public string Directorate { get; set; }
+        public string OfficeLocation { get; set; }
+        public VisibilityLevel visLevel { get; set; }
 
 
         public Position(int posiNum, DateTime startDate)
@@ -115,6 +121,7 @@ namespace ITEC225_FinalProject_RonMajor
             StartDate = startDate;
             //position control receives position, and therefore it's properties.
             FormTemplate.positions.Add(this);
+            visLevel = VisibilityLevel.Client; //anyone can see positions.
         }
     }
 
