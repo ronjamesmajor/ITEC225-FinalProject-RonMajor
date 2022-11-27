@@ -13,8 +13,13 @@ namespace ITEC225_FinalProject_RonMajor
 {
     public class DataHelper
     {
+        #region Fields
+        #endregion
+        
         #region Static
         public static List<UserControl> controlElements = new(); //new static list of all user controls.
+        public static int counter = 0;
+        public static string opacity, content;
         #endregion
 
         #region Methods
@@ -188,25 +193,69 @@ namespace ITEC225_FinalProject_RonMajor
             }
         }
 
-        public void LoadData()//Load local files and deserialize to create datastores.
+        public static List<string> LoadData()//Load local files and deserialize to create datastores.
         {
+            List<string> labelProps = new();
+            
+
             if (File.Exists("candidates.JSON"))
             {
                 string json = File.ReadAllText("candidates.JSON");//deserialize.
                 FormTemplate.candidates = JsonSerializer.Deserialize<List<Candidate>>(json); //create a list of users.
+                counter += 5;
             }
 
             if (File.Exists("positions.JSON"))
             {
                 string json = File.ReadAllText("positions.JSON");//deserialize.
                 FormTemplate.positions = JsonSerializer.Deserialize<List<Position>>(json); //create a list of users.
+                counter += 7;
             }
 
             if (File.Exists("requests.JSON"))
             {
                 string json = File.ReadAllText("requests.JSON");//deserialize.
                 FormTemplate.requests = JsonSerializer.Deserialize<List<Request>>(json); //create a list of users.
+                counter += 9;
             }
+            switch (counter)
+            {
+                case 0:
+                    opacity = 100.ToString();
+                    content = "No data to Load";
+                    break;
+                case 5:
+                    opacity = 100.ToString();
+                    content = "Candidates Loaded Successfully";
+                    break;
+                case 7:
+                    opacity = 100.ToString();
+                    content = "Positions Loaded Successfully";
+                    break;
+                case 9:
+                    opacity = 100.ToString();
+                    content = "Requests Loaded Successfully";
+                    break;
+                case 12:
+                    opacity = 100.ToString();
+                    content = "Candidates and Positions Loaded Successfully";
+                    break;
+                case 14:
+                    opacity = 100.ToString();
+                    content = "Candidates and Requests Loaded Successfully";
+                    break;
+                case 17:
+                    opacity = 100.ToString();
+                    content = "Positions and Requests Loaded Successfully";
+                    break;
+                case 21:
+                    opacity = 100.ToString();
+                    content = "All Data Loaded Successfully";
+                    break;
+            }
+                    labelProps.Add(opacity);
+                    labelProps.Add(content);
+            return labelProps;
         }
 
         internal static void FillElements()
@@ -214,6 +263,8 @@ namespace ITEC225_FinalProject_RonMajor
             foreach (PositionElement el in PositionElement.elements)//foreach element in the list
                 MainWindow.Instance.stpDashboard.Children.Add(el);//add it to the stack panel inside of dashboard.
 
+
+            //foreach()
             //same for candidates
             //same for requests
 

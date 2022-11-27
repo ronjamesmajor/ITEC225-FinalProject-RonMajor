@@ -31,6 +31,7 @@ namespace ITEC225_FinalProject_RonMajor
             InitializeComponent();
             Instance = this; //make this window the static ''main window''
             PositionElement.InitializeElements(); //init elements
+            CandidateElement.InitializeElements();
             DataHelper.FillElements(); //fill elements into stackpanels on main window.
         }
 
@@ -60,7 +61,9 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnLoadData_Click(object sender, RoutedEventArgs e)
         {
-            
+           List<string> data = DataHelper.LoadData();
+            lblDataLoaded.Opacity = double.Parse(data[0]);
+            lblDataLoaded.Content = data[1];
         }
 
     }

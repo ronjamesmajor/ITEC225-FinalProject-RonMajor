@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,11 +24,28 @@ namespace ITEC225_FinalProject_RonMajor
         public RequestWindow()
         {
             InitializeComponent();
+            cmbCandidate.ItemsSource = FormTemplate.candidates;
+            cmbPosition.ItemsSource = FormTemplate.positions; 
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-        
+            bool checker;
+            if (rdoYes.IsChecked == true)
+                checker = true;
+            else checker = false;
+            Request request = new Request((Candidate)cmbCandidate.SelectedItem, (Position)cmbPosition.SelectedItem)
+            {
+                ApprovalRequired = checker, //prefilling values right now, rather than in constructor.
+                BilingualPosition = cmbBilingual.SelectedItem.ToString(),
+                LanguageProfile = cmbLanguageProfile.SelectedItem.ToString()
+            };
+        }
+
+        private void btnDiscard_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -5,74 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
         mc:Ignorable="d"
-        Title="RequestWindow" Height="495" Width="545" Background="#41352e" WindowStartupLocation="CenterScreen">
+        Title="RequestWindow" Height="400" Width="545"  Background="#afb7bf" WindowStartupLocation="CenterScreen" FontFamily="Source Sans Pro" FontSize="16">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="48,94,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" TextChanged="TextBox_TextChanged">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Position Title" HorizontalAlignment="Left" Margin="48,63,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="343,94,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Job Code / Position Number" HorizontalAlignment="Left" Margin="343,63,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="48,174,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Cost Center" HorizontalAlignment="Left" Margin="48,143,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="343,174,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Department" HorizontalAlignment="Left" Margin="343,143,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="48,253,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Proposed Group and Level" HorizontalAlignment="Left" Margin="48,222,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="343,253,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="19" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Branch&#xA;" HorizontalAlignment="Left" Margin="343,222,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="48,333,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="20" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Directorate" HorizontalAlignment="Left" Margin="48,303,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <TextBox HorizontalAlignment="Left" Margin="343,333,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="160" Height="20" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Office Location" HorizontalAlignment="Left" Margin="343,303,0,0" VerticalAlignment="Top" Foreground="#FFF8F2F5"/>
-        <ScrollBar x:Name="scrDirectorate" HorizontalAlignment="Left" Margin="181,334,0,0" VerticalAlignment="Top" Height="18"/>
-        <Button x:Name="btnSave" Content="Save Information" Height="35" Background="#FFE3752D" Foreground="#FF41352E" BorderBrush="{x:Null}" Width="120" Margin="105,0,320,10" VerticalAlignment="Bottom">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="108*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnSave" Content="Save Information" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="107,0,0,28" VerticalAlignment="Bottom" Click="btnSave_Click" Grid.Column="1" HorizontalAlignment="Left">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -80,7 +19,14 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnDiscard" Content="Discard" Height="35" Background="#FFE3752D" Foreground="#FF41352E" BorderBrush="{x:Null}" Width="120"  VerticalAlignment="Bottom" Margin="320,0,105,10">
+        <TextBox x:Name="txtFirst" HorizontalAlignment="Left" Margin="43,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" Grid.Column="1">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Button x:Name="btnDiscard" Content="Discard" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="0,0,117,28" VerticalAlignment="Bottom" Click="btnDiscard_Click" Grid.Column="1" HorizontalAlignment="Right">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -88,6 +34,79 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Label Content="Candidate" HorizontalAlignment="Left" Margin="43,63,0,0" VerticalAlignment="Top" Foreground="#27263e" Grid.Column="1"/>
+        <TextBox x:Name="txtLast" HorizontalAlignment="Left" Margin="338,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" FontFamily="Source Sans Pro" Grid.Column="1">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label Content="Position" HorizontalAlignment="Left" Margin="338,63,0,0" VerticalAlignment="Top" Foreground="#27263e" Grid.Column="1"/>
+        <Label Content="Approval Required" HorizontalAlignment="Left" Margin="43,143,0,0" VerticalAlignment="Top" Foreground="#27263e" Grid.Column="1"/>
+        <TextBox x:Name="txtDepartment" HorizontalAlignment="Left" Margin="338,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" Grid.Column="1">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label Content="Bilingual Imperative" HorizontalAlignment="Left" Margin="338,143,0,0" VerticalAlignment="Top" Foreground="#27263e" Grid.Column="1"/>
+        <TextBox x:Name="txtOfficeLocation" HorizontalAlignment="Left" Margin="43,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" Grid.Column="1">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label Content="Language Profile" HorizontalAlignment="Left" Margin="43,222,0,0" VerticalAlignment="Top" Foreground="#27263e" Grid.Column="1"/>
+        <ComboBox x:Name="cmbCandidate" HorizontalAlignment="Left" Margin="50,95,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5" Grid.Column="1">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF8F2F5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
 
+        </ComboBox>
+        <ComboBox x:Name="cmbPosition" HorizontalAlignment="Left" Margin="345,95,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5" Grid.Column="1">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF8F2F5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+
+        </ComboBox>
+        <RadioButton x:Name="rdoYes" Grid.Column="1" Content="Yes" HorizontalAlignment="Left" Margin="50,178,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rdoNo" Grid.Column="1" Content="No" HorizontalAlignment="Left" Margin="123,178,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbBilingual" HorizontalAlignment="Left" Margin="345,175,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5" Grid.Column="1">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF8F2F5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Content="English Imperative"/>
+            <ComboBoxItem Content="French Imperative/"/>
+            <ComboBoxItem Content="Bilingual Imperative"/>
+            <ComboBoxItem Content="N/A"/>
+
+        </ComboBox>
+        <ComboBox x:Name="cmbLanguageProfile" HorizontalAlignment="Left" Margin="50,254,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5" Grid.Column="1">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF8F2F5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Content="AAA/AAA"/>
+            <ComboBoxItem Content="ABA/ABA"/>
+            <ComboBoxItem Content="ABB/ABB"/>
+            <ComboBoxItem Content="BBB/BBB"/>
+            <ComboBoxItem Content="ABC/ABC"/>
+            <ComboBoxItem Content="English Only"/>
+            <ComboBoxItem Content="French Only"/>
+        </ComboBox>
     </Grid>
 </Window>

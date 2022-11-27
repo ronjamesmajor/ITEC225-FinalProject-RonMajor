@@ -23,12 +23,12 @@ namespace ITEC225_FinalProject_RonMajor
         public CandidateWindow()
         {
             InitializeComponent();
-
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            Candidate cand = new Candidate();
+            Candidate cand = new Candidate(int.Parse(txtEmplNum.Text),txtLast.Text,txtFirst.Text); //new candidate.
+            this.Close();
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)

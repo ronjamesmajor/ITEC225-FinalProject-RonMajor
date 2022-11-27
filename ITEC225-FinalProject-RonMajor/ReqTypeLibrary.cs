@@ -46,23 +46,29 @@ namespace ITEC225_FinalProject_RonMajor
 
     internal class Request : IRequest
     {
-        public string RequestID { get; set; }
-        public string? FormName { get; set; }
+        public bool ApprovalRequired { get; set; }
+        public string? BilingualPosition { get; set; }
+        public string? LanguageProfile { get; set; }
         public string? DelegateLabel { get; set; }
         public ApprovalOrder approval { get; set; }
         public VisibilityLevel visLevel { get; set; }
+        public Candidate Candidate { get; set; }
+        public Position Position { get; set; }
 
         public Request(Candidate candidate, Position position)
         {
+            this.Candidate = candidate;
+            this.Position = position;
             approval = ApprovalOrder.Draft;
             visLevel = VisibilityLevel.HR; //HR and up can see requests.
+            FormTemplate.requests.Add(this); //add this request to requests.
         }
     }
 
     internal class SLERequest : Request //SLERequest inherits from Request.
     {
         //sle stuff.
-        public SLERequest(Candidate candidate, Position position) : base(candidate,position)
+        public SLERequest(Candidate candidate, Position position) : base(candidate, position)
         {
             //go!
         }
@@ -96,7 +102,6 @@ namespace ITEC225_FinalProject_RonMajor
             EmployeeNum = emplNum; //feed data into the Candidate.
             LastName = last;
             FirstName = first;
-            ICandidate.Candidates = new();
             VisLevel = VisibilityLevel.Manager;
             FormTemplate.candidates.Add(this); //add this to candidates list.
         }

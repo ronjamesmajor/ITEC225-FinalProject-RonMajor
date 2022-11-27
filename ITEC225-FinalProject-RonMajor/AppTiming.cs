@@ -19,21 +19,23 @@ namespace ITEC225_FinalProject_RonMajor
 
         public AppTiming()
         {
-            t1.Interval = new TimeSpan(0,0,1); //1 second timer.
+            t1.Interval = new TimeSpan(0, 0, 1); //1 second timer.
             t1.Tick += T1_Tick;
             t1.Start();
         }
 
         private void T1_Tick(object? sender, EventArgs e)
         {
-            if(MainWindow.Instance != null && MainWindow.Instance.lblDataSaved.Opacity > 0) //mainwindow is null when that window hasn't spawned yet.
-            FadeLabel(MainWindow.Instance.lblDataSaved); //fade this label out.
+            if (MainWindow.Instance != null && MainWindow.Instance.lblDataSaved.Opacity > 0) //mainwindow is null when that window hasn't spawned yet.
+                FadeLabel(MainWindow.Instance.lblDataSaved); //fade this label out.
+            if (MainWindow.Instance != null && MainWindow.Instance.lblDataLoaded.Opacity > 0)
+                FadeLabel(MainWindow.Instance.lblDataLoaded);
         }
 
         private void FadeLabel(Label label)
         {
-            if(label.Opacity > 0)
-                label.Opacity -= 5;
+            if (label.Opacity > 0)
+                label.Opacity -= 10;
             if (label.Opacity < 0)
                 label.Opacity = 0;
         }

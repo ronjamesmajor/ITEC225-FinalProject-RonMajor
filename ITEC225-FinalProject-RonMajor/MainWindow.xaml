@@ -107,6 +107,7 @@
         </Button>
         <Label Content="Click within the Dashboard to view and edit entries.&#xD;&#xA;Click a button on the right hand navigation to create new entries or to save." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
         <Label x:Name="lblDataSaved" Content="Data Saved Successfully" HorizontalAlignment="Left" Margin="10,728,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" Opacity="0"/>
+        <Label x:Name="lblDataLoaded" Content="Data Saved Successfully" HorizontalAlignment="Left" Margin="10,728,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" Opacity="0"/>
 
     </Grid>
 </Window>

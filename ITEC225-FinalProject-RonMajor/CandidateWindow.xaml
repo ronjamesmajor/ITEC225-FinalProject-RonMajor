@@ -73,7 +73,7 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Contact Phone:" HorizontalAlignment="Left" Margin="343,222,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
+        <Label Content="Contact Phone:" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Margin="343,222,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="48,333,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">

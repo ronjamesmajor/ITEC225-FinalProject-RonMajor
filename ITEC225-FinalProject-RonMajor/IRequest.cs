@@ -12,10 +12,10 @@ namespace ITEC225_FinalProject_RonMajor
         enum ApprovalOrder {Draft, AwaitingManager, AwaitingAdmin, Complete, Deleted}
 
         #region Properties
-        public string RequestID { get; set; }
+        public bool ApprovalRequired { get; set; }
         public ApprovalOrder approval { get; set; }
-        public string FormName { get; set; }
-        public string DelegateLabel { get; set; }
+        public string BilingualPosition { get; set; }
+        public string LanguageProfile { get; set; }
        
         #endregion
 
