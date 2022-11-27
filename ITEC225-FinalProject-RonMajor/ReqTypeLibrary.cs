@@ -44,8 +44,10 @@ namespace ITEC225_FinalProject_RonMajor
     {
     }
 
-    internal class Request : IRequest
+    public class Request : IRequest
     {
+        Random rand = new Random();
+        public int ReferenceNumber { get; set; }
         public bool ApprovalRequired { get; set; }
         public string? BilingualPosition { get; set; }
         public string? LanguageProfile { get; set; }
@@ -57,6 +59,7 @@ namespace ITEC225_FinalProject_RonMajor
 
         public Request(Candidate candidate, Position position)
         {
+            ReferenceNumber = rand.Next(000000, 999999);
             this.Candidate = candidate;
             this.Position = position;
             approval = ApprovalOrder.Draft;
