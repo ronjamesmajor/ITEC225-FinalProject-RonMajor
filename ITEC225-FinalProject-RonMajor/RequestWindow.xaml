@@ -67,7 +67,6 @@
                     <GradientStop Color="#FFF8F2F5" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-
         </ComboBox>
         <ComboBox x:Name="cmbPosition" HorizontalAlignment="Left" Margin="345,95,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5" Grid.Column="1">
             <ComboBox.Background>

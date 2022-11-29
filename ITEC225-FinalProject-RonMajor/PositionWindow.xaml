@@ -119,6 +119,36 @@
                 </LinearGradientBrush>
             </DatePicker.BorderBrush>
         </DatePicker>
+        <ComboBox x:Name="cmbPositionType" HorizontalAlignment="Left" Margin="55,95,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF8F2F5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+
+        </ComboBox>
+        <ComboBox x:Name="cmbSubtype" HorizontalAlignment="Left" Margin="55,175,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF8F2F5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+
+        </ComboBox>
+        <ComboBox x:Name="cmbDirectorate" HorizontalAlignment="Left" Margin="350,175,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="#FFF8F2F5" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Content="BOP"/>
+            <ComboBoxItem Content="BSI"/>
+            <ComboBoxItem Content="BSIM"/>
+            <ComboBoxItem Content="SABR"/>
+        </ComboBox>
 
     </Grid>
 </Window>

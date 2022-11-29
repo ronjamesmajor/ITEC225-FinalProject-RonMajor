@@ -94,6 +94,7 @@ namespace ITEC225_FinalProject_RonMajor
         public int EmployeeNum { get; set; } //Use all properties of interface.
         public string LastName { get; set; }
         public string FirstName { get; set; }
+        public string DisplayName { get; set; }
         public string Department { get; set; }
         public string OfficeLocation { get; set; }
         public string ContactPhone { get; set; }
@@ -109,6 +110,7 @@ namespace ITEC225_FinalProject_RonMajor
             EmployeeNum = emplNum; //feed data into the Candidate.
             LastName = last;
             FirstName = first;
+            DisplayName = $"{last}, {first}";
             VisLevel = VisibilityLevel.Manager;
             FormTemplate.candidates.Add(this); //add this to candidates list.
         }
@@ -119,12 +121,12 @@ namespace ITEC225_FinalProject_RonMajor
         public int PosNum { get; set; } //implement bits of the interface.
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public string DisplayName { get; set; }
         public VisibilityLevel VisLevel { get; set; }
         public PositionType PositionType { get; set; }
         public SubType SubType { get; set; }
         public string Directorate { get; set; }
         public string OfficeLocation { get; set; }
-        public VisibilityLevel visLevel { get; set; }
 
         public Position() { }
 
@@ -132,9 +134,10 @@ namespace ITEC225_FinalProject_RonMajor
         {
             PosNum = posiNum;
             StartDate = startDate;
+            DisplayName = $"{posiNum} - {PositionType}";
             //position control receives position, and therefore it's properties.
+            VisLevel = VisibilityLevel.Client; //anyone can see positions.
             FormTemplate.positions.Add(this);
-            visLevel = VisibilityLevel.Client; //anyone can see positions.
         }
     }
 

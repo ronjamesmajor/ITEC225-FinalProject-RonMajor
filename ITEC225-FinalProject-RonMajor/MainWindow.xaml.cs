@@ -62,5 +62,10 @@ namespace ITEC225_FinalProject_RonMajor
             lblDataLoaded.Opacity = double.Parse(data[0]);
             lblDataLoaded.Content = data[1];
         }
+
+        private void Staffing_Request_Builder_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            DataHelper.SaveData(); //save data when the app is closing.
+        }
     }
 }

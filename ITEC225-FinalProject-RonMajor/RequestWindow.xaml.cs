@@ -25,7 +25,9 @@ namespace ITEC225_FinalProject_RonMajor
         {
             InitializeComponent();
             cmbCandidate.ItemsSource = FormTemplate.candidates;
-            cmbPosition.ItemsSource = FormTemplate.positions; 
+            cmbCandidate.DisplayMemberPath = "DisplayName"; 
+            cmbPosition.ItemsSource = FormTemplate.positions;
+            cmbPosition.DisplayMemberPath = "DisplayName";
         }
 
 

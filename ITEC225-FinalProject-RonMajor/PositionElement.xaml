@@ -5,12 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Code Pro">
+             d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Code Pro" BorderBrush="#FF738E93" BorderThickness="2">
     <Grid>
-        <Label x:Name="lblPosNum" Content="PositionNum" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30"/>
-        <Label x:Name="lblStartDate" Content="12/11/2022" HorizontalAlignment="Left" Margin="186,0,0,0" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30"/>
-        <Label x:Name="lblPosType" Content="PositionType" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30" Margin="346,0,0,0"/>
-        <Label x:Name="lblSubType" Content="PositionSubType" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30" Margin="547,0,0,0"/>
+        <Label x:Name="lblPosNum" Content="PositionNum" HorizontalAlignment="Left" Margin="36,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
+        <Label x:Name="lblStartDate" Content="12/11/2022" HorizontalAlignment="Left" Margin="186,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
+        <Label x:Name="lblPosType" Content="PositionType" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30" Margin="346,24,0,0"/>
+        <Label x:Name="lblSubType" Content="PositionSubType" Foreground="#FFF6F7FA" Margin="0,24,49,-4" HorizontalAlignment="Right" Width="154"/>
+        <Label x:Name="lblEmpNum_Copy" Content="Position #" Margin="12,-4,0,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Left" Width="154"/>
+        <Label x:Name="lblEmpNum_Copy1" Content="Start Date" Margin="186,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
+        <Label x:Name="lblEmpNum_Copy2" Content="SubType" Margin="0,-4,49,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Right" Width="154"/>
+        <Label x:Name="lblEmpNum_Copy3" Content="Position Type" Margin="346,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
 
     </Grid>
 </UserControl>

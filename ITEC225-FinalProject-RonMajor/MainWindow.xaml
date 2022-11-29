@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1280" Background="#afb7bf" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Source Sans Pro">
+        Title="MainWindow" Height="800" Width="1280" Background="#afb7bf" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Source Sans Pro" Closing="Staffing_Request_Builder_Closing">
     <Grid x:Name="formRequestBuilder">
         <TabControl Margin="0,274,210,61" Background="#afb7bf" FontSize="16">
             <TabControl.Resources>
@@ -37,11 +37,11 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <TabItem Name="DashBoardTab" Header="Dashboard">
+            <!--<TabItem Name="DashBoardTab" Header="Dashboard">
                 <StackPanel x:Name="stpDashboard">
 
                 </StackPanel>
-            </TabItem>
+            </TabItem>-->
             <TabItem Name="CandidatesTab" Header="Candidates">
                 <StackPanel x:Name="stpCandidates">
 
