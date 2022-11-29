@@ -22,6 +22,7 @@ namespace ITEC225_FinalProject_RonMajor
     public partial class MainWindow : Window
     {
         public static MainWindow Instance { get; private set; }
+        internal static User CurrentUser { get; set; }
         AppTiming timing = new(); //new instance of timing, which just runs in the background.
 
         public MainWindow()

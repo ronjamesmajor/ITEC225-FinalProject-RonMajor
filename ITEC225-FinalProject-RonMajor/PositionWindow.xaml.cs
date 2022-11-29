@@ -19,15 +19,21 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            Position p = new Position(int.Parse(txtPosiNum.Text), (DateTime)dtpStart.SelectedDate)
+            if (dtpStart.SelectedDate != DateTime.MinValue) //don't allow saving for no date selected.
             {
-                StartDate = (DateTime)dtpStart.SelectedDate,
-                EndDate = (DateTime)dtpStart.SelectedDate,
-                PositionType = (PositionType)cmbPositionType.SelectedValue,
-                SubType = (SubType)cmbPositionType.SelectedValue,
-                OfficeLocation = cmbLocation.SelectedValue.ToString()
 
-            };
+                Position p = new Position(int.Parse(txtPosiNum.Text), (DateTime)dtpStart.SelectedDate)
+                {
+                    StartDate = (DateTime)dtpStart.SelectedDate,
+                    EndDate = (DateTime)dtpStart.SelectedDate,
+                    PositionType = (PositionType)cmbPositionType.SelectedValue,
+                    SubType = (SubType)cmbPositionType.SelectedValue,
+                    OfficeLocation = cmbLocation.SelectedValue.ToString()
+
+                };
+                this.Close();
+            }
+            
 
         }
 

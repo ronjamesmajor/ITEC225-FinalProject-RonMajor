@@ -27,7 +27,7 @@ namespace ITEC225_FinalProject_RonMajor
         {
             InitializeComponent();
             ThisRequest = req;
-            lblReqNum.Content = req.ReferenceNumber;
+            lblRefNum.Content = req.ReferenceNumber;
             lblCandidate.Content = $"{req.Candidate.LastName}, {req.Candidate.FirstName}";
             lblApprovalOrder.Content = req.approval;
             lblPosition.Content = req.Position.PositionType;

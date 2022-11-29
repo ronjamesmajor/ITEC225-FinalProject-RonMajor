@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Microsoft.Data.SqlClient; //use sql client.
 
 namespace ITEC225_FinalProject_RonMajor
 {
@@ -42,10 +37,33 @@ namespace ITEC225_FinalProject_RonMajor
 
         public void CreateUser(LoginWindow loginWindow, AccessLevel accessLevel) //Create a new user, and add them to the list.
         {
+            if(accessLevel == AccessLevel.Admin)
+            {
+                Administrator tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+                FormTemplate.users.Add(tmp);
+            }
+            if (accessLevel == AccessLevel.Manager)
+            {
+                Manager tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+                FormTemplate.users.Add(tmp);
+            }
+            if (accessLevel == AccessLevel.HR)
+            {
+                HR tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+                FormTemplate.users.Add(tmp);
+            }
+            if (accessLevel == AccessLevel.Client)
+            {
+                Client tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+                FormTemplate.users.Add(tmp);
+            }
+            else
+            {
             User tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
             tmp.accessLevel = accessLevel;
             tmp.abilityLevel = MatchAccessLevel(accessLevel);
             FormTemplate.users.Add(tmp);
+            }
             CreateDataStore(); //then writes users out to json.
             MainWindow mw = new(); //and opens a new window.
             mw.Show();
@@ -81,6 +99,7 @@ namespace ITEC225_FinalProject_RonMajor
                         {
                             MessageBox.Show("Login Successful.");
                             MainWindow mw = new MainWindow();
+                            MainWindow.CurrentUser = FormTemplate.users[i];
                             loginWindow.Close();
                             mw.Show();
                             break;
@@ -181,10 +200,10 @@ namespace ITEC225_FinalProject_RonMajor
                 File.WriteAllText("candidates.JSON", json);
 
                 string json2 = System.Text.Json.JsonSerializer.Serialize(FormTemplate.positions, options);
-                File.WriteAllText("positions.JSON", json);
+                File.WriteAllText("positions.JSON", json2);
 
                 string json3 = System.Text.Json.JsonSerializer.Serialize(FormTemplate.requests, options);
-                File.WriteAllText("requests.JSON", json);
+                File.WriteAllText("requests.JSON", json3);
                 return dataSaved = true;
             }
             catch
@@ -296,6 +315,26 @@ namespace ITEC225_FinalProject_RonMajor
             CandidateElement.InitializeElements();
             RequestElement.InitializeElements();
             FillElements(); //fill elements into stackpanels on main window.
+        }
+
+        public static void SetupRequestTable(Request request, ApprovalWindow approvalWindow)
+        {
+            if (MainWindow.CurrentUser is Administrator)
+            {
+                //do edits and allow adding and deleting.
+            }
+            else if (MainWindow.CurrentUser is Manager)
+            {
+                //some edits
+            }
+            else if (MainWindow.CurrentUser is HR)
+            {
+                //allow edits.
+            }
+            else
+            {
+                //don't allow editing.
+            }
         }
         #endregion
     }

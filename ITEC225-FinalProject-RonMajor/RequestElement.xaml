@@ -5,12 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
              mc:Ignorable="d" 
-                d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Code Pro">
+                d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Code Pro"  BorderBrush="#FF738E93" BorderThickness="2">
     <Grid>
-        <Label x:Name="lblReqNum" Content="Reference Number" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30"/>
-        <Label x:Name="lblCandidate" Content="LastNamerson, FirstName" HorizontalAlignment="Left" Margin="240,0,0,0" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30"/>
-        <Label x:Name="lblPosition" Content="Position" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30" Margin="481,0,0,0"/>
-        <Label x:Name="lblApprovalOrder" Content="Approval Order" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FFF6F7FA" Height="30" Margin="603,0,0,0"/>
+        <Label x:Name="lblRefNum" Content="Reference #" HorizontalAlignment="Left" Margin="18,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
+        <Label x:Name="lblCandidate" Content="Candidate" HorizontalAlignment="Left" Margin="186,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
+        <Label x:Name="lblPosition" Content="PositionType" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30" Margin="346,24,0,0"/>
+        <Label x:Name="lblEmpNum_Copy" Content="Reference #" Margin="12,-4,0,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Left" Width="154"/>
+        <Label x:Name="lblEmpNum_Copy1" Content="Candidate" Margin="186,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
+        <Label x:Name="lblEmpNum_Copy2" Content="Approval Order" Margin="0,-4,53,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Right" Width="154"/>
+        <Label x:Name="lblEmpNum_Copy3" Content="Position" Margin="346,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
+        <Label x:Name="lblApprovalOrder" Content="Approval Order" Foreground="#FFF6F7FA" Margin="0,24,49,-4" HorizontalAlignment="Right" Width="154"/>
 
     </Grid>
 </UserControl>
