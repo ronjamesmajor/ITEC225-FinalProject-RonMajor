@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ApprovalWindow" Height="495" Width="800" Background="#afb7bf" WindowStartupLocation="CenterScreen" FontSize="16" FontFamily="Source Sans Pro">
     <Grid>
-        <Button x:Name="btnSave" Content="Save Information" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="237,0,443,20" VerticalAlignment="Bottom" Click="btnSave_Click">
+        <Button x:Name="btnSave" Content="Save" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="0,0,443,20" VerticalAlignment="Bottom" Click="btnSave_Click" HorizontalAlignment="Right">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -15,14 +15,14 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBox x:Name="txtFirst" HorizontalAlignment="Left" Margin="25,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="1">
+        <TextBox x:Name="txtFirst" HorizontalAlignment="Left" Margin="25,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="1" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Button x:Name="btnDiscard" Content="Discard" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="440,0,240,20" Click="btnDiscard_Click" Height="35" VerticalAlignment="Bottom">
+        <Button x:Name="btnDiscard" Content="Discard" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="0,0,240,20" Click="btnDiscard_Click" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Right">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -31,7 +31,7 @@
             </Button.Resources>
         </Button>
         <Label Content="First Name" HorizontalAlignment="Left" Margin="25,29,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtLast" HorizontalAlignment="Left" Margin="217,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" FontFamily="Source Sans Pro" TabIndex="2">
+        <TextBox x:Name="txtLast" HorizontalAlignment="Left" Margin="217,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" FontFamily="Source Sans Pro" TabIndex="2" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -39,15 +39,15 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Last Name" HorizontalAlignment="Left" Margin="217,29,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtEmplNum" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Margin="628,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="3">
+        <TextBox x:Name="txtEmplNum" PreviewTextInput="NumberValidationTextBox" Margin="0,46,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="3" HorizontalAlignment="Right" Width="160" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Employee Number" HorizontalAlignment="Left" Margin="641,16,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtDepartment" HorizontalAlignment="Left" Margin="25,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="4">
+        <Label Content="Employee Number" Margin="0,16,25,0" VerticalAlignment="Top" Foreground="#27263e" HorizontalAlignment="Right" Width="134"/>
+        <TextBox x:Name="txtDepartment" HorizontalAlignment="Left" Margin="25,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="4" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -55,7 +55,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Department" HorizontalAlignment="Left" Margin="26,107,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtOfficeLocation" HorizontalAlignment="Left" Margin="26,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="5">
+        <TextBox x:Name="txtOfficeLocation" HorizontalAlignment="Left" Margin="26,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="5" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -63,7 +63,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Office Location" HorizontalAlignment="Left" Margin="26,269,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="217,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="6">
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="217,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="6" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -71,7 +71,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Contact Phone:" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Margin="222,185,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="217,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="7">
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="217,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="7" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -79,7 +79,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Contact Email" HorizontalAlignment="Left" Margin="217,108,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="26,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="8">
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="26,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="8" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -87,39 +87,39 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Contact Address" HorizontalAlignment="Left" Margin="26,185,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtPositionType" HorizontalAlignment="Left" Margin="628,271,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox x:Name="txtPositionType" Margin="0,271,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" HorizontalAlignment="Right" Width="160" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Position Type" HorizontalAlignment="Left" Margin="658,240,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtPosiNum" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Margin="628,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Position Type" Margin="0,240,42,0" VerticalAlignment="Top" Foreground="#27263e" HorizontalAlignment="Right" Width="100"/>
+        <TextBox x:Name="txtPosiNum" PreviewTextInput="NumberValidationTextBox" Margin="0,115,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" HorizontalAlignment="Right" Width="160" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Job Code / Pos#" HorizontalAlignment="Left" Margin="649,85,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtSubType" HorizontalAlignment="Left" Margin="628,357,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Job Code / Pos#" Margin="0,85,34,0" VerticalAlignment="Top" Foreground="#27263e" HorizontalAlignment="Right" Width="117"/>
+        <TextBox x:Name="txtSubType" Margin="0,357,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" HorizontalAlignment="Right" Width="160" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Position Sub-Type" HorizontalAlignment="Left" Margin="642,326,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtDirectorate" HorizontalAlignment="Left" Margin="628,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Position Sub-Type" Margin="0,326,27,0" VerticalAlignment="Top" Foreground="#27263e" HorizontalAlignment="Right" Width="131"/>
+        <TextBox x:Name="txtDirectorate" Margin="0,184,12,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" HorizontalAlignment="Right" Width="160" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Directorate" HorizontalAlignment="Left" Margin="666,154,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox HorizontalAlignment="Left" Margin="26,368,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <Label Content="Directorate" Margin="0,154,50,0" VerticalAlignment="Top" Foreground="#27263e" HorizontalAlignment="Right" Width="84"/>
+        <TextBox HorizontalAlignment="Left" Margin="26,368,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -127,7 +127,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Start Date" HorizontalAlignment="Left" Margin="26,337,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox HorizontalAlignment="Left" Margin="217,368,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox HorizontalAlignment="Left" Margin="217,368,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -135,7 +135,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="End Date&#xA;" HorizontalAlignment="Left" Margin="217,337,0,0" VerticalAlignment="Top" Foreground="#27263e" Height="28"/>
-        <TextBox HorizontalAlignment="Left" Margin="218,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox HorizontalAlignment="Left" Margin="218,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -183,7 +183,7 @@
                 </LinearGradientBrush>
             </DatePicker.BorderBrush>
         </DatePicker>
-        <ComboBox x:Name="cmbPositionType" HorizontalAlignment="Left" Margin="635,272,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5">
+        <ComboBox x:Name="cmbPositionType" Margin="0,272,19,0" VerticalAlignment="Top" Height="27" BorderBrush="#FFF8F2F5" HorizontalAlignment="Right" Width="146">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
@@ -192,7 +192,7 @@
             </ComboBox.Background>
 
         </ComboBox>
-        <ComboBox x:Name="cmbSubtype" HorizontalAlignment="Left" Margin="635,358,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5">
+        <ComboBox x:Name="cmbSubtype" Margin="0,358,19,0" VerticalAlignment="Top" Height="27" BorderBrush="#FFF8F2F5" HorizontalAlignment="Right" Width="146">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
@@ -201,7 +201,7 @@
             </ComboBox.Background>
 
         </ComboBox>
-        <ComboBox x:Name="cmbDirectorate" HorizontalAlignment="Left" Margin="635,185,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5">
+        <ComboBox x:Name="cmbDirectorate" Margin="0,185,19,0" VerticalAlignment="Top" Height="27" BorderBrush="#FFF8F2F5" HorizontalAlignment="Right" Width="146">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
