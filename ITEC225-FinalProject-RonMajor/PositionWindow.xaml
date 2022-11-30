@@ -22,7 +22,7 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Job Code / Pos#" HorizontalAlignment="Left" Margin="343,63,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
+        <Label Content="Position Number" HorizontalAlignment="Left" Margin="343,63,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
         <TextBox x:Name="txtSubType" HorizontalAlignment="Left" Margin="48,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">

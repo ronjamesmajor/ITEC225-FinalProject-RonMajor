@@ -38,7 +38,7 @@ namespace ITEC225_FinalProject_RonMajor
 
         public void CreateUser(LoginWindow loginWindow, AccessLevel accessLevel) //Create a new user, and add them to the list.
         {
-            if(accessLevel == AccessLevel.Admin)
+            if (accessLevel == AccessLevel.Admin)
             {
                 Administrator tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
                 FormTemplate.users.Add(tmp);
@@ -211,6 +211,32 @@ namespace ITEC225_FinalProject_RonMajor
             }
         }
 
+        public static bool UpdatePosition(Position position, PositionWindow thisWindow) // save working data.
+        {
+            bool dataSaved = false;
+            try
+            {
+                foreach (Position p in FormTemplate.positions)
+                {
+                    if (p.PosNum == position.PosNum)
+                    {
+                        p.StartDate = (DateTime)thisWindow.dtpStart.SelectedDate;
+                        p.EndDate = (DateTime)thisWindow.dtpStart.SelectedDate;
+                        p.Directorate = ((ComboBoxItem)thisWindow.cmbLocation.SelectedItem).Content.ToString();
+                        p.PositionType = (PositionType)thisWindow.cmbPositionType.SelectedValue;
+                        p.SubType = (SubType)thisWindow.cmbPositionType.SelectedValue;
+                        p.OfficeLocation = ((ComboBoxItem)thisWindow.cmbLocation.SelectedItem).Content.ToString();
+                        dataSaved = true;
+                    }
+                }
+                        return dataSaved;
+            }
+            catch
+            {
+                return dataSaved;
+            }
+        }
+
         public static List<string> LoadData()//Load local files and deserialize to create datastores.
         {
             List<string> labelProps = new();
@@ -364,7 +390,7 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.cmbSubtype.IsReadOnly = false;
                 approvalWindow.dtpStart.Visibility = Visibility.Visible;
                 approvalWindow.dtpEnd.Visibility = Visibility.Visible;
-                
+
             }
             else if (MainWindow.CurrentUser is HR)
             {
