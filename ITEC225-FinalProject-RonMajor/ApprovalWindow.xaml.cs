@@ -34,12 +34,15 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            //savedata
+            this.Close();
         }
 
         private void btnDiscard_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
+
+
     }
 }

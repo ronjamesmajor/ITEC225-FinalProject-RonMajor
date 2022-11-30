@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
@@ -317,22 +318,112 @@ namespace ITEC225_FinalProject_RonMajor
 
         public static void SetupRequestTable(Request request, ApprovalWindow approvalWindow)
         {
+            approvalWindow.cmbPositionType.ItemsSource = Enum.GetValues(typeof(PositionType)); //bind the combo box to the enum values.
+            approvalWindow.cmbSubtype.ItemsSource = Enum.GetValues(typeof(SubType));
+            //administrators, and managers can advance requests. Edits have a chain of custody.
             if (MainWindow.CurrentUser is Administrator)
             {
                 //do edits and allow adding and deleting.
+                //can't be done with 'foreach control c in usercontrols' because wpf doesn't use usercontrols.
+                approvalWindow.txtFirst.IsReadOnly = false;
+                approvalWindow.txtLast.IsReadOnly = false;
+                approvalWindow.txtDepartment.IsReadOnly = false;
+                approvalWindow.txtEmail.IsReadOnly = false;
+                approvalWindow.txtAddress.IsReadOnly = false;
+                approvalWindow.txtPhone.IsReadOnly = false;
+                approvalWindow.txtOfficeLocation.IsReadOnly = false;
+                approvalWindow.txtEmplNum.IsReadOnly = false;
+                approvalWindow.txtPosiNum.IsReadOnly = false;
+                approvalWindow.btnSave.Visibility = Visibility.Visible;
+                approvalWindow.cmbDirectorate.IsReadOnly = false;
+                approvalWindow.cmbLocation.IsReadOnly = false;
+                approvalWindow.cmbPositionType.IsReadOnly = false;
+                approvalWindow.cmbSubtype.IsReadOnly = false;
+                approvalWindow.dtpStart.Visibility = Visibility.Visible;
+                //start backing empty.
+                approvalWindow.dtpEnd.Visibility = Visibility.Visible;
+                //end backing empty.
+
             }
-            else if (MainWindow.CurrentUser is Manager)
+            else if (MainWindow.CurrentUser is Manager) //this allows chain of custody - two people must make edits to one request.
             {
-                //some edits
+                //management can edit position information but not personal information.
+                approvalWindow.txtFirst.IsReadOnly = true;
+                approvalWindow.txtLast.IsReadOnly = true;
+                approvalWindow.txtDepartment.IsReadOnly = false;
+                approvalWindow.txtEmail.IsReadOnly = true;
+                approvalWindow.txtAddress.IsReadOnly = true;
+                approvalWindow.txtPhone.IsReadOnly = true;
+                approvalWindow.txtOfficeLocation.IsReadOnly = true;
+                approvalWindow.txtEmplNum.IsReadOnly = true;
+                approvalWindow.txtPosiNum.IsReadOnly = false;
+                approvalWindow.btnSave.Visibility = Visibility.Visible;
+                approvalWindow.cmbDirectorate.IsReadOnly = false;
+                approvalWindow.cmbLocation.IsReadOnly = false;
+                approvalWindow.cmbPositionType.IsReadOnly = false;
+                approvalWindow.cmbSubtype.IsReadOnly = false;
+                approvalWindow.dtpStart.Visibility = Visibility.Visible;
+                approvalWindow.dtpEnd.Visibility = Visibility.Visible;
+                
             }
             else if (MainWindow.CurrentUser is HR)
             {
-                //allow edits.
+                //HR can edit personal information but not position information.
+                approvalWindow.txtFirst.IsReadOnly = false;
+                approvalWindow.txtLast.IsReadOnly = false;
+                approvalWindow.txtDepartment.IsReadOnly = false;
+                approvalWindow.txtEmail.IsReadOnly = false;
+                approvalWindow.txtAddress.IsReadOnly = false;
+                approvalWindow.txtPhone.IsReadOnly = false;
+                approvalWindow.txtOfficeLocation.IsReadOnly = false;
+                approvalWindow.txtEmplNum.IsReadOnly = false;
+                approvalWindow.txtPosiNum.IsReadOnly = true;
+                approvalWindow.btnSave.Visibility = Visibility.Visible;
+                approvalWindow.cmbDirectorate.IsReadOnly = true;
+                approvalWindow.cmbLocation.IsReadOnly = true;
+                approvalWindow.cmbPositionType.IsReadOnly = true;
+                approvalWindow.cmbSubtype.IsReadOnly = true;
+                approvalWindow.dtpStart.Visibility = Visibility.Hidden;
+                //start backing.
+                approvalWindow.txtStartBacking.Text = approvalWindow.dtpStart.SelectedDate.ToString();
+                approvalWindow.dtpEnd.Visibility = Visibility.Hidden;
+                //end backing.
+                approvalWindow.txtStartBacking.Text = approvalWindow.dtpStart.SelectedDate.ToString();
             }
             else
             {
                 //don't allow editing.
+                approvalWindow.btnSave.Visibility = Visibility.Hidden;
+
+                approvalWindow.dtpStart.Visibility = Visibility.Hidden;
+                //start backing.
+                approvalWindow.txtStartBacking.Text = approvalWindow.dtpStart.SelectedDate.ToString();
+                approvalWindow.dtpEnd.Visibility = Visibility.Hidden;
+                //end backing.
+                approvalWindow.txtStartBacking.Text = approvalWindow.dtpStart.SelectedDate.ToString();
             }
+
+            //fill the tables
+            //Candidate
+            approvalWindow.txtFirst.Text = request.Candidate.FirstName;
+            approvalWindow.txtLast.Text = request.Candidate.LastName;
+            approvalWindow.txtDepartment.Text = request.Candidate.Department;
+            approvalWindow.txtEmail.Text = request.Candidate.ContactEmail;
+            approvalWindow.txtAddress.Text = request.Candidate.ContactAddress;
+            approvalWindow.txtPhone.Text = request.Candidate.ContactPhone;
+            approvalWindow.txtOfficeLocation.Text = request.Candidate.OfficeLocation;
+            approvalWindow.txtEmplNum.Text = request.Candidate.EmployeeNum.ToString();
+            //Request
+            approvalWindow.dtpStart.SelectedDate = request.Position.StartDate;
+            approvalWindow.txtStartBacking.Text = request.Position.StartDate.ToString();
+            approvalWindow.dtpEnd.SelectedDate = request.Position.EndDate;
+            approvalWindow.txtEndBacking.Text = request.Position.EndDate.ToString();
+            approvalWindow.cmbLocation.SelectedValue = request.Position.OfficeLocation;
+            approvalWindow.txtPosiNum.Text = request.Position.PosNum.ToString();
+            approvalWindow.cmbDirectorate.SelectedValue = request.Position.Directorate;
+            approvalWindow.cmbPositionType.SelectedValue = request.Position.PositionType;
+            approvalWindow.cmbSubtype.SelectedValue = request.Position.SubType;
+
         }
         #endregion
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ITEC225_FinalProject_RonMajor
@@ -26,9 +27,10 @@ namespace ITEC225_FinalProject_RonMajor
                 {
                     StartDate = (DateTime)dtpStart.SelectedDate,
                     EndDate = (DateTime)dtpStart.SelectedDate,
+                    Directorate = ((ComboBoxItem)cmbLocation.SelectedItem).Content.ToString(),
                     PositionType = (PositionType)cmbPositionType.SelectedValue,
                     SubType = (SubType)cmbPositionType.SelectedValue,
-                    OfficeLocation = cmbLocation.SelectedValue.ToString()
+                    OfficeLocation = ((ComboBoxItem)cmbLocation.SelectedItem).Content.ToString() //wpf is stupid sometimes.
 
                 };
                 this.Close();

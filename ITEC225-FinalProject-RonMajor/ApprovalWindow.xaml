@@ -22,7 +22,7 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Button x:Name="btnDiscard" Content="Discard" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="0,0,240,20" Click="btnDiscard_Click" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+        <Button x:Name="btnDiscard" Content="Close" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="0,0,240,20" Click="btnDiscard_Click" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Right">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -79,7 +79,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Contact Email" HorizontalAlignment="Left" Margin="217,108,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="26,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="8" IsReadOnly="True">
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="26,216,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="8" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -119,7 +119,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Directorate" Margin="0,154,50,0" VerticalAlignment="Top" Foreground="#27263e" HorizontalAlignment="Right" Width="84"/>
-        <TextBox HorizontalAlignment="Left" Margin="26,368,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
+        <TextBox x:Name="txtStartBacking" HorizontalAlignment="Left" Margin="26,368,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -127,7 +127,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Start Date" HorizontalAlignment="Left" Margin="26,337,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox HorizontalAlignment="Left" Margin="217,368,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
+        <TextBox x:Name="txtEndBacking" HorizontalAlignment="Left" Margin="217,368,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -143,7 +143,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Position Office Location" HorizontalAlignment="Left" Margin="218,270,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <ComboBox x:Name="cmbLocation" HorizontalAlignment="Left" Margin="224,301,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5">
+        <ComboBox x:Name="cmbLocation" HorizontalAlignment="Left" Margin="224,301,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5" IsReadOnly="True">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
@@ -163,7 +163,7 @@
             <ComboBoxItem Content="SK"/>
             <ComboBoxItem Content="CANADA"/>
         </ComboBox>
-        <DatePicker x:Name="dtpStart" HorizontalAlignment="Left" Margin="34,368,0,0" VerticalAlignment="Top" Background="#FFD3CED1" Height="26" Width="144">
+        <DatePicker x:Name="dtpStart" HorizontalAlignment="Left" Margin="34,369,0,0" VerticalAlignment="Top" Background="#FFD3CED1" Height="26" Width="144">
             <DatePicker.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                     <GradientStop Color="#FFA3AEB9"/>
@@ -173,7 +173,7 @@
                 </LinearGradientBrush>
             </DatePicker.BorderBrush>
         </DatePicker>
-        <DatePicker x:Name="dtpEnd" HorizontalAlignment="Left" Margin="224,368,0,0" VerticalAlignment="Top" Background="#FFD3CED1" Height="26" Width="146">
+        <DatePicker x:Name="dtpEnd" HorizontalAlignment="Left" Margin="224,369,0,0" VerticalAlignment="Top" Background="#FFD3CED1" Height="26" Width="146">
             <DatePicker.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                     <GradientStop Color="#FFA3AEB9"/>
@@ -183,7 +183,7 @@
                 </LinearGradientBrush>
             </DatePicker.BorderBrush>
         </DatePicker>
-        <ComboBox x:Name="cmbPositionType" Margin="0,272,19,0" VerticalAlignment="Top" Height="27" BorderBrush="#FFF8F2F5" HorizontalAlignment="Right" Width="146">
+        <ComboBox x:Name="cmbPositionType" Margin="0,272,19,0" VerticalAlignment="Top" Height="27" BorderBrush="#FFF8F2F5" HorizontalAlignment="Right" Width="146" IsReadOnly="True">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
@@ -192,7 +192,7 @@
             </ComboBox.Background>
 
         </ComboBox>
-        <ComboBox x:Name="cmbSubtype" Margin="0,358,19,0" VerticalAlignment="Top" Height="27" BorderBrush="#FFF8F2F5" HorizontalAlignment="Right" Width="146">
+        <ComboBox x:Name="cmbSubtype" Margin="0,358,19,0" VerticalAlignment="Top" Height="27" BorderBrush="#FFF8F2F5" HorizontalAlignment="Right" Width="146" IsReadOnly="True">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
@@ -201,7 +201,7 @@
             </ComboBox.Background>
 
         </ComboBox>
-        <ComboBox x:Name="cmbDirectorate" Margin="0,185,19,0" VerticalAlignment="Top" Height="27" BorderBrush="#FFF8F2F5" HorizontalAlignment="Right" Width="146">
+        <ComboBox x:Name="cmbDirectorate" Margin="0,185,19,0" VerticalAlignment="Top" Height="27" BorderBrush="#FFF8F2F5" HorizontalAlignment="Right" Width="146" IsReadOnly="True">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
