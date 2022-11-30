@@ -57,12 +57,10 @@ namespace ITEC225_FinalProject_RonMajor
                 Client tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
                 FormTemplate.users.Add(tmp);
             }
-            else
+            if (accessLevel == null)
             {
-            User tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
-            tmp.accessLevel = accessLevel;
-            tmp.abilityLevel = MatchAccessLevel(accessLevel);
-            FormTemplate.users.Add(tmp);
+                Client tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+                FormTemplate.users.Add(tmp);
             }
             CreateDataStore(); //then writes users out to json.
             MainWindow mw = new(); //and opens a new window.

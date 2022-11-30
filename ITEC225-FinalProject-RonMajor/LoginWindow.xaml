@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="390" Width="545" Background="#afb7bf" WindowStartupLocation="CenterScreen" FontFamily="Source Sans Pro">
     <Grid>
-        <Button x:Name="btnLogin" Content="Log In" Margin="85,281,340,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnLogin_Click" FontSize="16">
+        <Button x:Name="btnLogin" Content="Log In" Margin="82,281,343,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnLogin_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -15,7 +15,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnNewUser" Content="Create User" Margin="220,281,205,0" VerticalAlignment="Top" Height="35" Background="#f6f7fa" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewUser_Click" FontSize="16">
+        <Button x:Name="btnNewUser" Content="Create User" Margin="361,281,64,0" VerticalAlignment="Top" Height="35" Background="#f6f7fa" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewUser_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -42,7 +42,7 @@
         </TextBox>
         <Label Content="Log in with existing username or add user with the Create User button" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
         <PasswordBox x:Name="pwdPassbox" HorizontalAlignment="Left" Margin="330,115,0,0" VerticalAlignment="Top" Width="170" Background="#FFF8F2F5" Foreground="#FF27263E" BorderBrush="{x:Null}" Height="26" FontSize="16"/>
-        <Button x:Name="btnConfirmUser" Content="Confirm User" Margin="360,281,65,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnConfirmUser_Click" FontSize="16">
+        <Button x:Name="btnConfirmUser" Content="Confirm User" Margin="220,281,205,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnConfirmUser_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">

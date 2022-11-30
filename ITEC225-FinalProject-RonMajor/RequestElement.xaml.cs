@@ -43,5 +43,11 @@ namespace ITEC225_FinalProject_RonMajor
             foreach (RequestElement r in RequestElement.relements)
                 DataHelper.controlElements.Add(r);
         }
+
+        private void UserControl_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ApprovalWindow aw = new(ThisRequest);//show the window to control this request.
+            aw.Show();
+        }
     }
 }
