@@ -24,12 +24,16 @@ namespace ITEC225_FinalProject_RonMajor
 
         public PositionWindow(Position thisPos) //overloaded constructor because updates!
         {
+            InitializeComponent();
+            cmbPositionType.ItemsSource = Enum.GetValues(typeof(PositionType)); //bind the combo box to the enum values.
+            cmbSubtype.ItemsSource = Enum.GetValues(typeof(SubType));
             txtPosiNum.Text = thisPos.PosNum.ToString();
             cmbPositionType.SelectedItem = thisPos.PositionType;
+            cmbSubtype.SelectedItem = thisPos.SubType;
             cmbDirectorate.SelectedItem = thisPos.Directorate;
             dtpStart.SelectedDate = thisPos.StartDate;
             dtpEnd.SelectedDate = thisPos.EndDate;
-            cmbLocation.SelectedItem = thisPos.OfficeLocation;
+            cmbLocation.SelectedItem = thisPos.OfficeLocation.;
             thisPosition = thisPos;
             update = true;
         }

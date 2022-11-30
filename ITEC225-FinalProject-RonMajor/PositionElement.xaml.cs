@@ -42,5 +42,11 @@ namespace ITEC225_FinalProject_RonMajor
             foreach (PositionElement p in PositionElement.elements)  //add all these elements to running list of
                 DataHelper.controlElements.Add(p);                  //all elements
         }
+
+        private void Grid_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            PositionWindow pw = new(ThisPositon); //overload polymorphism to use for updates.
+            pw.Show();
+        }
     }
 }

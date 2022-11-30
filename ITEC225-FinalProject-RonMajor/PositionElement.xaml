@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Code Pro" BorderBrush="#FF738E93" BorderThickness="2">
-    <Grid>
+    <Grid PreviewMouseLeftButtonUp="Grid_PreviewMouseLeftButtonUp">
         <Label x:Name="lblPosNum" Content="PositionNum" HorizontalAlignment="Left" Margin="18,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
         <Label x:Name="lblStartDate" Content="12/11/2022" HorizontalAlignment="Left" Margin="186,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
         <Label x:Name="lblPosType" Content="PositionType" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30" Margin="346,24,0,0"/>
