@@ -17,23 +17,20 @@ namespace ITEC225_FinalProject_RonMajor
         public PositionWindow()
         {
             InitializeComponent();
-            cmbPositionType.ItemsSource = Enum.GetValues(typeof(PositionType)); //bind the combo box to the enum values.
-            cmbSubtype.ItemsSource = Enum.GetValues(typeof(SubType));
-
+            BindSources();
         }
 
         public PositionWindow(Position thisPos) //overloaded constructor because updates!
         {
             InitializeComponent();
-            cmbPositionType.ItemsSource = Enum.GetValues(typeof(PositionType)); //bind the combo box to the enum values.
-            cmbSubtype.ItemsSource = Enum.GetValues(typeof(SubType));
+            BindSources();
             txtPosiNum.Text = thisPos.PosNum.ToString();
             cmbPositionType.SelectedItem = thisPos.PositionType;
             cmbSubtype.SelectedItem = thisPos.SubType;
             cmbDirectorate.SelectedItem = thisPos.Directorate;
             dtpStart.SelectedDate = thisPos.StartDate;
             dtpEnd.SelectedDate = thisPos.EndDate;
-            cmbLocation.SelectedItem = thisPos.OfficeLocation.;
+            cmbLocation.SelectedValue = thisPos.OfficeLocation;
             thisPosition = thisPos;
             update = true;
         }
@@ -48,10 +45,10 @@ namespace ITEC225_FinalProject_RonMajor
                 {
                     StartDate = (DateTime)dtpStart.SelectedDate,
                     EndDate = (DateTime)dtpStart.SelectedDate,
-                    Directorate = ((ComboBoxItem)cmbLocation.SelectedItem).Content.ToString(),
+                    Directorate = cmbDirectorate.Text,
                     PositionType = (PositionType)cmbPositionType.SelectedValue,
                     SubType = (SubType)cmbPositionType.SelectedValue,
-                    OfficeLocation = ((ComboBoxItem)cmbLocation.SelectedItem).Content.ToString() //wpf is stupid sometimes.
+                    OfficeLocation = cmbLocation.Text,
 
                 };
                 this.Close();
@@ -69,6 +66,14 @@ namespace ITEC225_FinalProject_RonMajor
         private void btnDiscard_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BindSources()
+        {
+            cmbPositionType.ItemsSource = Enum.GetValues(typeof(PositionType)); //bind the combo box to the enum values.
+            cmbSubtype.ItemsSource = Enum.GetValues(typeof(SubType));
+            cmbDirectorate.ItemsSource = DataHelper.directorates;
+            cmbLocation.ItemsSource = DataHelper.locations;
         }
     }
 }

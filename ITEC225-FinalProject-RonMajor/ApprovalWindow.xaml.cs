@@ -15,15 +15,16 @@ using System.Windows.Shapes;
 
 namespace ITEC225_FinalProject_RonMajor
 {
-    /// <summary>
-    /// Interaction logic for ApprovalWindow.xaml
-    /// </summary>
     public partial class ApprovalWindow : Window
     {
+        public static Request approvalRequest { get; set; } //new request.
+
         public ApprovalWindow(Request request) //approval window takes a request.
         {
+            approvalRequest = request;
             InitializeComponent();
-            DataHelper.SetupRequestTable(request,this); //send this window and request.
+            BindSources();
+            DataHelper.SetupRequestTable(approvalRequest, this); //send this window and request.
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -34,7 +35,7 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            //savedata
+           //savedata
             this.Close();
         }
 
@@ -43,6 +44,23 @@ namespace ITEC225_FinalProject_RonMajor
             this.Close();
         }
 
+        private void BindSources()
+        {
+            cmbPositionType.ItemsSource = Enum.GetValues(typeof(PositionType)); //bind the combo box to the enum values.
+            cmbSubtype.ItemsSource = Enum.GetValues(typeof(SubType));
+            cmbDirectorate.ItemsSource = DataHelper.directorates;
+            cmbLocation.ItemsSource = DataHelper.locations;
 
+        }
+
+        private void btnApprove_Click(object sender, RoutedEventArgs e)
+        {
+            DataHelper.AdvanceRequest(approvalRequest);
+        }
+
+        private void btnReject_Click(object sender, RoutedEventArgs e)
+        {
+            DataHelper.RejectRequest(approvalRequest);
+        }
     }
 }

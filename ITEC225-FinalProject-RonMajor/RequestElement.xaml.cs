@@ -40,6 +40,14 @@ namespace ITEC225_FinalProject_RonMajor
             foreach (Request r in FormTemplate.requests) //foreach candidate,
                 RequestElement.relements.Add(new RequestElement(r)); //add a new element to the elements list.
 
+            for (int i = 0; i < DataHelper.controlElements.Count; i++)
+            {
+                if(DataHelper.controlElements[i] is RequestElement)
+                {
+                    DataHelper.controlElements.RemoveAt(i);
+                }
+            }
+
             foreach (RequestElement r in RequestElement.relements)
                 DataHelper.controlElements.Add(r);
         }

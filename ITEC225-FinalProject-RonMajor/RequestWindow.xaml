@@ -86,11 +86,6 @@
                     <GradientStop Color="#FFF8F2F5" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <ComboBoxItem Content="English Imperative"/>
-            <ComboBoxItem Content="French Imperative/"/>
-            <ComboBoxItem Content="Bilingual Imperative"/>
-            <ComboBoxItem Content="N/A"/>
-
         </ComboBox>
         <ComboBox x:Name="cmbLanguageProfile" HorizontalAlignment="Left" Margin="50,254,0,0" VerticalAlignment="Top" Width="146" Height="27" BorderBrush="#FFF8F2F5" Grid.Column="1">
             <ComboBox.Background>
@@ -99,13 +94,6 @@
                     <GradientStop Color="#FFF8F2F5" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <ComboBoxItem Content="AAA/AAA"/>
-            <ComboBoxItem Content="ABA/ABA"/>
-            <ComboBoxItem Content="ABB/ABB"/>
-            <ComboBoxItem Content="BBB/BBB"/>
-            <ComboBoxItem Content="ABC/ABC"/>
-            <ComboBoxItem Content="English Only"/>
-            <ComboBoxItem Content="French Only"/>
         </ComboBox>
     </Grid>
 </Window>

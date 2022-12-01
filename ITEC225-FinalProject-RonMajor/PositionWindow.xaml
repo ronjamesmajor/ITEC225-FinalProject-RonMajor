@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="PositionWindow" Height="495" Width="545" Background="#afb7bf" WindowStartupLocation="CenterScreen" FontSize="16" FontFamily="Source Sans Pro">
     <Grid>
-        <TextBox x:Name="txtPositionType" HorizontalAlignment="Left" Margin="48,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox x:Name="txtPositionType" HorizontalAlignment="Left" Margin="48,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -23,7 +23,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Position Number" HorizontalAlignment="Left" Margin="343,63,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtSubType" HorizontalAlignment="Left" Margin="48,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox x:Name="txtSubType" HorizontalAlignment="Left" Margin="48,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -31,7 +31,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Position Sub-Type" HorizontalAlignment="Left" Margin="48,143,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox x:Name="txtDirectorate" HorizontalAlignment="Left" Margin="343,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox x:Name="txtDirectorate" HorizontalAlignment="Left" Margin="343,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -39,7 +39,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Directorate" HorizontalAlignment="Left" Margin="343,143,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox HorizontalAlignment="Left" Margin="48,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox HorizontalAlignment="Left" Margin="48,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -47,7 +47,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="Start Date" HorizontalAlignment="Left" Margin="48,222,0,0" VerticalAlignment="Top" Foreground="#27263e"/>
-        <TextBox HorizontalAlignment="Left" Margin="343,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox HorizontalAlignment="Left" Margin="343,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -55,7 +55,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="End Date&#xA;" HorizontalAlignment="Left" Margin="343,222,0,0" VerticalAlignment="Top" Foreground="#27263e" Height="28"/>
-        <TextBox HorizontalAlignment="Left" Margin="48,334,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E">
+        <TextBox HorizontalAlignment="Left" Margin="48,334,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#FF41352E" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -86,18 +86,6 @@
                     <GradientStop Color="#FFF8F2F5" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <ComboBoxItem Content="NCR"/>
-            <ComboBoxItem Content="AB"/>
-            <ComboBoxItem Content="BC"/>
-            <ComboBoxItem Content="MB"/>
-            <ComboBoxItem Content="NB"/>
-            <ComboBoxItem Content="BL"/>
-            <ComboBoxItem Content="NS"/>
-            <ComboBoxItem Content="ON"/>
-            <ComboBoxItem Content="PEI"/>
-            <ComboBoxItem Content="QC"/>
-            <ComboBoxItem Content="SK"/>
-            <ComboBoxItem Content="CANADA"/>
         </ComboBox>
         <DatePicker x:Name="dtpStart" HorizontalAlignment="Left" Margin="55,253,0,0" VerticalAlignment="Top" Background="#FFD3CED1" Height="26" Width="145">
             <DatePicker.BorderBrush>
@@ -144,10 +132,6 @@
                     <GradientStop Color="#FFF8F2F5" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <ComboBoxItem Content="BOP"/>
-            <ComboBoxItem Content="BSI"/>
-            <ComboBoxItem Content="BSIM"/>
-            <ComboBoxItem Content="SABR"/>
         </ComboBox>
 
     </Grid>

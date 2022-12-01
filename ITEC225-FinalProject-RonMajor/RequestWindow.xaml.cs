@@ -24,10 +24,7 @@ namespace ITEC225_FinalProject_RonMajor
         public RequestWindow()
         {
             InitializeComponent();
-            cmbCandidate.ItemsSource = FormTemplate.candidates;
-            cmbCandidate.DisplayMemberPath = "DisplayName"; 
-            cmbPosition.ItemsSource = FormTemplate.positions;
-            cmbPosition.DisplayMemberPath = "DisplayName";
+            BindSources();
         }
 
 
@@ -48,6 +45,16 @@ namespace ITEC225_FinalProject_RonMajor
         private void btnDiscard_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BindSources()
+        {
+            cmbCandidate.ItemsSource = FormTemplate.candidates;
+            cmbCandidate.DisplayMemberPath = "DisplayName";
+            cmbPosition.ItemsSource = FormTemplate.positions;
+            cmbPosition.DisplayMemberPath = "DisplayName";
+            cmbBilingual.ItemsSource = DataHelper.bilinguals;
+            cmbLanguageProfile.ItemsSource = DataHelper.languages;
         }
     }
 }
