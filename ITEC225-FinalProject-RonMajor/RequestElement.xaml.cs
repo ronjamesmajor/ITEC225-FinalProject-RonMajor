@@ -38,7 +38,10 @@ namespace ITEC225_FinalProject_RonMajor
             relements.Clear();
 
             foreach (Request r in FormTemplate.requests) //foreach candidate,
+            {
+                if(r.approval != ApprovalOrder.Deleted)
                 RequestElement.relements.Add(new RequestElement(r)); //add a new element to the elements list.
+            }
 
             for (int i = 0; i < DataHelper.controlElements.Count; i++)
             {
