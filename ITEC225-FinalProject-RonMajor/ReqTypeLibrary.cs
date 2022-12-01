@@ -52,10 +52,19 @@ namespace ITEC225_FinalProject_RonMajor
         public string? BilingualPosition { get; set; }
         public string? LanguageProfile { get; set; }
         public string? DelegateLabel { get; set; }
+
+        public string? DelegateLabel2 { get; set; }
         public ApprovalOrder approval { get; set; }
         public VisibilityLevel visLevel { get; set; }
         public Candidate Candidate { get; set; }
         public Position Position { get; set; }
+
+        #region Delegates
+        public delegate string SendRationaleEventHandler(string rationale); //some delegates.
+        public delegate string SendPriNumEventHandler(string prioritynum);
+        public event SendRationaleEventHandler SendRationale;
+        public event SendPriNumEventHandler SendPriNum;
+        #endregion
 
         public Request() { }
 
@@ -67,6 +76,8 @@ namespace ITEC225_FinalProject_RonMajor
             approval = ApprovalOrder.Draft;
             visLevel = VisibilityLevel.HR; //HR and up can see requests.
             FormTemplate.requests.Add(this); //add this request to requests.
+            SendRationale?.Invoke(DelegateLabel);
+            SendPriNum?.Invoke(DelegateLabel2);
         }
     }
 
@@ -89,10 +100,13 @@ namespace ITEC225_FinalProject_RonMajor
         public string PriorityRationale { get; set; }
         public int PriorityNumber { get; set; }
 
+
         public PriorityClearanceRequest(Candidate candidate, Position position) : base(candidate, position)
         {
-            
+            DelegateLabel = PriorityRationale;
+            DelegateLabel2 = PriorityNumber.ToString();
             //go!
+            
         }
     }
 

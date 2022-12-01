@@ -103,7 +103,7 @@
             </TextBox.Resources>
         </TextBox>
         <Label Content="PSC Rationale" HorizontalAlignment="Left" Margin="345,0,0,0" VerticalAlignment="Center" Foreground="#27263e" Grid.Column="1"/>
-        <TextBox x:Name="txtPriorityNumber" HorizontalAlignment="Left" Margin="43,338,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" Grid.Column="1">
+        <TextBox x:Name="txtPriorityNumber" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Margin="43,338,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" Grid.Column="1">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>

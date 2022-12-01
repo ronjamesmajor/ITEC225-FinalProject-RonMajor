@@ -413,9 +413,9 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.cmbPositionType.IsReadOnly = false;
                 approvalWindow.cmbSubtype.IsReadOnly = false;
                 approvalWindow.dtpStart.Visibility = Visibility.Visible;
-                //start backing empty.
                 approvalWindow.dtpEnd.Visibility = Visibility.Visible;
-                //end backing empty.
+                approvalWindow.txtRationale.IsReadOnly = false;
+                approvalWindow.txtPriNum.IsReadOnly = false;
 
             }
             else if (MainWindow.CurrentUser is Manager) //this allows chain of custody - two people must make edits to one request.
@@ -439,6 +439,8 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.cmbSubtype.IsReadOnly = false;
                 approvalWindow.dtpStart.Visibility = Visibility.Visible;
                 approvalWindow.dtpEnd.Visibility = Visibility.Visible;
+                approvalWindow.txtRationale.IsReadOnly = false;
+                approvalWindow.txtPriNum.IsReadOnly = false;
 
             }
             else if (MainWindow.CurrentUser is HR)
@@ -467,6 +469,8 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.dtpEnd.Visibility = Visibility.Hidden;
                 //end backing.
                 approvalWindow.txtStartBacking.Text = end;
+                approvalWindow.txtRationale.IsReadOnly = true;
+                approvalWindow.txtPriNum.IsReadOnly = true;
             }
             else if (MainWindow.CurrentUser is Client)
             {
@@ -506,6 +510,10 @@ namespace ITEC225_FinalProject_RonMajor
             approvalWindow.cmbPositionType.SelectedValue = request.Position.PositionType;
             approvalWindow.cmbSubtype.SelectedValue = request.Position.SubType;
 
+            //sub to delegate.
+            request.SendRationale += ReceiveRationale;
+            
+
 
         }
 
@@ -539,6 +547,11 @@ namespace ITEC225_FinalProject_RonMajor
         {
             FormTemplate.candidates.Remove(thisCand);
             CandidateElement.InitializeElements();
+        }
+
+        public static string ReceiveRationale(string rationale)
+        {
+            return rationale;
         }
 
         #endregion

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
         mc:Ignorable="d"
-        Title="ApprovalWindow" Height="510" Width="605" Background="#afb7bf" WindowStartupLocation="CenterScreen" FontSize="16" FontFamily="Source Sans Pro">
+        Title="ApprovalWindow" Height="710" Width="605" Background="#afb7bf" WindowStartupLocation="CenterScreen" FontSize="16" FontFamily="Source Sans Pro">
     <Grid>
         <Button x:Name="btnSave" Content="Save" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Margin="0,0,156,15" Click="btnSave_Click" HorizontalAlignment="Right" Width="120" Height="35" VerticalAlignment="Bottom">
             <!--Round the corner of the button like we've done everything else.-->
@@ -214,6 +214,22 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <TextBox x:Name="txtPriNum" PreviewTextInput="NumberValidationTextBox" Margin="217,436,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="3" HorizontalAlignment="Left" Width="160" IsReadOnly="True" Visibility="Hidden">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label x:Name="lblPriNum" Content="Priority Number" Margin="238,406,0,0" Foreground="#27263e" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Hidden"/>
+        <TextBox x:Name="txtRationale" PreviewTextInput="NumberValidationTextBox" Margin="0,499,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="70" Background="#f6f7fa" BorderBrush="{x:Null}" Foreground="#27263e" TabIndex="3" HorizontalAlignment="Center" Width="554" IsReadOnly="True" Visibility="Hidden">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label x:Name="lblRationale" Content="Priority Rationale" Margin="234,469,0,0" Foreground="#27263e" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Hidden"/>
 
     </Grid>
 </Window>

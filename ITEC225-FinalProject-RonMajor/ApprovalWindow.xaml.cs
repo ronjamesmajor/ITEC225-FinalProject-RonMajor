@@ -23,6 +23,15 @@ namespace ITEC225_FinalProject_RonMajor
         {
             approvalRequest = request;
             InitializeComponent();
+            if (request is PriorityClearanceRequest)
+            {
+                this.Height = 710;
+                lblPriNum.Visibility = Visibility.Visible;
+                lblRationale.Visibility = Visibility.Visible;
+                txtPriNum.Visibility = Visibility.Visible;
+                txtRationale.Visibility = Visibility.Visible;
+            }
+            else this.Height = 510;
             BindSources();
             DataHelper.SetupRequestTable(approvalRequest, this); //send this window and request.
         }

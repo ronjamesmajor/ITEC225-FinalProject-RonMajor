@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -53,6 +54,13 @@ namespace ITEC225_FinalProject_RonMajor
                 PriorityNumber = int.Parse(txtPriorityNumber.Text),
                 PriorityRationale = txtRationale.Text,
             };
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+            e.Text.Trim();
         }
 
         private void btnDiscard_Click(object sender, RoutedEventArgs e)
