@@ -34,7 +34,7 @@ namespace ITEC225_FinalProject_RonMajor
             if (MainWindow.Instance != null && MainWindow.Instance.lblDataLoaded.Opacity > 0)
                 FadeLabel(MainWindow.Instance.lblDataLoaded);
 
-            if(dataRefreshTimer >= 30)
+            if(dataRefreshTimer >= 15)
             {
                 DataHelper.AppStart();
                 dataRefreshTimer = 0;

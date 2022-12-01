@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="ITEC225_FinalProject_RonMajor.PriorityElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
+             mc:Ignorable="d" 
+            d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Code Pro"  BorderBrush="#FF738E93" BorderThickness="2" PreviewMouseLeftButtonUp="UserControl_PreviewMouseLeftButtonUp">
+    <Grid>
+        <Label x:Name="lblRefNum" Content="Reference #" HorizontalAlignment="Left" Margin="18,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
+        <Label x:Name="lblEmpNum" Content="Emp Numb" HorizontalAlignment="Left" Margin="166,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
+        <Label x:Name="lblPriNum" Content="PriorityNum" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30" Margin="326,24,0,0"/>
+        <Label x:Name="lblRefLabel" Content="Reference #" Margin="12,-4,0,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Left" Width="154"/>
+        <Label x:Name="lblEmpNumLabel" Content="Employee #" Margin="166,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
+        <Label x:Name="lblApprovalLabel" Content="Approval Order" Margin="0,-4,69,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Right" Width="154"/>
+        <Label x:Name="lblPriLabel" Content="Priority #" Margin="326,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
+        <Label x:Name="lblApprovalOrder" Content="Approval Order" Foreground="#FFF6F7FA" Margin="0,24,69,-4" HorizontalAlignment="Right" Width="154"/>
+        <Image x:Name="imgDelete" Margin="702,6,15,6" Source="/bin-icon.png" PreviewMouseLeftButtonUp="imgDelete_PreviewMouseLeftButtonUp" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="34" Width="34"/>
+        <Rectangle Stroke="Transparent" Fill="Transparent" PreviewMouseLeftButtonUp="Rectangle_PreviewMouseLeftButtonUp" Margin="0,0,78,0"/>
+
+    </Grid>
+</UserControl>

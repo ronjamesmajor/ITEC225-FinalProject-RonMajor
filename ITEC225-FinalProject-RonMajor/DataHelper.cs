@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml.Linq;
 
 namespace ITEC225_FinalProject_RonMajor
 {
@@ -314,28 +315,64 @@ namespace ITEC225_FinalProject_RonMajor
             return labelProps;
         }
 
+        public static void InitializeElements()
+        {
+
+            foreach (Request r in FormTemplate.requests) //foreach candidate,
+            {
+                if (r.approval != ApprovalOrder.Deleted)
+                    RequestElement.relements.Add(new RequestElement(r)); //add a new element to the elements list.
+            }
+
+            for (int i = 0; i < DataHelper.controlElements.Count; i++)
+            {
+                if (DataHelper.controlElements[i] is RequestElement)
+                {
+                    DataHelper.controlElements.RemoveAt(i);
+                }
+            }
+
+            foreach (RequestElement r in RequestElement.relements)
+                DataHelper.controlElements.Add(r);
+        }
+
         internal static void FillElements()
         {
+            MainWindow.Instance.stpPositions.Children.Clear(); //wipe and refresh to get latest Position info
             foreach (PositionElement el in PositionElement.elements)//foreach element in the list
             {
-                MainWindow.Instance.stpPositions.Children.Clear();
                 if (MainWindow.Instance.stpPositions.Children.Count < PositionElement.elements.Count)
                     MainWindow.Instance.stpPositions.Children.Add(el);//add it to the stack panel inside of dashboard.
             }
 
+            MainWindow.Instance.stpStaffingRequests.Children.Clear();//Requests
             foreach (RequestElement rel in RequestElement.relements)
             {
-                MainWindow.Instance.stpStaffingRequests.Children.Clear();//wipe and refresh to get latest info.
                 if (MainWindow.Instance.stpStaffingRequests.Children.Count < RequestElement.relements.Count)
                     MainWindow.Instance.stpStaffingRequests.Children.Add(rel);
             }
 
+            MainWindow.Instance.stpCandidates.Children.Clear(); //Candidates
             foreach (CandidateElement cel in CandidateElement.celements)
             {
-                MainWindow.Instance.stpCandidates.Children.Clear();
                 if (MainWindow.Instance.stpCandidates.Children.Count < CandidateElement.celements.Count)
                     MainWindow.Instance.stpCandidates.Children.Add(cel);
             }
+
+            MainWindow.Instance.stpPSCRequests.Children.Clear(); //PSC Requests
+            foreach (PriorityElement pel in PriorityElement.pcelements)
+            {
+                if (MainWindow.Instance.stpPSCRequests.Children.Count < PriorityElement.pcelements.Count)
+                    MainWindow.Instance.stpPSCRequests.Children.Add(pel);
+            }
+
+            //same for SLE
+            //MainWindow.Instance.stpPSCRequests.Children.Clear(); //SLE Requests
+            //foreach (PriorityElement pel in PriorityElement.pcelements)
+            //{
+            //    if (MainWindow.Instance.stpPSCRequests.Children.Count < PriorityElement.pcelements.Count)
+            //        MainWindow.Instance.stpPSCRequests.Children.Add(pel);
+            //}
         }
 
         public static void AppStart()
@@ -343,6 +380,8 @@ namespace ITEC225_FinalProject_RonMajor
             PositionElement.InitializeElements(); //init elements
             CandidateElement.InitializeElements();
             RequestElement.InitializeElements();
+            PriorityElement.InitializeElements();
+            //SLE
             FillElements(); //fill elements into stackpanels on main window.
         }
 

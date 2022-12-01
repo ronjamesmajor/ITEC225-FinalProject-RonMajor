@@ -70,20 +70,28 @@ namespace ITEC225_FinalProject_RonMajor
         }
     }
 
-    internal class SLERequest : Request //SLERequest inherits from Request.
+    public class SLERequest : Request //SLERequest inherits from Request.
     {
         //sle stuff.
-        public SLERequest(Candidate candidate, Position position) : base(candidate, position)
+        public int EquivalencyNumber { get; set; }
+        public string Equivalency { get; set; }
+
+        public SLERequest(Candidate candidate, Position position, int equivalencyNumber, string equivalency) : base(candidate, position)
         {
-            //go!
+            EquivalencyNumber = equivalencyNumber;
+            Equivalency = equivalency;
         }
     }
 
-    internal class PriorityClearanceRequest : Request //PC inherits from Request.
+    public class PriorityClearanceRequest : Request //PC inherits from Request.
     {
         //psc stuff.
+        public string PriorityRationale { get; set; }
+        public int PriorityNumber { get; set; }
+
         public PriorityClearanceRequest(Candidate candidate, Position position) : base(candidate, position)
         {
+            
             //go!
         }
     }

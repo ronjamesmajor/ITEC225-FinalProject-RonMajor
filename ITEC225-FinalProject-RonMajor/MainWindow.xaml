@@ -62,12 +62,13 @@
                 <!--<local:TestWindow/>-->
             </TabItem>
             <TabItem Name="PriorityTab" Header="Priority Requests">
-                <Grid Background="#afb7bf        "/>
-                <!--<local:TestWindow/>-->
+                <StackPanel x:Name="stpPSCRequests">
+
+                </StackPanel>
             </TabItem>
         </TabControl>
         <Image x:Name="imgLogo" HorizontalAlignment="Right" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="345" Source="/logo.png"/>
-        <Button x:Name="btnNewPosition" Content="New Position" Margin="1108,363,18,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewPosition_Click" FontSize="16">
+        <Button x:Name="btnNewPosition" Content="New Position" Margin="1108,368,18,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewPosition_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="Border">
@@ -75,7 +76,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnNewCandidate" Content="New Candidate" Margin="1108,312,18,0" VerticalAlignment="Top" Height="35" Background="#f6f7fa" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewCandidate_Click" FontSize="16">
+        <Button x:Name="btnNewCandidate" Content="New Candidate" Margin="1108,309,18,0" VerticalAlignment="Top" Height="35" Background="#f6f7fa" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewCandidate_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -83,7 +84,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnLoadData" Content="Load Data" Margin="1108,465,18,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnLoadData_Click" FontSize="16">
+        <Button x:Name="btnLoadData" Content="Load Data" Margin="1108,649,18,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnLoadData_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -91,7 +92,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnSaveData" Content="Save Data" Margin="1108,516,18,0" VerticalAlignment="Top" Height="35" Background="#27263e" Foreground="#f6f7fa" BorderBrush="{x:Null}" Click="btnSaveData_Click" FontSize="16">
+        <Button x:Name="btnSaveData" Content="Save Data" Margin="1108,700,18,0" VerticalAlignment="Top" Height="35" Background="#27263e" Foreground="#f6f7fa" BorderBrush="{x:Null}" Click="btnSaveData_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -99,7 +100,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnNewRequest_Copy1" Content="New Request" Margin="1108,414,18,0" VerticalAlignment="Top" Height="35" Background="#27263e" Foreground="#FFF6F7FA" Click="btnNewRequest_Click" BorderBrush="{x:Null}" FontSize="16">
+        <Button x:Name="btnNewRequest_Copy1" Content="New Request" Margin="1108,429,18,0" VerticalAlignment="Top" Height="35" Background="#27263e" Foreground="#FFF6F7FA" Click="btnNewRequest_Click" BorderBrush="{x:Null}" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -111,6 +112,24 @@
         <Label Content="Click within the Dashboard to view and edit entries.&#xD;&#xA;Click a button on the right hand navigation to create new entries or to save." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
         <Label x:Name="lblDataSaved" Content="Data Saved Successfully" HorizontalAlignment="Left" Margin="10,728,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" Opacity="0"/>
         <Label x:Name="lblDataLoaded" Content="Data Saved Successfully" HorizontalAlignment="Left" Margin="10,728,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" Opacity="0"/>
+        <Button x:Name="btnNewSLE" Content="New SLE" Margin="1108,488,18,0" VerticalAlignment="Top" Height="35" Background="#27263e" Foreground="#FFF6F7FA" BorderBrush="{x:Null}" FontSize="16">
+            <!--Round the corner of the button like we've done everything else.-->
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnNewPSC" Content="New PSC" Margin="1108,548,18,0" VerticalAlignment="Top" Height="35" Background="#27263e" Foreground="#FFF6F7FA" BorderBrush="{x:Null}" FontSize="16" Click="btnNewPSC_Click">
+            <!--Round the corner of the button like we've done everything else.-->
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="8"/>
+                </Style>
+
+            </Button.Resources>
+        </Button>
 
     </Grid>
 </Window>

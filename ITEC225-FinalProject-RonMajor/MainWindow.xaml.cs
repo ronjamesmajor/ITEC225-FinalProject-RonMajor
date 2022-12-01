@@ -68,5 +68,11 @@ namespace ITEC225_FinalProject_RonMajor
         {
             DataHelper.SaveData(); //save data when the app is closing.
         }
+
+        private void btnNewPSC_Click(object sender, RoutedEventArgs e)
+        {
+            PSCRequestWindow rw = new PSCRequestWindow();
+            rw.ShowDialog();
+        }
     }
 }
