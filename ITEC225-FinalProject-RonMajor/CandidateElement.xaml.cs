@@ -44,7 +44,18 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void UserControl_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Click event!");
+        }
+
+        private void Rectangle_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            CandidateWindow cw = new CandidateWindow(ThisCandidate);
+            cw.Show();
+        }
+
+        private void imgDelete_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you wish to Delete this Position?", "Confirm Deletion", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
+                DataHelper.DeleteCandidate(ThisCandidate);
         }
     }
 }

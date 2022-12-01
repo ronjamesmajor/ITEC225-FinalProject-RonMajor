@@ -25,6 +25,19 @@ namespace ITEC225_FinalProject_RonMajor
             InitializeComponent();
         }
 
+        public CandidateWindow(Candidate thisCand) //overload poly. for edits.
+        {
+            InitializeComponent();
+            txtFirst.Text = thisCand.FirstName;
+            txtLast.Text = thisCand.LastName;
+            txtEmplNum.Text = thisCand.EmployeeNum.ToString();
+            txtDepartment.Text = thisCand.Department;
+            txtOfficeLocation.Text = thisCand.OfficeLocation;
+            txtPhone.Text = thisCand.ContactPhone;
+            txtEmail.Text = thisCand.ContactEmail;
+            txtAddress.Text = thisCand.ContactAddress;
+        }
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             Candidate cand = new Candidate(int.Parse(txtEmplNum.Text), txtLast.Text, txtFirst.Text)

@@ -7,14 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Code Pro" BorderBrush="#FF738E93" BorderThickness="2">
     <Grid PreviewMouseLeftButtonUp="Grid_PreviewMouseLeftButtonUp">
-        <Label x:Name="lblPosNum" Content="PositionNum" HorizontalAlignment="Left" Margin="18,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
-        <Label x:Name="lblStartDate" Content="12/11/2022" HorizontalAlignment="Left" Margin="186,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
-        <Label x:Name="lblPosType" Content="PositionType" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30" Margin="346,24,0,0"/>
-        <Label x:Name="lblSubType" Content="PositionSubType" Foreground="#FFF6F7FA" Margin="0,24,49,-4" HorizontalAlignment="Right" Width="154"/>
+        <Label x:Name="lblPosNum" Content="PositionNum" HorizontalAlignment="Left" Margin="12,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
+        <Label x:Name="lblStartDate" Content="12/11/2022" HorizontalAlignment="Left" Margin="158,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
+        <Label x:Name="lblPosType" Content="PositionType" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30" Margin="318,24,0,0"/>
+        <Label x:Name="lblSubType" Content="PositionSubType" Foreground="#FFF6F7FA" Margin="0,24,77,-4" HorizontalAlignment="Right" Width="154"/>
         <Label x:Name="lblEmpNum_Copy" Content="Position #" Margin="12,-4,0,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Left" Width="154"/>
-        <Label x:Name="lblEmpNum_Copy1" Content="Start Date" Margin="186,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
-        <Label x:Name="lblEmpNum_Copy2" Content="SubType" Margin="0,-4,49,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Right" Width="154"/>
-        <Label x:Name="lblEmpNum_Copy3" Content="Position Type" Margin="346,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
+        <Label x:Name="lblEmpNum_Copy1" Content="Start Date" Margin="158,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
+        <Label x:Name="lblEmpNum_Copy2" Content="SubType" Margin="0,-4,77,0" VerticalAlignment="Top" Foreground="#FF27263E" Height="30" HorizontalAlignment="Right" Width="154"/>
+        <Label x:Name="lblEmpNum_Copy3" Content="Position Type" Margin="318,-4,0,0" Foreground="#FF27263E" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135"/>
+        <Image x:Name="imgDelete" Margin="0,0,15,6" Source="/bin-icon.png" PreviewMouseLeftButtonUp="imgDelete_PreviewMouseLeftButtonUp" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="34"/>
+        <Rectangle Stroke="Transparent" Fill="Transparent" PreviewMouseLeftButtonUp="Rectangle_PreviewMouseLeftButtonUp" Margin="0,0,78,0"/>
 
     </Grid>
 </UserControl>

@@ -57,6 +57,17 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void UserControl_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+           
+        }
+
+        private void imgDelete_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you wish to Delete this Request?","Confirm Deletion",MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
+            DataHelper.DeleteRequest(ThisRequest);
+        }
+
+        private void Rectangle_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
             ApprovalWindow aw = new(ThisRequest);//show the window to control this request.
             aw.Show();
         }

@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="bin-icon.png" />
     <None Remove="logo.png" />
   </ItemGroup>
 
@@ -17,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="bin-icon.png" />
     <Resource Include="logo.png" />
   </ItemGroup>
 

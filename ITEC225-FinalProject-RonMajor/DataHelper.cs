@@ -489,6 +489,19 @@ namespace ITEC225_FinalProject_RonMajor
             request.approval = ApprovalOrder.Deleted;
             RequestElement.InitializeElements();
         }
+
+        public static void DeletePosition(Position thisPos)
+        {
+            FormTemplate.positions.Remove(thisPos);
+            PositionElement.InitializeElements();
+        }
+
+        public static void DeleteCandidate(Candidate thisCand)
+        {
+            FormTemplate.candidates.Remove(thisCand);
+            CandidateElement.InitializeElements();
+        }
+
         #endregion
     }
 }

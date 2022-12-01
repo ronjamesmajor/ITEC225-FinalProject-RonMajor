@@ -45,6 +45,17 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void Grid_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            
+        }
+
+        private void imgDelete_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you wish to Delete this Position?", "Confirm Deletion", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
+                DataHelper.DeletePosition(ThisPositon);
+        }
+
+        private void Rectangle_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
             PositionWindow pw = new(ThisPositon); //overload polymorphism to use for updates.
             pw.Show();
         }
