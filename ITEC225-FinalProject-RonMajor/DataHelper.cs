@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
@@ -16,6 +17,15 @@ namespace ITEC225_FinalProject_RonMajor
         public static List<UserControl> controlElements = new(); //new static list of all user controls.
         public static int counter = 0;
         public static string opacity, content;
+        #endregion
+
+        #region Properties
+        //create all the collections to bind for data.
+        static ObservableCollection<string> directorates = new ObservableCollection<string>() {"BOP","BSI","BSIM","SABR"};
+        static ObservableCollection<string> locations = new ObservableCollection<string>() { "NCR","AB","BC","MB","NB","BL","NS","ON","PEI","QC","SK","CANADA"};
+        static ObservableCollection<string> bilinguals = new ObservableCollection<string>() { "Bilingual Imperative","English Imperative","French Imperative","N/A" };
+        static ObservableCollection<string> languages = new ObservableCollection<string>() { "AAA", "ABA", "English Only","French Only", "N/A" };
+
         #endregion
 
         #region Methods
