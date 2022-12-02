@@ -27,7 +27,6 @@ namespace ITEC225_FinalProject_RonMajor
         public static ObservableCollection<string> locations = new ObservableCollection<string>() { "NCR", "AB", "BC", "MB", "NB", "BL", "NS", "ON", "PEI", "QC", "SK", "CANADA" };
         public static ObservableCollection<string> bilinguals = new ObservableCollection<string>() { "Bilingual Imperative", "English Imperative", "French Imperative", "N/A" };
         public static ObservableCollection<string> languages = new ObservableCollection<string>() { "AAA", "ABA", "English Only", "French Only", "N/A" };
-
         #endregion
 
         #region Methods
@@ -374,6 +373,14 @@ namespace ITEC225_FinalProject_RonMajor
             approvalWindow.cmbSubtype.ItemsSource = Enum.GetValues(typeof(SubType));
             string start = request.Position.StartDate.Date.ToShortDateString();
             string end = request.Position.EndDate.Date.ToShortDateString();
+            
+            if(request.approval == ApprovalOrder.Complete) //test the approval level, and prevent weirdness if complete.
+            {
+                approvalWindow.btnSave.Visibility = Visibility.Hidden;
+                approvalWindow.btnApprove.Visibility = Visibility.Hidden;
+                approvalWindow.btnReject.Visibility = Visibility.Hidden;
+            }
+
             //administrators, and managers can advance requests. Edits have a chain of custody.
             if (MainWindow.CurrentUser is Administrator)
             {
@@ -516,14 +523,11 @@ namespace ITEC225_FinalProject_RonMajor
             approvalWindow.txtApproval.Text = request.ApprovalRequired.ToString();
             approvalWindow.txtBilingual.Text = request.BilingualPosition;
             approvalWindow.txtCandidateLanguage.Text = request.LanguageProfile;
-                request.SendPriNum += Request_SendPriNum;
-            //approvalWindow.txtPriNum.Text = 
-        }
-
-        private static string Request_SendPriNum(string message)
-        {
-            string prinum = $"{message}";
-            return prinum;
+            if(request is PriorityClearanceRequest) //fill the text fields if PSC.
+            {
+                approvalWindow.txtPriNum.Text = ((PriorityClearanceRequest)request).PriorityNumber.ToString();
+                approvalWindow.txtRationale.Text = ((PriorityClearanceRequest)request).PriorityRationale;
+            }
         }
 
         public static void AdvanceRequest(Request request)

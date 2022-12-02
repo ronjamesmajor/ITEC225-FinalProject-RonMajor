@@ -18,7 +18,6 @@ using System.Runtime.CompilerServices;
 
 namespace ITEC225_FinalProject_RonMajor
 {
-    
     public partial class MainWindow : Window
     {
         public static MainWindow Instance { get; private set; }
@@ -31,6 +30,12 @@ namespace ITEC225_FinalProject_RonMajor
             DataHelper.LoadData();
             Instance = this; //make this window the static ''main window''
             DataHelper.AppStart(); //init all elements and fill the dashboard.
+            AppTiming.SendTime += AppTiming_SendTime;
+        }
+
+        private void AppTiming_SendTime(string message)
+        {
+            txtTimeBox.Content = message;
         }
 
         private void btnNewRequest_Click(object sender, RoutedEventArgs e)
@@ -59,7 +64,7 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnLoadData_Click(object sender, RoutedEventArgs e)
         {
-           List<string> data = DataHelper.LoadData();
+            List<string> data = DataHelper.LoadData();
             lblDataLoaded.Opacity = double.Parse(data[0]);
             lblDataLoaded.Content = data[1];
         }

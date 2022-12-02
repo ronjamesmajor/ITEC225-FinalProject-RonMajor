@@ -17,7 +17,10 @@ namespace ITEC225_FinalProject_RonMajor
         public static DispatcherTimer t1 = new(); //wpf uses dispatcher timer. part of threading.
         static int dataRefreshTimer = 0;
         #endregion
-
+        #region delegate
+        public delegate void SendTimeEventHandler(string message); //new delegate to send time.
+        public static event SendTimeEventHandler SendTime;
+        #endregion
         public AppTiming()
         {
             t1.Interval = new TimeSpan(0, 0, 1); //1 second timer.
@@ -28,6 +31,7 @@ namespace ITEC225_FinalProject_RonMajor
         private void T1_Tick(object? sender, EventArgs e)
         {
             dataRefreshTimer++;
+            SendTime?.Invoke(DateTime.Now.ToString("dddd, dd MMMM yyyy h:mm tt"));//invoke delegate to send time.
 
             if (MainWindow.Instance != null && MainWindow.Instance.lblDataSaved.Opacity > 0) //mainwindow is null when that window hasn't spawned yet.
                 FadeLabel(MainWindow.Instance.lblDataSaved); //fade this label out.

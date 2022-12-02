@@ -63,7 +63,6 @@
                 </StackPanel>
             </TabItem>
         </TabControl>
-        <Image x:Name="imgLogo" HorizontalAlignment="Right" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="345" Source="/logo.png"/>
         <Button x:Name="btnNewPosition" Content="New Position" Margin="1108,368,18,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewPosition_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
@@ -105,7 +104,7 @@
 
             </Button.Resources>
         </Button>
-        <Label Content="Click within the Dashboard to view and edit entries.&#xD;&#xA;Click a button on the right hand navigation to create new entries or to save." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
+        <Label Content="Click within the Dashboard to view and edit entries.&#xA;Click a button on the right hand navigation to create new entries or to save / load data." HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
         <Label x:Name="lblDataSaved" Content="Data Saved Successfully" HorizontalAlignment="Left" Margin="10,728,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" Opacity="0"/>
         <Label x:Name="lblDataLoaded" Content="Data Saved Successfully" HorizontalAlignment="Left" Margin="10,728,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" Opacity="0"/>
         <Button x:Name="btnNewPSC" Content="New PSC" Margin="1108,489,18,0" VerticalAlignment="Top" Height="35" Background="#27263e" Foreground="#FFF6F7FA" BorderBrush="{x:Null}" FontSize="16" Click="btnNewPSC_Click">
@@ -117,6 +116,8 @@
 
             </Button.Resources>
         </Button>
+        <Image Height="234" Margin="780,10,10,0" VerticalAlignment="Top" Source="/logo2.png"/>
+        <Label x:Name="txtTimeBox" Content="12:00:00 AM" Margin="0,133,18,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" HorizontalAlignment="Right" Width="242"/>
 
     </Grid>
 </Window>

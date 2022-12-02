@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="bin-icon.png" />
     <None Remove="logo.png" />
+    <None Remove="logo2.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
   <ItemGroup>
     <Resource Include="bin-icon.png" />
     <Resource Include="logo.png" />
+    <Resource Include="logo2.png" />
   </ItemGroup>
 
 </Project>

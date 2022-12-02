@@ -31,6 +31,12 @@ namespace ITEC225_FinalProject_RonMajor
             lblCandidate.Content = $"{req.Candidate.LastName}, {req.Candidate.FirstName}";
             lblApprovalOrder.Content = req.approval;
             lblPosition.Content = req.Position.PositionType;
+            var bc = new BrushConverter(); //convert color from hex.
+            if(req.approval == ApprovalOrder.Complete)
+            {
+                this.Background = (Brush)bc.ConvertFrom("#82A44B");
+                imgDelete.Visibility = Visibility.Hidden;
+            }
         }
 
         public static void InitializeElements()

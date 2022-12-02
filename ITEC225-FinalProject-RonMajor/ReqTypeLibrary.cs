@@ -38,19 +38,11 @@ namespace ITEC225_FinalProject_RonMajor
         public string? BilingualPosition { get; set; }
         public string? LanguageProfile { get; set; }
         public string? DelegateLabel { get; set; }
-
         public string? DelegateLabel2 { get; set; }
         public ApprovalOrder approval { get; set; }
         public VisibilityLevel visLevel { get; set; }
         public Candidate Candidate { get; set; }
         public Position Position { get; set; }
-
-        #region Delegates
-        public delegate string SendRationaleEventHandler(string message); // delegates.
-        public delegate string SendPriNumEventHandler(string message);
-        public event SendRationaleEventHandler SendRationale;
-        public event SendPriNumEventHandler SendPriNum;
-        #endregion
 
         public Request() { }
 
@@ -61,8 +53,6 @@ namespace ITEC225_FinalProject_RonMajor
             this.Position = position;
             approval = ApprovalOrder.Draft;
             visLevel = VisibilityLevel.HR; //HR and up can see requests.
-            SendRationale?.Invoke(DelegateLabel);
-            SendPriNum?.Invoke(DelegateLabel2);
         }
     }
 
@@ -84,7 +74,7 @@ namespace ITEC225_FinalProject_RonMajor
         }
     }
 
-    public class Candidate : ICandidate
+    public class Candidate : ICandidate //candidate implements the interface for candidates.
     {
         #region Properties
         public int EmployeeNum { get; set; } //Use all properties of interface.

@@ -32,6 +32,11 @@ namespace ITEC225_FinalProject_RonMajor
             lblEmpNum.Content = req.Candidate.EmployeeNum.ToString();
             lblPriNum.Content = req.PriorityNumber;
             lblApprovalOrder.Content = req.approval;
+            var bc = new BrushConverter(); //convert color from hex.
+            if (req.approval == ApprovalOrder.Complete)
+            {
+                this.Background = (Brush)bc.ConvertFrom("#82A44B");
+            }
         }
 
         public static void InitializeElements()

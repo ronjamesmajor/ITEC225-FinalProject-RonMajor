@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Azure.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,26 +24,10 @@ namespace ITEC225_FinalProject_RonMajor
         {
             approvalRequest = request;
             InitializeComponent();
-            if (request is PriorityClearanceRequest)
-            {
-                this.Height = 710;
-                lblPriNum.Visibility = Visibility.Visible;
-                lblRationale.Visibility = Visibility.Visible;
-                txtPriNum.Visibility = Visibility.Visible;
-                txtRationale.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                this.Height = 510;
-                lblPriNum.Visibility = Visibility.Hidden;
-                lblRationale.Visibility = Visibility.Hidden;
-                txtPriNum.Visibility = Visibility.Hidden;
-                txtRationale.Visibility = Visibility.Hidden;
-            }
+            TestRequestType(request);
             BindSources();
             DataHelper.SetupRequestTable(approvalRequest, this); //send this window and request.
-            //sub to delegate.
-            //request.SendRationale += ReceiveRationale;
+            
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -79,9 +64,27 @@ namespace ITEC225_FinalProject_RonMajor
         {
             DataHelper.RejectRequest(approvalRequest);
         }
-        public static void ReceiveRationale(string message)//for delegate
-        {
 
+        private void TestRequestType(Request request)
+        {
+            if (request is PriorityClearanceRequest)
+            {
+                this.Height = 710;
+                lblPriNum.Visibility = Visibility.Visible;
+                lblRationale.Visibility = Visibility.Visible;
+                txtPriNum.Visibility = Visibility.Visible;
+                txtRationale.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                this.Height = 510;
+                lblPriNum.Visibility = Visibility.Hidden;
+                lblRationale.Visibility = Visibility.Hidden;
+                txtPriNum.Visibility = Visibility.Hidden;
+                txtRationale.Visibility = Visibility.Hidden;
+            }
         }
+
+       
     }
 }

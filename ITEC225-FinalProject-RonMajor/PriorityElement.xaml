@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ITEC225_FinalProject_RonMajor"
              mc:Ignorable="d" 
-            d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Code Pro"  BorderBrush="#FF738E93" BorderThickness="2" PreviewMouseLeftButtonUp="UserControl_PreviewMouseLeftButtonUp">
+            d:DesignHeight="50" d:DesignWidth="750" Background="#afb7bf" Foreground="#FFF6F7FA" FontSize="16" FontFamily="Source Sans Pro"  BorderBrush="#FF738E93" BorderThickness="2" PreviewMouseLeftButtonUp="UserControl_PreviewMouseLeftButtonUp">
     <Grid>
         <Label x:Name="lblRefNum" Content="Reference #" HorizontalAlignment="Left" Margin="18,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
         <Label x:Name="lblEmpNum" Content="Emp Numb" HorizontalAlignment="Left" Margin="166,24,0,0" VerticalAlignment="Top" Foreground="#FFF6F7FA" Height="30"/>
