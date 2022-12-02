@@ -280,7 +280,7 @@ namespace ITEC225_FinalProject_RonMajor
                 if (File.Exists("pscrequests.JSON"))
                 {
                     string json2 = File.ReadAllText("pscrequests.JSON");//deserialize.
-                    FormTemplate.pscrequests = JsonSerializer.Deserialize<List<PriorityClearanceRequest>>(json2); //List of Requests.
+                    FormTemplate.pscrequests = JsonSerializer.Deserialize<List<PriorityClearanceRequest>>(json2); //List of PSC Requests.
                 }
                 counter += 9;
                 //cleanuplist//
@@ -430,7 +430,12 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.txtApproval.IsReadOnly = false;
                 approvalWindow.txtBilingual.IsReadOnly = false;
                 approvalWindow.txtCandidateLanguage.IsReadOnly = false;
-
+                if (request.approval >= ApprovalOrder.AwaitingAdmin)
+                {
+                    approvalWindow.btnSave.Visibility = Visibility.Hidden;
+                    approvalWindow.btnApprove.Visibility = Visibility.Hidden;
+                    approvalWindow.btnReject.Visibility = Visibility.Hidden;
+                }
             }
             else if (MainWindow.CurrentUser is HR)
             {
@@ -463,8 +468,15 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.txtApproval.IsReadOnly = true;
                 approvalWindow.txtBilingual.IsReadOnly = true;
                 approvalWindow.txtCandidateLanguage.IsReadOnly = true;
+                //if approval goes beyond a certain point, Manager cannot approve.
+                if(request.approval >= ApprovalOrder.AwaitingManager)
+                {
+                    approvalWindow.btnSave.Visibility = Visibility.Hidden;
+                    approvalWindow.btnApprove.Visibility = Visibility.Hidden;
+                    approvalWindow.btnReject.Visibility = Visibility.Hidden;
+                }
             }
-            else if (MainWindow.CurrentUser is Client)
+            else if (MainWindow.CurrentUser is Client || MainWindow.CurrentUser is null)
             {
                 //don't allow editing.
                 approvalWindow.btnSave.Visibility = Visibility.Hidden;

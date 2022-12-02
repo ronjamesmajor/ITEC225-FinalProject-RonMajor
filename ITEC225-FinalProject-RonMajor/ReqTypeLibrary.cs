@@ -68,11 +68,11 @@ namespace ITEC225_FinalProject_RonMajor
 
     public class PriorityClearanceRequest : Request //PC inherits from Request.
     {
-        
+
         //psc stuff.
         public string PriorityRationale { get; set; }
         public int PriorityNumber { get; set; }
-
+        public PriorityClearanceRequest() { } //new empty constructor to deserialize and feed data back into objects.
 
         public PriorityClearanceRequest(Candidate candidate, Position position, string pri, string rationale) : base(candidate, position)
         {
