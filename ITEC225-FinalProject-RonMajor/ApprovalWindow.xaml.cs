@@ -31,9 +31,18 @@ namespace ITEC225_FinalProject_RonMajor
                 txtPriNum.Visibility = Visibility.Visible;
                 txtRationale.Visibility = Visibility.Visible;
             }
-            else this.Height = 510;
+            else
+            {
+                this.Height = 510;
+                lblPriNum.Visibility = Visibility.Hidden;
+                lblRationale.Visibility = Visibility.Hidden;
+                txtPriNum.Visibility = Visibility.Hidden;
+                txtRationale.Visibility = Visibility.Hidden;
+            }
             BindSources();
             DataHelper.SetupRequestTable(approvalRequest, this); //send this window and request.
+            //sub to delegate.
+            //request.SendRationale += ReceiveRationale;
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -44,7 +53,7 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-           //savedata
+            //savedata
             this.Close();
         }
 
@@ -59,7 +68,6 @@ namespace ITEC225_FinalProject_RonMajor
             cmbSubtype.ItemsSource = Enum.GetValues(typeof(SubType));
             cmbDirectorate.ItemsSource = DataHelper.directorates;
             cmbLocation.ItemsSource = DataHelper.locations;
-
         }
 
         private void btnApprove_Click(object sender, RoutedEventArgs e)
@@ -70,6 +78,10 @@ namespace ITEC225_FinalProject_RonMajor
         private void btnReject_Click(object sender, RoutedEventArgs e)
         {
             DataHelper.RejectRequest(approvalRequest);
+        }
+        public static void ReceiveRationale(string message)//for delegate
+        {
+
         }
     }
 }

@@ -38,8 +38,10 @@ namespace ITEC225_FinalProject_RonMajor
             {
                 ApprovalRequired = checker, //prefilling values right now, rather than in constructor.
                 BilingualPosition = cmbBilingual.SelectedItem.ToString(),
-                LanguageProfile = cmbLanguageProfile.SelectedItem.ToString()
+                LanguageProfile = cmbLanguageProfile.SelectedItem.ToString(),
             };
+            FormTemplate.requests.Add(request);
+            this.Close();
         }
 
         private void btnDiscard_Click(object sender, RoutedEventArgs e)

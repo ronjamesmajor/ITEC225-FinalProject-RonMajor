@@ -204,6 +204,7 @@ namespace ITEC225_FinalProject_RonMajor
         public static bool SaveData() // save working data.
         {
             bool dataSaved = false;
+
             try
             {
                 var options = new JsonSerializerOptions { WriteIndented = true };
@@ -215,6 +216,9 @@ namespace ITEC225_FinalProject_RonMajor
 
                 string json3 = System.Text.Json.JsonSerializer.Serialize(FormTemplate.requests, options);
                 File.WriteAllText("requests.JSON", json3);
+
+                string json4 = System.Text.Json.JsonSerializer.Serialize(FormTemplate.pscrequests, options);
+                File.WriteAllText("pscrequests.JSON", json4);
                 return dataSaved = true;
             }
             catch
@@ -273,8 +277,15 @@ namespace ITEC225_FinalProject_RonMajor
             {
                 string json = File.ReadAllText("requests.JSON");//deserialize.
                 FormTemplate.requests = JsonSerializer.Deserialize<List<Request>>(json); //List of Requests.
+                if (File.Exists("pscrequests.JSON"))
+                {
+                    string json2 = File.ReadAllText("pscrequests.JSON");//deserialize.
+                    FormTemplate.pscrequests = JsonSerializer.Deserialize<List<PriorityClearanceRequest>>(json2); //List of Requests.
+                }
                 counter += 9;
+                //cleanuplist//
             }
+
             switch (counter)
             {
                 case 0:
@@ -315,26 +326,6 @@ namespace ITEC225_FinalProject_RonMajor
             return labelProps;
         }
 
-        public static void InitializeElements()
-        {
-
-            foreach (Request r in FormTemplate.requests) //foreach candidate,
-            {
-                if (r.approval != ApprovalOrder.Deleted)
-                    RequestElement.relements.Add(new RequestElement(r)); //add a new element to the elements list.
-            }
-
-            for (int i = 0; i < DataHelper.controlElements.Count; i++)
-            {
-                if (DataHelper.controlElements[i] is RequestElement)
-                {
-                    DataHelper.controlElements.RemoveAt(i);
-                }
-            }
-
-            foreach (RequestElement r in RequestElement.relements)
-                DataHelper.controlElements.Add(r);
-        }
 
         internal static void FillElements()
         {
@@ -365,14 +356,6 @@ namespace ITEC225_FinalProject_RonMajor
                 if (MainWindow.Instance.stpPSCRequests.Children.Count < PriorityElement.pcelements.Count)
                     MainWindow.Instance.stpPSCRequests.Children.Add(pel);
             }
-
-            //same for SLE
-            //MainWindow.Instance.stpPSCRequests.Children.Clear(); //SLE Requests
-            //foreach (PriorityElement pel in PriorityElement.pcelements)
-            //{
-            //    if (MainWindow.Instance.stpPSCRequests.Children.Count < PriorityElement.pcelements.Count)
-            //        MainWindow.Instance.stpPSCRequests.Children.Add(pel);
-            //}
         }
 
         public static void AppStart()
@@ -381,12 +364,12 @@ namespace ITEC225_FinalProject_RonMajor
             CandidateElement.InitializeElements();
             RequestElement.InitializeElements();
             PriorityElement.InitializeElements();
-            //SLE
             FillElements(); //fill elements into stackpanels on main window.
         }
 
         public static void SetupRequestTable(Request request, ApprovalWindow approvalWindow)
         {
+            string activePriNum;
             approvalWindow.cmbPositionType.ItemsSource = Enum.GetValues(typeof(PositionType)); //bind the combo box to the enum values.
             approvalWindow.cmbSubtype.ItemsSource = Enum.GetValues(typeof(SubType));
             string start = request.Position.StartDate.Date.ToShortDateString();
@@ -416,6 +399,9 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.dtpEnd.Visibility = Visibility.Visible;
                 approvalWindow.txtRationale.IsReadOnly = false;
                 approvalWindow.txtPriNum.IsReadOnly = false;
+                approvalWindow.txtApproval.IsReadOnly = false;
+                approvalWindow.txtBilingual.IsReadOnly = false;
+                approvalWindow.txtCandidateLanguage.IsReadOnly = false;
 
             }
             else if (MainWindow.CurrentUser is Manager) //this allows chain of custody - two people must make edits to one request.
@@ -441,6 +427,9 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.dtpEnd.Visibility = Visibility.Visible;
                 approvalWindow.txtRationale.IsReadOnly = false;
                 approvalWindow.txtPriNum.IsReadOnly = false;
+                approvalWindow.txtApproval.IsReadOnly = false;
+                approvalWindow.txtBilingual.IsReadOnly = false;
+                approvalWindow.txtCandidateLanguage.IsReadOnly = false;
 
             }
             else if (MainWindow.CurrentUser is HR)
@@ -471,6 +460,9 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.txtStartBacking.Text = end;
                 approvalWindow.txtRationale.IsReadOnly = true;
                 approvalWindow.txtPriNum.IsReadOnly = true;
+                approvalWindow.txtApproval.IsReadOnly = true;
+                approvalWindow.txtBilingual.IsReadOnly = true;
+                approvalWindow.txtCandidateLanguage.IsReadOnly = true;
             }
             else if (MainWindow.CurrentUser is Client)
             {
@@ -509,12 +501,17 @@ namespace ITEC225_FinalProject_RonMajor
             approvalWindow.cmbDirectorate.SelectedValue = request.Position.Directorate;
             approvalWindow.cmbPositionType.SelectedValue = request.Position.PositionType;
             approvalWindow.cmbSubtype.SelectedValue = request.Position.SubType;
+            approvalWindow.txtApproval.Text = request.ApprovalRequired.ToString();
+            approvalWindow.txtBilingual.Text = request.BilingualPosition;
+            approvalWindow.txtCandidateLanguage.Text = request.LanguageProfile;
+                request.SendPriNum += Request_SendPriNum;
+            //approvalWindow.txtPriNum.Text = 
+        }
 
-            //sub to delegate.
-            request.SendRationale += ReceiveRationale;
-            
-
-
+        private static string Request_SendPriNum(string message)
+        {
+            string prinum = $"{message}";
+            return prinum;
         }
 
         public static void AdvanceRequest(Request request)
@@ -548,12 +545,6 @@ namespace ITEC225_FinalProject_RonMajor
             FormTemplate.candidates.Remove(thisCand);
             CandidateElement.InitializeElements();
         }
-
-        public static string ReceiveRationale(string rationale)
-        {
-            return rationale;
-        }
-
         #endregion
     }
 }

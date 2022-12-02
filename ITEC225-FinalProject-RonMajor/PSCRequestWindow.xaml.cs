@@ -26,10 +26,6 @@ namespace ITEC225_FinalProject_RonMajor
             BindSources();
         }
 
-
-
-
-
         private void BindSources()
         {
             cmbCandidate.ItemsSource = FormTemplate.candidates;
@@ -46,7 +42,7 @@ namespace ITEC225_FinalProject_RonMajor
             if (rdoYes.IsChecked == true)
                 checker = true;
             else checker = false;
-            PriorityClearanceRequest request = new PriorityClearanceRequest((Candidate)cmbCandidate.SelectedItem, (Position)cmbPosition.SelectedItem)
+            PriorityClearanceRequest request = new PriorityClearanceRequest((Candidate)cmbCandidate.SelectedItem, (Position)cmbPosition.SelectedItem, txtPriorityNumber.Text, txtRationale.Text)
             {
                 ApprovalRequired = checker, //prefilling values right now, rather than in constructor.
                 BilingualPosition = cmbBilingual.SelectedItem.ToString(),
@@ -54,6 +50,8 @@ namespace ITEC225_FinalProject_RonMajor
                 PriorityNumber = int.Parse(txtPriorityNumber.Text),
                 PriorityRationale = txtRationale.Text,
             };
+            FormTemplate.pscrequests.Add(request);
+            this.Close();
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -67,5 +65,7 @@ namespace ITEC225_FinalProject_RonMajor
         {
             this.Close();
         }
+
+
     }
 }

@@ -20,22 +20,8 @@ namespace ITEC225_FinalProject_RonMajor
         public static List<Manager> managers = new();
         public static List<HR> hRs = new();
         public static List<Client> clients = new();
+        public static List<PriorityClearanceRequest> pscrequests = new();
 
-        #endregion
-        #region Fields
-
-        #endregion
-        #region Properties
-
-        #endregion
-        #region Constructors
-
-        #endregion
-        #region Methods
-
-        //SaveRequest()
-        //SaveCandidates()
-        //SavePositions()
         #endregion
 
     }
@@ -60,8 +46,8 @@ namespace ITEC225_FinalProject_RonMajor
         public Position Position { get; set; }
 
         #region Delegates
-        public delegate string SendRationaleEventHandler(string rationale); //some delegates.
-        public delegate string SendPriNumEventHandler(string prioritynum);
+        public delegate string SendRationaleEventHandler(string message); // delegates.
+        public delegate string SendPriNumEventHandler(string message);
         public event SendRationaleEventHandler SendRationale;
         public event SendPriNumEventHandler SendPriNum;
         #endregion
@@ -75,38 +61,26 @@ namespace ITEC225_FinalProject_RonMajor
             this.Position = position;
             approval = ApprovalOrder.Draft;
             visLevel = VisibilityLevel.HR; //HR and up can see requests.
-            FormTemplate.requests.Add(this); //add this request to requests.
             SendRationale?.Invoke(DelegateLabel);
             SendPriNum?.Invoke(DelegateLabel2);
         }
     }
 
-    public class SLERequest : Request //SLERequest inherits from Request.
-    {
-        //sle stuff.
-        public int EquivalencyNumber { get; set; }
-        public string Equivalency { get; set; }
-
-        public SLERequest(Candidate candidate, Position position, int equivalencyNumber, string equivalency) : base(candidate, position)
-        {
-            EquivalencyNumber = equivalencyNumber;
-            Equivalency = equivalency;
-        }
-    }
-
     public class PriorityClearanceRequest : Request //PC inherits from Request.
     {
+        
         //psc stuff.
         public string PriorityRationale { get; set; }
         public int PriorityNumber { get; set; }
 
 
-        public PriorityClearanceRequest(Candidate candidate, Position position) : base(candidate, position)
+        public PriorityClearanceRequest(Candidate candidate, Position position, string pri, string rationale) : base(candidate, position)
         {
+            PriorityRationale = rationale;
+            PriorityNumber = int.Parse(pri);
             DelegateLabel = PriorityRationale;
             DelegateLabel2 = PriorityNumber.ToString();
-            //go!
-            
+            //all the base stuff
         }
     }
 

@@ -38,14 +38,12 @@ namespace ITEC225_FinalProject_RonMajor
         {
             pcelements.Clear();
 
-            foreach (Request pc in FormTemplate.requests) //foreach PC,
+            foreach (PriorityClearanceRequest pc in FormTemplate.pscrequests) //foreach PC,
             {
-                if (pc is PriorityClearanceRequest)
-                {
-                    if (pc.approval != ApprovalOrder.Deleted)
-                        PriorityElement.pcelements.Add(new PriorityElement((PriorityClearanceRequest)pc)); //add a new element to the elements list.
 
-                }
+                if (pc.approval != ApprovalOrder.Deleted)
+                    PriorityElement.pcelements.Add(new PriorityElement((PriorityClearanceRequest)pc)); //add a new element to the elements list.
+
             }
 
             for (int i = 0; i < DataHelper.controlElements.Count; i++)
