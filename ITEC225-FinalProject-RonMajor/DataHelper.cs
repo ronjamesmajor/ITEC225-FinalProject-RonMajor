@@ -107,7 +107,7 @@ namespace ITEC225_FinalProject_RonMajor
 
                         if (FormTemplate.users[i].Username == loginWindow.txtUsrname.Text && FormTemplate.users[i].Password == loginWindow.pwdPassbox.Password)
                         {
-                            MessageBox.Show("Login Successful.");
+                            //MessageBox.Show("Login Successful."); -- Nobody likes Message Boxes, Ron.
                             MainWindow mw = new MainWindow();
                             MainWindow.CurrentUser = FormTemplate.users[i];
                             loginWindow.Close();

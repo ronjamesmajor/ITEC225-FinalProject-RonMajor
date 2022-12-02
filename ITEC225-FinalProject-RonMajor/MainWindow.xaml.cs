@@ -27,10 +27,11 @@ namespace ITEC225_FinalProject_RonMajor
         public MainWindow()
         {
             InitializeComponent();
-            DataHelper.LoadData();
+            DataHelper.LoadData(); //load data from JSON
+            LoadingLabels(); //load the labels to inform user what's going on.
             Instance = this; //make this window the static ''main window''
             DataHelper.AppStart(); //init all elements and fill the dashboard.
-            AppTiming.SendTime += AppTiming_SendTime;
+            AppTiming.SendTime += AppTiming_SendTime; //shoehorn in a delegate for the time.
         }
 
         private void AppTiming_SendTime(string message)
@@ -64,9 +65,7 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnLoadData_Click(object sender, RoutedEventArgs e)
         {
-            List<string> data = DataHelper.LoadData();
-            lblDataLoaded.Opacity = double.Parse(data[0]);
-            lblDataLoaded.Content = data[1];
+            LoadingLabels();
         }
 
         private void Staffing_Request_Builder_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -78,6 +77,13 @@ namespace ITEC225_FinalProject_RonMajor
         {
             PSCRequestWindow rw = new PSCRequestWindow();
             rw.ShowDialog();
+        }
+
+        private void LoadingLabels()
+        {
+            List<string> data = DataHelper.LoadData();
+            lblDataLoaded.Opacity = double.Parse(data[0]);
+            lblDataLoaded.Content = data[1];
         }
     }
 }
