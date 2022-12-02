@@ -203,7 +203,6 @@ namespace ITEC225_FinalProject_RonMajor
         public static bool SaveData() // save working data.
         {
             bool dataSaved = false;
-
             try
             {
                 var options = new JsonSerializerOptions { WriteIndented = true };
@@ -254,13 +253,10 @@ namespace ITEC225_FinalProject_RonMajor
 
         public static List<string> LoadData()//Load local files and deserialize to create datastores.
         {
-            List<string> labelProps = new();
-
-
+            List<string> labelProps = new(); //
             if (File.Exists("candidates.JSON"))
             {
                 string json = File.ReadAllText("candidates.JSON");//deserialize.
-
                 FormTemplate.candidates = JsonSerializer.Deserialize<List<Candidate>>(json); //List of Candidates
                 counter += 5;
             }
@@ -282,7 +278,6 @@ namespace ITEC225_FinalProject_RonMajor
                     FormTemplate.pscrequests = JsonSerializer.Deserialize<List<PriorityClearanceRequest>>(json2); //List of PSC Requests.
                 }
                 counter += 9;
-                //cleanuplist//
             }
 
             switch (counter)
@@ -359,7 +354,7 @@ namespace ITEC225_FinalProject_RonMajor
 
         public static void AppStart()
         {
-            PositionElement.InitializeElements(); //init elements
+            PositionElement.InitializeElements(); //init all elements
             CandidateElement.InitializeElements();
             RequestElement.InitializeElements();
             PriorityElement.InitializeElements();
@@ -409,7 +404,6 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.txtApproval.IsReadOnly = false;
                 approvalWindow.txtBilingual.IsReadOnly = false;
                 approvalWindow.txtCandidateLanguage.IsReadOnly = false;
-
             }
             else if (MainWindow.CurrentUser is Manager) //this allows chain of custody - two people must make edits to one request.
             {
@@ -494,7 +488,6 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.dtpEnd.Visibility = Visibility.Hidden;
                 //end backing.
                 approvalWindow.txtEndBacking.Text = end;
-
                 approvalWindow.btnSave.Visibility = Visibility.Hidden;
                 approvalWindow.btnApprove.Visibility = Visibility.Hidden;
                 approvalWindow.btnReject.Visibility = Visibility.Hidden;
@@ -528,7 +521,7 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.txtPriNum.Text = ((PriorityClearanceRequest)request).PriorityNumber.ToString();
                 approvalWindow.txtRationale.Text = ((PriorityClearanceRequest)request).PriorityRationale;
             }
-        }
+        } //HERE BE DRAGONS!!!
 
         public static void AdvanceRequest(Request request)
         {

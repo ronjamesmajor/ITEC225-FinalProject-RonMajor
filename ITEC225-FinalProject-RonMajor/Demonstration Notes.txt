@@ -1,0 +1,45 @@
+﻿Demonstration Explanation:
+
+This Program leverages JSON to serialize all class data.
+On launch, the program loads a userlist JSON file and is capable of looping through the logins as a static list to determine
+if the user exists, if the username is accurate, and if the password matches.
+
+A user can create a login which requires an access token to verify status,
+else, they will be automatically added as a "Client" with minimal access.
+
+Upon load after successful login, the program de-serializes several JSON files that load data to static lists.
+From here, a data helper class does the following:
+1)	Read each Position, Candidate or Request in the static lists.
+2)	Leverage a static list of user controls called "elements" - built directly
+	within the user control class, and add a new user control to that list
+	based on the object type from the list.
+3)	Loop through the list of user controls and place them into appropriate wrap panels
+	encased within tab control, on the main form.
+
+Each primary object (User, Position, Candidate, and Request(x2)) has one or more enumateration.
+This includes:
+1)	Visibility Level(User) - A level of authorization to see objects.
+2)	Access Level (User) - A level of authorization to access or change objects.
+3)	Request/Candidate/Position Visibility - to determine which visibilty level can see objects.
+4)	ApprovalOrder - The level from Draft, to Complete, at which a request stops.
+
+These features enables the following:
+Clients can not see Candidates.
+Clients can not edit requests but can see them.
+HR Can edit Candidates information but not Position information, can approve to a point.
+Managers can edit Position information but not Candidate information, can approve to a point.
+Admins can edit all, and approve all.
+
+This ensures a chain of command and hierarchy of access and authorization.
+
+Requests can be approved by each level of User, up until they are complete.
+Requests can also be rejected, which sends them back down the chain, for edits.
+
+Once requests are complete, conditional logic turns off the ability to further approve.
+Conditional logic also allows deleted requests to not be added to the dashboard,
+but for Admins to still access the raw data and purge it manually.
+
+//future iterations::
+Record date and time for each approval order change, so that time to staff can be reported.
+Add ability to wire up to Database. This functionality is easy to implement.
+Add ability to send rejection comments if rejecting.

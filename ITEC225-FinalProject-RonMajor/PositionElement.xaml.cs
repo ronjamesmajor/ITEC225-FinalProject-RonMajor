@@ -33,7 +33,7 @@ namespace ITEC225_FinalProject_RonMajor
             lblSubType.Content = ThisPositon.SubType;
         }
 
-        public static void InitializeElements()
+        public static void InitializeElements() //initialize the elements.
         {
             elements.Clear();
             foreach (Position p in FormTemplate.positions) //foreach position,
