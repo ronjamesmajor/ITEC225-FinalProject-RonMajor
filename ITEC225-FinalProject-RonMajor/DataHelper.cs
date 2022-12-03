@@ -518,6 +518,8 @@ namespace ITEC225_FinalProject_RonMajor
         }
 
         //HERE BE DRAGONS!!!
+        //I know this is a junk method, but, I could not devise a simple way to loop through
+        //every control in the form, for WPF, without another few days worth of research and testing.
         public static void SetupRequestTable(Request request, ApprovalWindow approvalWindow)
         {
             string activePriNum;
@@ -547,6 +549,12 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.btnSave.Visibility = Visibility.Hidden;
                 approvalWindow.btnApprove.Visibility = Visibility.Hidden;
                 approvalWindow.btnReject.Visibility = Visibility.Hidden;
+                approvalWindow.cmbDirectorate.IsEnabled = false;
+                approvalWindow.cmbLocation.IsEnabled = false;
+                approvalWindow.cmbPositionType.IsEnabled = false;
+                approvalWindow.cmbSubtype.IsEnabled = false;
+                approvalWindow.dtpStart.IsEnabled = false;
+                approvalWindow.dtpEnd.IsEnabled = false;
             }
             else if (MainWindow.CurrentUser is HR)
             {
@@ -579,6 +587,12 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.txtApproval.IsReadOnly = true;
                 approvalWindow.txtBilingual.IsReadOnly = true;
                 approvalWindow.txtCandidateLanguage.IsReadOnly = true;
+                approvalWindow.cmbDirectorate.IsEnabled = false;
+                approvalWindow.cmbLocation.IsEnabled = false;
+                approvalWindow.cmbPositionType.IsEnabled = false;
+                approvalWindow.cmbSubtype.IsEnabled = false;
+                approvalWindow.dtpStart.IsEnabled = false;
+                approvalWindow.dtpEnd.IsEnabled = false;
                 //if approval goes beyond a certain point, Manager cannot approve.
                 if (request.approval >= ApprovalOrder.AwaitingManager)
                 {

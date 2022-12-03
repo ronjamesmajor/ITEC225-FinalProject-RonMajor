@@ -36,6 +36,12 @@ This ensures a chain of command and hierarchy of access and authorization.
 Requests can be approved by each level of User, up until they are complete.
 Requests can also be rejected, which sends them back down the chain, for edits.
 
+This also ensure job function is intact:
+Clients can only see and report on requests and positions.
+Managers can add and edit positions.
+HR can add and edit candidates.
+Adminsitrators have full control.
+
 Once requests are complete, conditional logic turns off the ability to further approve.
 Conditional logic also allows deleted requests to not be added to the dashboard,
 but for Admins to still access the raw data and purge it manually.
