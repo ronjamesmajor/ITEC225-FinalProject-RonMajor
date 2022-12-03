@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="390" Width="545" Background="#afb7bf" WindowStartupLocation="CenterScreen" FontFamily="Source Sans Pro">
     <Grid>
-        <Button x:Name="btnLogin" Content="Log In" Margin="82,281,343,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnLogin_Click" FontSize="16">
+        <Button x:Name="btnLogin" Content="Log In" Margin="67,0,358,39" VerticalAlignment="Bottom" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnLogin_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -15,7 +15,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnNewUser" Content="Create User" Margin="361,281,64,0" VerticalAlignment="Top" Height="35" Background="#f6f7fa" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewUser_Click" FontSize="16">
+        <Button x:Name="btnNewUser" Content="Create User" Margin="358,0,67,39" VerticalAlignment="Bottom" Height="35" Background="#f6f7fa" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnNewUser_Click" FontSize="16">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -23,7 +23,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBox x:Name="txtUsrname" HorizontalAlignment="Left" Margin="50,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e" FontSize="16">
+        <TextBox x:Name="txtUsrname" HorizontalAlignment="Left" Margin="50,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e" FontSize="16">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
@@ -31,18 +31,18 @@
             </TextBox.Resources>
         </TextBox>
         <Image x:Name="imgLogo" HorizontalAlignment="Left" Height="57" Margin="13,6,0,0" VerticalAlignment="Top" Width="226" Source="/logo.png"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="47,88,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="317,88,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Margin="320,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e" IsTabStop="False" MaxLines="1" IsReadOnly="True">
+        <Label Content="Username" HorizontalAlignment="Left" Margin="50,103,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
+        <Label Content="Password" HorizontalAlignment="Right" Margin="0,103,50,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
+        <TextBox HorizontalAlignment="Right" Margin="0,132,50,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e" IsTabStop="False" MaxLines="1" IsReadOnly="True">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label Content="Log in with existing username or add user with the Create User button" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
-        <PasswordBox x:Name="pwdPassbox" HorizontalAlignment="Left" Margin="330,115,0,0" VerticalAlignment="Top" Width="170" Background="#FFF8F2F5" Foreground="#FF27263E" BorderBrush="{x:Null}" Height="26" FontSize="16"/>
-        <Button x:Name="btnConfirmUser" Content="Confirm User" Margin="220,281,205,0" VerticalAlignment="Top" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnConfirmUser_Click" FontSize="16">
+        <Label Content="Log in with existing username or add user with the Create User button" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" OpacityMask="White" Opacity="0.5"/>
+        <PasswordBox x:Name="pwdPassbox" HorizontalAlignment="Right" Margin="0,133,60,0" VerticalAlignment="Top" Width="170" Background="#FFF8F2F5" Foreground="#FF27263E" BorderBrush="{x:Null}" Height="26" FontSize="16"/>
+        <Button x:Name="btnConfirmUser" Content="Confirm User" Margin="0,0,0,39" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Click="btnConfirmUser_Click" FontSize="16" HorizontalAlignment="Center" Width="120" Height="35" VerticalAlignment="Bottom">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -50,19 +50,19 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <RadioButton x:Name="rdoUser" Content="User" HorizontalAlignment="Left" Margin="28,209,0,0" Height="18" Width="50" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top" FontFamily="Source Sans Pro" FontSize="16"/>
-        <RadioButton x:Name="rdoHR" Content="HR" HorizontalAlignment="Left" Margin="89,209,0,117" Height="18" Width="50" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top" FontFamily="Source Sans Pro" FontSize="16"/>
-        <RadioButton x:Name="rdoManager" Content="Manager" HorizontalAlignment="Left" Margin="141,209,0,0" Height="18" Width="84" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top" FontFamily="Source Sans Pro" FontSize="16"/>
-        <RadioButton x:Name="rdoAdmin" Content="Admin" HorizontalAlignment="Left" Margin="229,209,0,0" Height="18" Width="70" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Top" FontFamily="Source Sans Pro" FontSize="16"/>
-        <TextBox x:Name="txtToken" HorizontalAlignment="Left" Margin="320,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e" FontSize="16">
+        <RadioButton x:Name="rdoUser" Content="Client" HorizontalAlignment="Left" Margin="50,0,0,130" Height="18" Width="69" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Bottom" FontFamily="Source Sans Pro" FontSize="16"/>
+        <RadioButton x:Name="rdoHR" Content="HR" HorizontalAlignment="Left" Margin="140,0,0,130" Height="18" Width="50" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Bottom" FontFamily="Source Sans Pro" FontSize="16"/>
+        <RadioButton x:Name="rdoManager" Content="Manager" HorizontalAlignment="Left" Margin="50,0,0,107" Height="18" Width="84" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Bottom" FontFamily="Source Sans Pro" FontSize="16"/>
+        <RadioButton x:Name="rdoAdmin" Content="Admin" HorizontalAlignment="Left" Margin="140,0,0,107" Height="18" Width="70" Background="#FFF8F2F5" Foreground="#FF27263E" VerticalAlignment="Bottom" FontFamily="Source Sans Pro" FontSize="16"/>
+        <TextBox x:Name="txtToken" HorizontalAlignment="Right" Margin="0,0,50,119" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="190" Height="28" Background="#FFF8F2F5" BorderBrush="{x:Null}" Foreground="#27263e" FontSize="16">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label x:Name="lblSelectRole" Content="Select Role" HorizontalAlignment="Left" Margin="50,175,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
-        <Label x:Name="lblConfirmationToken" Content="Confirmation Token" HorizontalAlignment="Left" Margin="320,174,0,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16"/>
+        <Label x:Name="lblSelectRole" Content="Select Role" HorizontalAlignment="Left" Margin="50,0,0,148" VerticalAlignment="Bottom" Foreground="#27263e" FontSize="16"/>
+        <Label x:Name="lblConfirmationToken" Content="Confirmation Token" HorizontalAlignment="Right" Margin="0,0,50,147" VerticalAlignment="Bottom" Foreground="#27263e" FontSize="16"/>
 
     </Grid>
 </Window>
