@@ -8,11 +8,12 @@ A user can create a login which requires an access token to verify status,
 else, they will be automatically added as a "Client" with minimal access.
 
 Upon load after successful login, the program de-serializes several JSON files that load data to static lists.
+These lists help comprise several other classes, which implement Interfaces for their properties.
 From here, a data helper class does the following:
-1)	Read each Position, Candidate or Request in the static lists.
+1)	Read each Position, Candidate or Request in the deserialized static lists.
 2)	Leverage a static list of user controls called "elements" - built directly
 	within the user control class, and add a new user control to that list
-	based on the object type from the list.
+	based on the object type from the list. (adds itself to a list of itself contained in itself)
 3)	Loop through the list of user controls and place them into appropriate wrap panels
 	encased within tab control, on the main form.
 

@@ -26,7 +26,7 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Button x:Name="btnDiscard" Content="Discard" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="0,0,117,28" VerticalAlignment="Bottom" Click="btnDiscard_Click" Grid.Column="1" HorizontalAlignment="Right">
+        <Button x:Name="btnDiscard" Content="Cancel" Height="35" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Width="120" Margin="0,0,117,28" VerticalAlignment="Bottom" Click="btnDiscard_Click" Grid.Column="1" HorizontalAlignment="Right">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">

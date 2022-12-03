@@ -37,7 +37,7 @@ namespace ITEC225_FinalProject_RonMajor
                 string json = File.ReadAllText("userlogins.JSON");//deserialize.
                 FormTemplate.users = JsonSerializer.Deserialize<List<User>>(json); //create a list of users.
             }
-            CleanUpUserist();//clean up the lists.
+            CleanUpUserList();//clean up the lists.
         }
 
         public void CreateDataStore() //create data store simply writes out Users to JSON.
@@ -109,9 +109,10 @@ namespace ITEC225_FinalProject_RonMajor
                         {
                             //MessageBox.Show("Login Successful."); -- Nobody likes Message Boxes, Ron.
                             MainWindow mw = new MainWindow();
-                            MainWindow.CurrentUser = FormTemplate.users[i];
+                            MainWindow.CurrentUser = FormTemplate.users[i]; //set the user instance to this user
+                            SetDashboardVisibility(MainWindow.CurrentUser); //setup their dashboard.
                             loginWindow.Close();
-                            mw.Show();
+                            mw.Show();//show the main window.
                             break;
                         }
                         else MessageBox.Show("Login not successful.");
@@ -162,7 +163,7 @@ namespace ITEC225_FinalProject_RonMajor
             return AbilityLevel.Read;
         }
 
-        private void CleanUpUserist()
+        private void CleanUpUserList()
         {
             foreach (User usr in FormTemplate.users)
             {
@@ -200,6 +201,32 @@ namespace ITEC225_FinalProject_RonMajor
 
         }
 
+        internal static void SetDashboardVisibility(User thisuser)
+        {
+            if (thisuser is Client)
+            {
+                MainWindow.Instance.CandidatesTab.Visibility = Visibility.Collapsed;
+                MainWindow.Instance.tbcMainDashboard.SelectedIndex = 1;
+                MainWindow.Instance.btnNewCandidate.Visibility = Visibility.Collapsed;
+                MainWindow.Instance.btnNewPosition.Visibility = Visibility.Collapsed;
+                MainWindow.Instance.btnNewRequest_Copy1.Visibility = Visibility.Collapsed;
+                MainWindow.Instance.btnNewPSC.Visibility = Visibility.Collapsed;
+                MainWindow.Instance.btnSaveData.Visibility = Visibility.Collapsed;
+                MainWindow.Instance.btnLoadData.Visibility = Visibility.Collapsed;
+            }
+            if (thisuser is HR)
+            {
+                MainWindow.Instance.btnNewPosition.Visibility = Visibility.Collapsed;
+
+            }
+            if (thisuser is Manager)
+            {
+                MainWindow.Instance.btnNewCandidate.Visibility = Visibility.Collapsed;
+
+            }
+            MainWindow.Instance.txtRole.Content += MainWindow.CurrentUser.accessLevel.ToString();
+        }
+
         public static bool SaveData() // save working data.
         {
             bool dataSaved = false;
@@ -225,6 +252,7 @@ namespace ITEC225_FinalProject_RonMajor
             }
         }
 
+        //overload polymorphism?
         public static bool UpdatePosition(Position position, PositionWindow thisWindow) // save working data.
         {
             bool dataSaved = false;
@@ -234,12 +262,13 @@ namespace ITEC225_FinalProject_RonMajor
                 {
                     if (p.PosNum == position.PosNum)
                     {
+                        p.PosNum = int.Parse(thisWindow.txtPosiNum.Text);
                         p.StartDate = (DateTime)thisWindow.dtpStart.SelectedDate;
                         p.EndDate = (DateTime)thisWindow.dtpStart.SelectedDate;
-                        p.Directorate = ((ComboBoxItem)thisWindow.cmbLocation.SelectedItem).Content.ToString();
+                        p.Directorate = thisWindow.cmbDirectorate.Text;
                         p.PositionType = (PositionType)thisWindow.cmbPositionType.SelectedValue;
-                        p.SubType = (SubType)thisWindow.cmbPositionType.SelectedValue;
-                        p.OfficeLocation = ((ComboBoxItem)thisWindow.cmbLocation.SelectedItem).Content.ToString();
+                        p.SubType = (SubType)thisWindow.cmbSubtype.SelectedValue;
+                        p.OfficeLocation = thisWindow.cmbLocation.Text;
                         dataSaved = true;
                     }
                 }
@@ -248,6 +277,134 @@ namespace ITEC225_FinalProject_RonMajor
             catch
             {
                 return dataSaved;
+            }
+        }
+
+        public static bool UpdatePosition(Position position, Request request, ApprovalWindow thisWindow) // save working data.
+        {
+            bool dataSaved = false;
+            try
+            {
+                foreach (Position p in FormTemplate.positions)
+                {
+                    if (p.PosNum == position.PosNum)
+                    {
+                        p.PosNum = int.Parse(thisWindow.txtPosiNum.Text);
+                        p.StartDate = (DateTime)thisWindow.dtpStart.SelectedDate;
+                        p.EndDate = (DateTime)thisWindow.dtpStart.SelectedDate;
+                        p.Directorate = thisWindow.cmbDirectorate.Text;
+                        p.PositionType = (PositionType)thisWindow.cmbPositionType.SelectedValue;
+                        p.SubType = (SubType)thisWindow.cmbSubtype.SelectedValue;
+                        p.OfficeLocation = thisWindow.cmbLocation.Text;
+                        request.Position = p;//update the request position to be P.
+                        dataSaved = true;
+                    }
+                }
+                return dataSaved;
+            }
+            catch
+            {
+                return dataSaved;
+            }
+        }
+
+        //overload poly?!?
+        public static bool UpdateCandidate(Candidate thisCand, CandidateWindow thisWindow)
+        {
+            bool datasaved = false;
+            try
+            {
+                foreach (Candidate c in FormTemplate.candidates)
+                {
+                    if (c.EmployeeNum == thisCand.EmployeeNum)
+                    {
+                        c.EmployeeNum = int.Parse(thisWindow.txtEmplNum.Text);
+                        c.LastName = thisWindow.txtFirst.Text;
+                        c.FirstName = thisWindow.txtLast.Text;
+                        c.DisplayName = $"{c.LastName}, {c.FirstName}";
+                        c.Department = thisWindow.txtDepartment.Text;
+                        c.OfficeLocation = thisWindow.txtOfficeLocation.Text;
+                        c.ContactPhone = thisWindow.txtPhone.Text;
+                        c.ContactAddress = thisWindow.txtAddress.Text;
+                        c.ContactEmail = thisWindow.txtEmail.Text;
+                        datasaved = true;
+                    }
+                }
+                return datasaved;
+            }
+            catch
+            {
+                return datasaved;
+            }
+        }
+
+        public static bool UpdateCandidate(Candidate thisCand, Request thisreq, ApprovalWindow thisWindow)
+        {
+            bool datasaved = false;
+            try
+            {
+                foreach (Candidate c in FormTemplate.candidates)
+                {
+                    if (c.EmployeeNum == thisCand.EmployeeNum)
+                    {
+                        c.EmployeeNum = int.Parse(thisWindow.txtEmplNum.Text);
+                        c.LastName = thisWindow.txtFirst.Text;
+                        c.FirstName = thisWindow.txtLast.Text;
+                        c.DisplayName = $"{c.LastName}, {c.FirstName}";
+                        c.Department = thisWindow.txtDepartment.Text;
+                        c.OfficeLocation = thisWindow.txtOfficeLocation.Text;
+                        c.ContactPhone = thisWindow.txtPhone.Text;
+                        c.ContactAddress = thisWindow.txtAddress.Text;
+                        c.ContactEmail = thisWindow.txtEmail.Text;
+                        thisreq.Candidate = c; //update this request candidate.
+                        datasaved = true;
+                    }
+
+                }
+                return datasaved;
+            }
+            catch
+            {
+                return datasaved;
+            }
+        }
+
+        public static bool UpdateRequest(Request thisreq, ApprovalWindow thisWindow)
+        {
+            bool datasaved = false;
+            try
+            {
+                if (thisreq is PriorityClearanceRequest)
+                {
+                    foreach (PriorityClearanceRequest p in FormTemplate.pscrequests)
+                    {
+                        if (p.ReferenceNumber == thisreq.ReferenceNumber)
+                        {
+                            UpdateCandidate(thisreq.Candidate, thisreq, thisWindow);
+                            UpdatePosition(thisreq.Position, thisreq, thisWindow);
+                            ((PriorityClearanceRequest)thisreq).PriorityRationale = thisWindow.txtRationale.Text;
+                            ((PriorityClearanceRequest)thisreq).PriorityNumber = int.Parse(thisWindow.txtPriNum.Text);
+                        }
+                    }
+                    datasaved = true;
+                }
+                else
+                {
+                    foreach (Request r in FormTemplate.requests)
+                    {
+                        if (r.ReferenceNumber == thisreq.ReferenceNumber)
+                        {
+                            UpdateCandidate(thisreq.Candidate, thisreq, thisWindow);
+                            UpdatePosition(thisreq.Position, thisreq, thisWindow);
+                        }
+                    }
+                    datasaved = true;
+                }
+                return datasaved;
+            }
+            catch
+            {
+                return datasaved;
             }
         }
 
@@ -320,7 +477,6 @@ namespace ITEC225_FinalProject_RonMajor
             return labelProps;
         }
 
-
         internal static void FillElements()
         {
             MainWindow.Instance.stpPositions.Children.Clear(); //wipe and refresh to get latest Position info
@@ -361,6 +517,7 @@ namespace ITEC225_FinalProject_RonMajor
             FillElements(); //fill elements into stackpanels on main window.
         }
 
+        //HERE BE DRAGONS!!!
         public static void SetupRequestTable(Request request, ApprovalWindow approvalWindow)
         {
             string activePriNum;
@@ -368,19 +525,33 @@ namespace ITEC225_FinalProject_RonMajor
             approvalWindow.cmbSubtype.ItemsSource = Enum.GetValues(typeof(SubType));
             string start = request.Position.StartDate.Date.ToShortDateString();
             string end = request.Position.EndDate.Date.ToShortDateString();
-            
-            if(request.approval == ApprovalOrder.Complete) //test the approval level, and prevent weirdness if complete.
+
+            if (request.approval == ApprovalOrder.Complete) //test the approval level, and prevent weirdness if complete.
             {
                 approvalWindow.btnSave.Visibility = Visibility.Hidden;
                 approvalWindow.btnApprove.Visibility = Visibility.Hidden;
                 approvalWindow.btnReject.Visibility = Visibility.Hidden;
             }
 
-            //administrators, and managers can advance requests. Edits have a chain of custody.
-            if (MainWindow.CurrentUser is Administrator)
+            if (MainWindow.CurrentUser is Client || MainWindow.CurrentUser is null)
             {
-                //do edits and allow adding and deleting.
-                //can't be done with 'foreach control c in usercontrols' because wpf doesn't use usercontrols.
+                //don't allow editing.
+                approvalWindow.btnSave.Visibility = Visibility.Hidden;
+
+                approvalWindow.dtpStart.Visibility = Visibility.Hidden;
+                //start backing.
+                approvalWindow.txtStartBacking.Text = start;
+                approvalWindow.dtpEnd.Visibility = Visibility.Hidden;
+                //end backing.
+                approvalWindow.txtEndBacking.Text = end;
+                approvalWindow.btnSave.Visibility = Visibility.Hidden;
+                approvalWindow.btnApprove.Visibility = Visibility.Hidden;
+                approvalWindow.btnReject.Visibility = Visibility.Hidden;
+            }
+            else if (MainWindow.CurrentUser is HR)
+            {
+
+                //HR can edit personal information but not position information.
                 approvalWindow.txtFirst.IsReadOnly = false;
                 approvalWindow.txtLast.IsReadOnly = false;
                 approvalWindow.txtDepartment.IsReadOnly = false;
@@ -389,21 +560,32 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.txtPhone.IsReadOnly = false;
                 approvalWindow.txtOfficeLocation.IsReadOnly = false;
                 approvalWindow.txtEmplNum.IsReadOnly = false;
-                approvalWindow.txtPosiNum.IsReadOnly = false;
+                approvalWindow.txtPosiNum.IsReadOnly = true;
                 approvalWindow.btnSave.Visibility = Visibility.Visible;
-                approvalWindow.btnApprove.Visibility = Visibility.Visible;
-                approvalWindow.btnReject.Visibility = Visibility.Visible;
-                approvalWindow.cmbDirectorate.IsReadOnly = false;
-                approvalWindow.cmbLocation.IsReadOnly = false;
-                approvalWindow.cmbPositionType.IsReadOnly = false;
-                approvalWindow.cmbSubtype.IsReadOnly = false;
-                approvalWindow.dtpStart.Visibility = Visibility.Visible;
-                approvalWindow.dtpEnd.Visibility = Visibility.Visible;
-                approvalWindow.txtRationale.IsReadOnly = false;
-                approvalWindow.txtPriNum.IsReadOnly = false;
-                approvalWindow.txtApproval.IsReadOnly = false;
-                approvalWindow.txtBilingual.IsReadOnly = false;
-                approvalWindow.txtCandidateLanguage.IsReadOnly = false;
+                approvalWindow.btnApprove.Visibility = Visibility.Hidden;
+                approvalWindow.btnReject.Visibility = Visibility.Hidden;
+                approvalWindow.cmbDirectorate.IsReadOnly = true;
+                approvalWindow.cmbLocation.IsReadOnly = true;
+                approvalWindow.cmbPositionType.IsReadOnly = true;
+                approvalWindow.cmbSubtype.IsReadOnly = true;
+                approvalWindow.dtpStart.Visibility = Visibility.Hidden;
+                //start backing.
+                approvalWindow.txtStartBacking.Text = start;
+                approvalWindow.dtpEnd.Visibility = Visibility.Hidden;
+                //end backing.
+                approvalWindow.txtStartBacking.Text = end;
+                approvalWindow.txtRationale.IsReadOnly = true;
+                approvalWindow.txtPriNum.IsReadOnly = true;
+                approvalWindow.txtApproval.IsReadOnly = true;
+                approvalWindow.txtBilingual.IsReadOnly = true;
+                approvalWindow.txtCandidateLanguage.IsReadOnly = true;
+                //if approval goes beyond a certain point, Manager cannot approve.
+                if (request.approval >= ApprovalOrder.AwaitingManager)
+                {
+                    approvalWindow.btnSave.Visibility = Visibility.Hidden;
+                    approvalWindow.btnApprove.Visibility = Visibility.Hidden;
+                    approvalWindow.btnReject.Visibility = Visibility.Hidden;
+                }
             }
             else if (MainWindow.CurrentUser is Manager) //this allows chain of custody - two people must make edits to one request.
             {
@@ -438,10 +620,11 @@ namespace ITEC225_FinalProject_RonMajor
                     approvalWindow.btnReject.Visibility = Visibility.Hidden;
                 }
             }
-            else if (MainWindow.CurrentUser is HR)
+            //administrators, and managers can advance requests. Edits have a chain of custody.
+            else if (MainWindow.CurrentUser is Administrator)
             {
-
-                //HR can edit personal information but not position information.
+                //do edits and allow adding and deleting.
+                //can't be done with 'foreach control c in usercontrols' because wpf doesn't use usercontrols.
                 approvalWindow.txtFirst.IsReadOnly = false;
                 approvalWindow.txtLast.IsReadOnly = false;
                 approvalWindow.txtDepartment.IsReadOnly = false;
@@ -450,49 +633,22 @@ namespace ITEC225_FinalProject_RonMajor
                 approvalWindow.txtPhone.IsReadOnly = false;
                 approvalWindow.txtOfficeLocation.IsReadOnly = false;
                 approvalWindow.txtEmplNum.IsReadOnly = false;
-                approvalWindow.txtPosiNum.IsReadOnly = true;
+                approvalWindow.txtPosiNum.IsReadOnly = false;
                 approvalWindow.btnSave.Visibility = Visibility.Visible;
-                approvalWindow.btnApprove.Visibility = Visibility.Hidden;
-                approvalWindow.btnReject.Visibility = Visibility.Hidden;
-                approvalWindow.cmbDirectorate.IsReadOnly = true;
-                approvalWindow.cmbLocation.IsReadOnly = true;
-                approvalWindow.cmbPositionType.IsReadOnly = true;
-                approvalWindow.cmbSubtype.IsReadOnly = true;
-                approvalWindow.dtpStart.Visibility = Visibility.Hidden;
-                //start backing.
-                approvalWindow.txtStartBacking.Text = start;
-                approvalWindow.dtpEnd.Visibility = Visibility.Hidden;
-                //end backing.
-                approvalWindow.txtStartBacking.Text = end;
-                approvalWindow.txtRationale.IsReadOnly = true;
-                approvalWindow.txtPriNum.IsReadOnly = true;
-                approvalWindow.txtApproval.IsReadOnly = true;
-                approvalWindow.txtBilingual.IsReadOnly = true;
-                approvalWindow.txtCandidateLanguage.IsReadOnly = true;
-                //if approval goes beyond a certain point, Manager cannot approve.
-                if(request.approval >= ApprovalOrder.AwaitingManager)
-                {
-                    approvalWindow.btnSave.Visibility = Visibility.Hidden;
-                    approvalWindow.btnApprove.Visibility = Visibility.Hidden;
-                    approvalWindow.btnReject.Visibility = Visibility.Hidden;
-                }
+                approvalWindow.btnApprove.Visibility = Visibility.Visible;
+                approvalWindow.btnReject.Visibility = Visibility.Visible;
+                approvalWindow.cmbDirectorate.IsReadOnly = false;
+                approvalWindow.cmbLocation.IsReadOnly = false;
+                approvalWindow.cmbPositionType.IsReadOnly = false;
+                approvalWindow.cmbSubtype.IsReadOnly = false;
+                approvalWindow.dtpStart.Visibility = Visibility.Visible;
+                approvalWindow.dtpEnd.Visibility = Visibility.Visible;
+                approvalWindow.txtRationale.IsReadOnly = false;
+                approvalWindow.txtPriNum.IsReadOnly = false;
+                approvalWindow.txtApproval.IsReadOnly = false;
+                approvalWindow.txtBilingual.IsReadOnly = false;
+                approvalWindow.txtCandidateLanguage.IsReadOnly = false;
             }
-            else if (MainWindow.CurrentUser is Client || MainWindow.CurrentUser is null)
-            {
-                //don't allow editing.
-                approvalWindow.btnSave.Visibility = Visibility.Hidden;
-
-                approvalWindow.dtpStart.Visibility = Visibility.Hidden;
-                //start backing.
-                approvalWindow.txtStartBacking.Text = start;
-                approvalWindow.dtpEnd.Visibility = Visibility.Hidden;
-                //end backing.
-                approvalWindow.txtEndBacking.Text = end;
-                approvalWindow.btnSave.Visibility = Visibility.Hidden;
-                approvalWindow.btnApprove.Visibility = Visibility.Hidden;
-                approvalWindow.btnReject.Visibility = Visibility.Hidden;
-            }
-
             //fill the tables
             //Candidate
             approvalWindow.txtFirst.Text = request.Candidate.FirstName;
@@ -516,13 +672,51 @@ namespace ITEC225_FinalProject_RonMajor
             approvalWindow.txtApproval.Text = request.ApprovalRequired.ToString();
             approvalWindow.txtBilingual.Text = request.BilingualPosition;
             approvalWindow.txtCandidateLanguage.Text = request.LanguageProfile;
-            if(request is PriorityClearanceRequest) //fill the text fields if PSC.
+            if (request is PriorityClearanceRequest) //fill the text fields if PSC.
             {
                 approvalWindow.txtPriNum.Text = ((PriorityClearanceRequest)request).PriorityNumber.ToString();
                 approvalWindow.txtRationale.Text = ((PriorityClearanceRequest)request).PriorityRationale;
             }
-        } //HERE BE DRAGONS!!!
+        }
 
+        public static void SetupCandidateTable(Candidate cand, CandidateWindow candidateWindow)
+        {
+            if (MainWindow.CurrentUser.accessLevel <= AccessLevel.Manager)
+            {
+                candidateWindow.txtAddress.IsReadOnly = true;
+                candidateWindow.txtDepartment.IsReadOnly = true;
+                candidateWindow.txtEmail.IsReadOnly = true;
+                candidateWindow.txtEmplNum.IsReadOnly = true;
+                candidateWindow.txtFirst.IsReadOnly = true;
+                candidateWindow.txtLast.IsReadOnly = true;
+                candidateWindow.txtOfficeLocation.IsReadOnly = true;
+                candidateWindow.txtPhone.IsReadOnly = true;
+                candidateWindow.btnSave.Visibility = Visibility.Collapsed;
+            }
+
+        }
+
+        public static void SetupPositionTable(Position pos, PositionWindow positionWindow)
+        {
+            if (MainWindow.CurrentUser.accessLevel >= AccessLevel.HR)
+            {
+                positionWindow.txtDirectorate.IsReadOnly = true;
+                positionWindow.txtPosiNum.IsReadOnly = true;
+                positionWindow.txtPositionType.IsReadOnly = true;
+                positionWindow.cmbPositionType.IsReadOnly = true;
+                positionWindow.cmbPositionType.IsEnabled = false;
+                positionWindow.txtSubType.IsReadOnly = true;
+                positionWindow.cmbSubtype.IsReadOnly = true;
+                positionWindow.cmbSubtype.IsEnabled = false;
+                positionWindow.cmbLocation.IsReadOnly = true;
+                positionWindow.cmbLocation.IsEnabled = false;
+                positionWindow.cmbDirectorate.IsReadOnly = true;
+                positionWindow.cmbDirectorate.IsEnabled = false;
+                positionWindow.dtpEnd.IsEnabled = false;
+                positionWindow.dtpStart.IsEnabled = false;
+                positionWindow.btnSave.Visibility = Visibility.Collapsed;
+            }
+        }
         public static void AdvanceRequest(Request request)
         {
             if (request.approval < ApprovalOrder.Complete)

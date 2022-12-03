@@ -20,6 +20,9 @@ namespace ITEC225_FinalProject_RonMajor
     /// </summary>
     public partial class CandidateWindow : Window
     {
+        internal bool update = false;
+        internal Candidate ThisCand { get; set; }
+
         public CandidateWindow()
         {
             InitializeComponent();
@@ -36,10 +39,16 @@ namespace ITEC225_FinalProject_RonMajor
             txtPhone.Text = thisCand.ContactPhone;
             txtEmail.Text = thisCand.ContactEmail;
             txtAddress.Text = thisCand.ContactAddress;
+            ThisCand = thisCand;
+            update = true;
+            DataHelper.SetupCandidateTable(ThisCand, this); //setup the table visibility.
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            if (!update)
+            {
+
             Candidate cand = new Candidate(int.Parse(txtEmplNum.Text), txtLast.Text, txtFirst.Text)
             {
                 Department = txtDepartment.Text,
@@ -49,10 +58,13 @@ namespace ITEC225_FinalProject_RonMajor
                 ContactEmail = txtEmail.Text,
 
             }; //new, prefill data.
+            }
+            if (update)
+                DataHelper.UpdateCandidate(ThisCand,this);
             this.Close();
         }
 
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)//regex to only use numbers.
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);

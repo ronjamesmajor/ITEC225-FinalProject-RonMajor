@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1280" Background="#afb7bf" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Source Sans Pro" Closing="Staffing_Request_Builder_Closing">
     <Grid x:Name="formRequestBuilder">
-        <TabControl Margin="0,274,210,61" Background="#afb7bf" FontSize="16">
+        <TabControl x:Name="tbcMainDashboard" Margin="0,274,210,61" Background="#afb7bf" FontSize="16">
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -37,11 +37,6 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <!--<TabItem Name="DashBoardTab" Header="Dashboard">
-                <StackPanel x:Name="stpDashboard">
-
-                </StackPanel>
-            </TabItem>-->
             <TabItem Name="CandidatesTab" Header="Candidates">
                 <StackPanel x:Name="stpCandidates">
 
@@ -118,6 +113,7 @@
         </Button>
         <Image Height="234" Margin="780,10,10,0" VerticalAlignment="Top" Source="/logo2.png"/>
         <Label x:Name="txtTimeBox" Content="12:00:00 AM" Margin="0,133,18,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" HorizontalAlignment="Right" Width="242"/>
+        <Label x:Name="txtRole" Content="Your Current Role is: " Margin="0,274,580,0" VerticalAlignment="Top" Foreground="#27263e" FontSize="16" HorizontalAlignment="Right" Width="242"/>
 
     </Grid>
 </Window>

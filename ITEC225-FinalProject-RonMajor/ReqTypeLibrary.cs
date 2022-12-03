@@ -56,7 +56,7 @@ namespace ITEC225_FinalProject_RonMajor
         }
     }
 
-    public class PriorityClearanceRequest : Request //PC inherits from Request.
+    public class PriorityClearanceRequest : Request //PSC inherits from Request.
     {
 
         //psc stuff.

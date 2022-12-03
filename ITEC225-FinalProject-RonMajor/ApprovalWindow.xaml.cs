@@ -18,6 +18,7 @@ namespace ITEC225_FinalProject_RonMajor
 {
     public partial class ApprovalWindow : Window
     {
+        public bool update = false;
         public static Request approvalRequest { get; set; } //new request.
 
         public ApprovalWindow(Request request) //approval window takes a request.
@@ -38,7 +39,7 @@ namespace ITEC225_FinalProject_RonMajor
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            //savedata
+            DataHelper.UpdateRequest(approvalRequest, this);
             this.Close();
         }
 

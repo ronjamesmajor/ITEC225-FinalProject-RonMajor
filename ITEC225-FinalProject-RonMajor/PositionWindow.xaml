@@ -71,7 +71,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnDiscard" Content="Discard" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Margin="320,0,0,10" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" Click="btnDiscard_Click">
+        <Button x:Name="btnDiscard" Content="Cancel" Background="#738e93" Foreground="#27263e" BorderBrush="{x:Null}" Margin="320,0,0,10" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" Click="btnDiscard_Click">
             <!--Round the corner of the button like we've done everything else.-->
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">

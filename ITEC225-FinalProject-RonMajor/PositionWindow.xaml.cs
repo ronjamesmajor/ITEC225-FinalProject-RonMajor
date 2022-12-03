@@ -33,6 +33,7 @@ namespace ITEC225_FinalProject_RonMajor
             cmbLocation.SelectedValue = thisPos.OfficeLocation;
             thisPosition = thisPos;
             update = true;
+            DataHelper.SetupPositionTable(thisPosition, this);
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -55,6 +56,7 @@ namespace ITEC225_FinalProject_RonMajor
             }
             if (update)
                 DataHelper.UpdatePosition(thisPosition,this);
+            this.Close();
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e) // use regex to make sure wpf textbox is number. https://stackoverflow.com/questions/1268552/how-do-i-get-a-textbox-to-only-accept-numeric-input-in-wpf
