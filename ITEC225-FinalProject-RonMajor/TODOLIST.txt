@@ -1,4 +1,0 @@
-﻿TODO:: 
-X. Change width of Candidate / Position window (more right)
-X. add width of login window -- increase top whitespace.
-X. Change buttons to just say "Save" -- keep things nice.

@@ -1,0 +1,14 @@
+﻿INSTRUCTIONS FOR LOGGING IN:
+All passwords are hashed with MD5, and checked against hash map.
+usernames and passwords are
+
+Admin:Admin
+Manager:Manager
+HR:HR
+Client:Client
+
+CREATING NEW USERS:
+Admins: Access token is 8 characters, contains 'axd' in series.
+Managers: Access token is 7 characters, contains 'mxn' in series.
+HR: Access token is 6 characters, contains 'hxr' in series.
+Client: Access token is 5 characters, contains 'uxr' in series.
