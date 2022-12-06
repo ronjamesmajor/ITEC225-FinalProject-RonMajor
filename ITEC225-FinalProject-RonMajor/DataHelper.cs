@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChadProgram;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -51,27 +52,27 @@ namespace ITEC225_FinalProject_RonMajor
         {
             if (accessLevel == AccessLevel.Admin)
             {
-                Administrator tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+                Administrator tmp = new(loginWindow.txtUsrname.Text, HashHelper.GetMD5Hash(loginWindow.pwdPassbox.Password));
                 FormTemplate.users.Add(tmp);
             }
             if (accessLevel == AccessLevel.Manager)
             {
-                Manager tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+                Manager tmp = new(loginWindow.txtUsrname.Text, HashHelper.GetMD5Hash(loginWindow.pwdPassbox.Password));
                 FormTemplate.users.Add(tmp);
             }
             if (accessLevel == AccessLevel.HR)
             {
-                HR tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+                HR tmp = new(loginWindow.txtUsrname.Text, HashHelper.GetMD5Hash(loginWindow.pwdPassbox.Password));
                 FormTemplate.users.Add(tmp);
             }
             if (accessLevel == AccessLevel.Client)
             {
-                Client tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+                Client tmp = new(loginWindow.txtUsrname.Text, HashHelper.GetMD5Hash(loginWindow.pwdPassbox.Password));
                 FormTemplate.users.Add(tmp);
             }
             if (accessLevel == null)
             {
-                Client tmp = new(loginWindow.txtUsrname.Text, loginWindow.pwdPassbox.Password);
+                Client tmp = new(loginWindow.txtUsrname.Text, HashHelper.GetMD5Hash(loginWindow.pwdPassbox.Password));
                 FormTemplate.users.Add(tmp);
             }
             CreateDataStore(); //then writes users out to json.
@@ -105,7 +106,7 @@ namespace ITEC225_FinalProject_RonMajor
                     if (FormTemplate.users[i].Username == loginWindow.txtUsrname.Text)
                     {
 
-                        if (FormTemplate.users[i].Username == loginWindow.txtUsrname.Text && FormTemplate.users[i].Password == loginWindow.pwdPassbox.Password)
+                        if (FormTemplate.users[i].Username == loginWindow.txtUsrname.Text && FormTemplate.users[i].Password == HashHelper.GetMD5Hash(loginWindow.pwdPassbox.Password))
                         {
                             //MessageBox.Show("Login Successful."); -- Nobody likes Message Boxes, Ron.
                             MainWindow mw = new MainWindow();
